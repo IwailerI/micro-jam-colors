@@ -51,26 +51,25 @@ func _alive_movement(delta: float) -> void:
 
 	var left := speed * delta
 
+	var was_leathal := false
+
 	for i: int in 32:
 		var col := move_and_collide(Vector2.from_angle(direction) * left)
 		if col == null:
 			break
 		
 		if (col.get_collider() as Node).is_in_group(&"Hazard"):
-			alive = false
+			was_leathal = true
 		
 		var normal := col.get_normal()
 		global_position = col.get_position() + radius * normal
 
 		direction = col.get_remainder().bounce(normal).angle()
 		left = col.get_remainder().length()
-	
 
-	if not alive:
-		velocity = Vector2.from_angle(direction) * speed # is this right?
-		death_time = Time.get_ticks_msec()
-		died.emit()
-
+	if was_leathal:
+		die()
+		
 
 func _dead_movement(delta: float) -> void:
 	velocity = velocity.move_toward(Vector2.ZERO, death_accel * delta)
@@ -84,3 +83,16 @@ func _dead_movement(delta: float) -> void:
 		velocity = col.get_remainder().bounce(normal)
 
 	sprite.rotation = velocity.angle() + PI * 0.5 + float(Time.get_ticks_msec() - death_time) * 0.001 * PI
+
+
+func die(vel := Vector2.ZERO) -> void:
+	if not alive:
+		return
+
+	alive = false
+	if vel == Vector2.ZERO:
+		velocity = Vector2.from_angle(direction) * speed
+	else:
+		velocity = vel
+	death_time = Time.get_ticks_msec()
+	died.emit()

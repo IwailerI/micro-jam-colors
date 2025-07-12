@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://brnvv24l4ksh5"]
+
+[ext_resource type="Script" uid="uid://vmt33ihdvtej" path="res://objects/catapult/explosion.gd" id="1_ngrm2"]
+
+[sub_resource type="Animation" id="Animation_p2lgp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warn:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bang:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ngrm2"]
+resource_name = "explode"
+length = 1.5
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.493102, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"do_explosion"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Warn:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.534796),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bang:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.478839, 0.507365, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x2egx"]
+_data = {
+&"RESET": SubResource("Animation_p2lgp"),
+&"explode": SubResource("Animation_ngrm2")
+}
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_ngrm2")
+collision = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x2egx")
+}
+
+[node name="Bang" type="Polygon2D" parent="."]
+color = Color(0.700637, 0, 0.232348, 1)
+polygon = PackedVector2Array(-39, 20, -42, 11, -34, 0, -41, -10, -22, -4, -31, -36, -8, -17, 1, -47, 9, -13, 41, -14, 30, 9, 53, 18, 18, 32, 6, 49, -9, 19, -36, 42, -28, 15)
+
+[node name="Warn" type="Polygon2D" parent="."]
+color = Color(0.737255, 0.470588, 0.0156863, 0.403922)
+polygon = PackedVector2Array(-44, 9, -44, -9, -39, -22, -26, -35, -4, -44, 30, -34, 47, -14, 52, 14, 44, 36, 15, 47, -4, 49, -35, 41, -45, 22)
