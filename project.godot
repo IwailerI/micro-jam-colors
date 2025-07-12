@@ -30,6 +30,10 @@ folder_colors={
 "res://sounds/": "green"
 }
 
+[global_group]
+
+GameManager=""
+
 [input]
 
 movement_left={
@@ -60,3 +64,9 @@ movement_down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="collisions"
+2d_physics/layer_2="hazards"
+2d_physics/layer_3="pickups"
