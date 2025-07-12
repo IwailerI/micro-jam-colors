@@ -13,7 +13,7 @@ var gm: GameManager
 
 
 func _ready() -> void:
-	gm = GameManager.get_instance()
+	gm = %GameManager
 	gm.added_colors.connect(_on_added_colors)
 
 

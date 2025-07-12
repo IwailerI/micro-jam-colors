@@ -17,6 +17,7 @@ radius = 6.26984
 [node name="Node2D" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_qkmgm")]
+unique_name_in_owner = true
 
 [node name="Potion" parent="." instance=ExtResource("1_i166f")]
 position = Vector2(281, 315)
