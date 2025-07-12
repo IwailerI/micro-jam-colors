@@ -23,14 +23,14 @@ func _setup() -> void:
 
 
 func _on_shoot_cooldown_timeout() -> void:
-	var p := GameManager.GetInstance().Player()
+	var p := GameManager.get_instance().player()
 	if not p.alive:
 		return
 
 	var pos: Vector2
 	if preempt_player:
 		const WARN_TIME := 0.5
-		pos = p.global_position + Vector2.from_angle(p.direction) * p.ground_speed * WARN_TIME
+		pos = p.global_position + Vector2.from_angle(p.direction) * p.base_speed * WARN_TIME
 	else:
 		pos = p.global_position
 
@@ -41,5 +41,5 @@ func _on_shoot_cooldown_timeout() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	var p := GameManager.GetInstance().Player()
+	var p := GameManager.get_instance().player()
 	global_rotation = global_position.direction_to(p.global_position).angle()

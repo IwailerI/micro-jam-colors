@@ -9,7 +9,6 @@ radius = 12.6632
 collision_mask = 6
 script = ExtResource("1_cqmt1")
 rotation_speed = 10.13
-ground_speed = 400.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-0.366638, 0.869293)

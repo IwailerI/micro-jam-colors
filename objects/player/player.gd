@@ -1,20 +1,23 @@
 class_name Player
-extends CharacterBody2D
 
+extends CharacterBody2D
 
 signal died()
 
-@export var rotation_speed := PI
-@export var ground_speed := 200.0
 @export var death_accel := 300.0
+@export var rotation_speed: float = PI
+@export var base_speed: float = 150.0
+@export var max_speed: float = 500.0
+@export var throttle_acceleration: float = 50.0
+@export var passive_acceleration: float = -25.0 # deceleration when not pressing throttle
 
 @onready var radius := ($CollisionShape2D.shape as CircleShape2D).radius
 @onready var sprite: Node2D = $Polygon2D
+@onready var speed: float = base_speed
 
 var direction: float = -PI * 0.5
 var alive := true
 var death_time := 0 # Millisecond ticks
-
 
 func _physics_process(delta: float) -> void:
 	if alive:
@@ -24,7 +27,15 @@ func _physics_process(delta: float) -> void:
 	
 	
 func _alive_movement(delta: float) -> void:
+
+	# handling throttle
+	var throttle_pressed := Input.is_action_pressed("throttle")
+	var acceleration: float = throttle_acceleration if throttle_pressed else passive_acceleration
+	speed = clamp(speed + acceleration * delta, base_speed, max_speed)
+
+	# handling direction
 	var inp := Input.get_vector("movement_left", "movement_right", "movement_up", "movement_down")
+
 	var wanted_angle := 0.0
 	if inp.is_zero_approx():
 		wanted_angle = direction
@@ -38,7 +49,7 @@ func _alive_movement(delta: float) -> void:
 
 	sprite.rotation = direction + PI * 0.5
 
-	var left := ground_speed * delta
+	var left := speed * delta
 
 	var was_leathal := false
 
@@ -53,7 +64,6 @@ func _alive_movement(delta: float) -> void:
 		var normal := col.get_normal()
 		global_position = col.get_position() + radius * normal
 
-		
 		direction = col.get_remainder().bounce(normal).angle()
 		left = col.get_remainder().length()
 
@@ -81,7 +91,7 @@ func die(vel := Vector2.ZERO) -> void:
 
 	alive = false
 	if vel == Vector2.ZERO:
-		velocity = Vector2.from_angle(direction) * ground_speed
+		velocity = Vector2.from_angle(direction) * speed
 	else:
 		velocity = vel
 	death_time = Time.get_ticks_msec()
