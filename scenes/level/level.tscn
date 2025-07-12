@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://be41k6pgj28jm"]
+[gd_scene load_steps=7 format=3 uid="uid://be41k6pgj28jm"]
 
+[ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="1_i166f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="1_jww0w"]
+[ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="1_qkmgm"]
 [ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_nbgty"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jww0w"]
@@ -12,6 +14,14 @@ size = Vector2(85, 496)
 radius = 6.26984
 
 [node name="Node2D" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_qkmgm")]
+
+[node name="Potion" parent="." instance=ExtResource("1_i166f")]
+position = Vector2(281, 315)
+
+[node name="Potion" parent="Potion" instance=ExtResource("1_i166f")]
+position = Vector2(151, -242)
 
 [node name="Player" parent="." instance=ExtResource("1_jww0w")]
 position = Vector2(591, 333)
