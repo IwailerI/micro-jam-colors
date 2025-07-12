@@ -6,11 +6,12 @@ extends Area2D
 @export_range(0, 1) var green: int
 @export_range(0, 1) var blue: int
 
+@onready var gm: GameManager = GameManager.get_instance()
 
 func _ready() -> void:
+	assert(red == 1 || green == 1 || blue == 1)
 	var color = Color(red, green, blue, 1) # TODO: maybe change to different color Pallet
 	$Polygon2D.color = color # TODO: change to sprite
-	assert(is_instance_valid(GameManager.get_instance()))
 
 
 func _on_body_entered(_body: Node2D) -> void:

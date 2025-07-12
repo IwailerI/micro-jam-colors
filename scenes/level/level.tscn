@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://be41k6pgj28jm"]
+[gd_scene load_steps=13 format=3 uid="uid://be41k6pgj28jm"]
 
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="1_i166f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="1_jww0w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_nbgty"]
 [ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="3_i166f"]
 [ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="5_hnne4"]
+[ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="6_wcngd"]
 [ext_resource type="PackedScene" uid="uid://dwffie5p7ox4j" path="res://objects/crossbow/crossbow.tscn" id="7_xv074"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="8_sytrn"]
 
@@ -38,9 +39,17 @@ position = Vector2(532, 405)
 
 [node name="Potion" parent="PlayerColliders" instance=ExtResource("1_i166f")]
 position = Vector2(281, 315)
+red = 1
 
 [node name="Potion2" parent="PlayerColliders" instance=ExtResource("1_i166f")]
 position = Vector2(432, 73)
+green = 1
+
+[node name="BrewingStand" parent="PlayerColliders" instance=ExtResource("6_wcngd")]
+position = Vector2(393, 269)
+green = 1
+blue = 1
+potion = ExtResource("1_i166f")
 
 [node name="Player" parent="." instance=ExtResource("1_jww0w")]
 position = Vector2(591, 333)
