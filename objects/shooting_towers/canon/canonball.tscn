@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bceyb68o2p44r"]
 
-[ext_resource type="PackedScene" uid="uid://xwkjdsly88n5" path="res://objects/projectiles/projectile.tscn" id="1_g3a5f"]
+[ext_resource type="PackedScene" uid="uid://xwkjdsly88n5" path="res://objects/shooting_towers/projectile.tscn" id="1_g3a5f"]
 
 [node name="Canonball" instance=ExtResource("1_g3a5f")]
-speed = 400.0
 
 [node name="Visibility" parent="." index="0"]
 scale = Vector2(0.3, 0.3)

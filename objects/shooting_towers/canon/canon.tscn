@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bman1c5f4u5us"]
+
+[ext_resource type="PackedScene" uid="uid://ce5ltmvfrc74j" path="res://objects/shooting_towers/shooting_tower.tscn" id="1_cfd51"]
+[ext_resource type="PackedScene" uid="uid://bceyb68o2p44r" path="res://objects/shooting_towers/canon/canonball.tscn" id="2_fn080"]
+
+[node name="Canon" instance=ExtResource("1_cfd51")]
+projectile_prefab = ExtResource("2_fn080")
+projectile_speed = 300.0
+wakeup = 0.4
+cooldown = 1.0

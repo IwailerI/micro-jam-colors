@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx1mapm4bc8ne"]
+
+[ext_resource type="PackedScene" uid="uid://ce5ltmvfrc74j" path="res://objects/shooting_towers/shooting_tower.tscn" id="1_7twyi"]
+[ext_resource type="PackedScene" uid="uid://ij77fx7jvsgq" path="res://objects/shooting_towers/crossbow/crossbow_bolt.tscn" id="2_84fr2"]
+
+[node name="Crossbow" instance=ExtResource("1_7twyi")]
+projectile_prefab = ExtResource("2_84fr2")
+projectile_speed = 600.0
+cooldown = 2.0
+rotating_to_player = true
+
+[node name="Polygon2D" parent="." index="1"]
+position = Vector2(-10, -1)
+polygon = PackedVector2Array(-5, 3, -5, -2, -2.54054, -0.176472, 1, -2, 9.05407, -0.823531, 6.5946, -5.02941, 9.40542, -3.41177, 11.5135, 0.794116, 10.4595, 5, 8.70271, 6.94117, 9.05407, 1.7647, 1, 3, -2.54054, 1.44117)

@@ -1,11 +1,13 @@
+class_name Projectile
 extends CharacterBody2D
 
 
-@export var speed := 400.0
+var speed: float = 0.0
 var creator: Node = null
 
 
 func _ready() -> void:
+	assert(speed > 0.0)
 	($Visibility as VisibleOnScreenNotifier2D).screen_exited.connect(queue_free)
 
 
