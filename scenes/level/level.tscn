@@ -10,6 +10,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jww0w"]
 size = Vector2(85, 496)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nbgty"]
+radius = 6.26984
+
 [node name="Node2D" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_qkmgm")]
@@ -47,7 +50,18 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_jww0w")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(869.5, 309)
 shape = SubResource("RectangleShape2D_jww0w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Hazard"]]
+position = Vector2(182.762, 118.371)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_nbgty")
+debug_color = Color(0.944911, 0.0655937, 0.561244, 0.42)
