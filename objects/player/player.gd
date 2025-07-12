@@ -11,6 +11,11 @@ signal died()
 @export var throttle_acceleration: float = 50.0
 @export var passive_acceleration: float = -25.0 # deceleration when not pressing throttle
 
+@export_category("Ramping")
+@export var ramping_time: float = 1.0
+@export var ramping_speed: float = 500.0
+@export_flags_2d_physics var ramping_collision: int = 1
+
 @onready var radius := ($CollisionShape2D.shape as CircleShape2D).radius
 @onready var sprite: Node2D = $Polygon2D
 @onready var speed: float = base_speed
@@ -18,10 +23,15 @@ signal died()
 var direction: float = -PI * 0.5
 var alive := true
 var death_time := 0 # Millisecond ticks
+var ramping := false
+
 
 func _physics_process(delta: float) -> void:
 	if alive:
-		_alive_movement(delta)
+		if ramping:
+			_ramping_movement(delta)
+		else:
+			_alive_movement(delta)
 	else:
 		_dead_movement(delta)
 	
@@ -69,7 +79,24 @@ func _alive_movement(delta: float) -> void:
 
 	if was_leathal:
 		die()
+
+
+func _ramping_movement(delta: float) -> void:
+	sprite.rotation = direction + PI * 0.5
+
+	var left := ramping_speed * delta
+
+	for i: int in 32:
+		var col := move_and_collide(Vector2.from_angle(direction) * left)
+		if col == null:
+			break
 		
+		var normal := col.get_normal()
+		global_position = col.get_position() + radius * normal
+
+		direction = col.get_remainder().bounce(normal).angle()
+		left = col.get_remainder().length()
+
 
 func _dead_movement(delta: float) -> void:
 	velocity = velocity.move_toward(Vector2.ZERO, death_accel * delta)
@@ -86,6 +113,9 @@ func _dead_movement(delta: float) -> void:
 
 
 func die(vel := Vector2.ZERO) -> void:
+	if ramping:
+		return # do not case ¯\_(ツ)_/¯
+
 	if not alive:
 		return
 
@@ -96,3 +126,22 @@ func die(vel := Vector2.ZERO) -> void:
 		velocity = vel
 	death_time = Time.get_ticks_msec()
 	died.emit()
+
+
+func do_ramp() -> void:
+	if ramping:
+		return
+	ramping = true
+
+	var was := collision_mask
+	set_deferred("collision_mask", ramping_collision)
+	var t := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).chain()
+	t.tween_property(sprite, "scale", Vector2.ONE * 1.5, 0.5)
+	t.tween_interval(ramping_time - 1.0)
+	t.tween_property(sprite, "scale", Vector2.ONE, 0.5)
+
+	await get_tree().create_timer(ramping_time).timeout
+
+	ramping = false
+	set_deferred("collision_mask", was)
+	create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUART).tween_property(sprite, "scale", Vector2.ONE, 0.5)
