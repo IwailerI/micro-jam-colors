@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://be41k6pgj28jm"]
+
+[ext_resource type="Script" uid="uid://bpay4q0vfmdan" path="res://levels/player/player.gd" id="1_mmlqq"]
+[ext_resource type="Script" uid="uid://djgbuyq011gl2" path="res://levels/level/node_2d.gd" id="2_jww0w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jww0w"]
+radius = 12.6632
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(471.367, 282.131)
+script = ExtResource("1_mmlqq")
+rotation_speed = 6.0
+ground_speed = 400.0
+
+[node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D"]
+position = Vector2(2, 17)
+color = Color(0.598836, 0.120402, 0.382083, 1)
+polygon = PackedVector2Array(-9.36664, 19.8693, -10.3666, -16.1307, -24.3666, -17.1307, -3.36664, -46.1307, 20.6334, -23.1307, 11.6334, -20.1307, 7.63336, 18.8693)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_jww0w")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(177, 510)
+script = ExtResource("2_jww0w")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 451.0
+offset_right = 234.0
+offset_bottom = 474.0
+text = "Player input:"
