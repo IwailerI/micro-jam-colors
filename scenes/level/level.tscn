@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://be41k6pgj28jm"]
+[gd_scene load_steps=9 format=3 uid="uid://be41k6pgj28jm"]
 
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="1_i166f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="1_jww0w"]
 [ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="1_qkmgm"]
 [ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_nbgty"]
+[ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="3_i166f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jww0w"]
 
@@ -25,9 +26,10 @@ position = Vector2(151, -242)
 
 [node name="Player" parent="." instance=ExtResource("1_jww0w")]
 position = Vector2(591, 333)
-
-[node name="InputDirection" parent="." instance=ExtResource("2_nbgty")]
-position = Vector2(177, 510)
+base_speed = 300.0
+max_speed = 800.0
+throttle_acceleration = 1000.0
+passive_acceleration = -200.0
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -67,3 +69,12 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_nbgty")
 debug_color = Color(0.944911, 0.0655937, 0.561244, 0.42)
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="InputDirection" parent="UI" instance=ExtResource("2_nbgty")]
+position = Vector2(1013, 530)
+
+[node name="Speedometer" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("3_i166f")]
+position = Vector2(175, 567)
+player = NodePath("../../Player")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://tjya1g7djfw1"]
+
+[ext_resource type="Script" uid="uid://cowjeph8hghub" path="res://objects/ui/speedometer.gd" id="1_qy0ci"]
+
+[node name="Speedometer" type="Node2D" node_paths=PackedStringArray("hand")]
+rotation = 0.000483661
+script = ExtResource("1_qy0ci")
+hand = NodePath("SpeedometerHand")
+
+[node name="SpeedometerBg" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-128, -1, -125, -55, -100, -92, -64, -123, -1, -134, 54, -123, 89, -93, 114, -55, 121, 0, 99.0261, 53.9521, 0.0145098, 30, -109.974, 54.0532)
+
+[node name="SpeedometerHand" type="Node2D" parent="."]
+
+[node name="SpeedometerHandSprite" type="Polygon2D" parent="SpeedometerHand"]
+rotation = 1.5708
+color = Color(0.370364, 0.370364, 0.370364, 1)
+polygon = PackedVector2Array(-8, 0, -2, -128, 2, -128, 8, 0)
