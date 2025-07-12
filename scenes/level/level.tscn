@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="3_i166f"]
 [ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="5_hnne4"]
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="6_wcngd"]
-[ext_resource type="PackedScene" uid="uid://dwffie5p7ox4j" path="res://objects/crossbow/crossbow.tscn" id="7_xv074"]
+[ext_resource type="PackedScene" uid="uid://dwffie5p7ox4j" path="res://objects/canon/canon.tscn" id="7_xv074"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="8_sytrn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jww0w"]
@@ -32,32 +32,6 @@ player = NodePath("../../Player")
 [node name="GameManager" parent="." instance=ExtResource("1_qkmgm")]
 unique_name_in_owner = true
 
-[node name="PlayerColliders" type="Node" parent="."]
-
-[node name="DeliveryPoint" parent="PlayerColliders" instance=ExtResource("5_hnne4")]
-position = Vector2(532, 405)
-
-[node name="Potion" parent="PlayerColliders" instance=ExtResource("1_i166f")]
-position = Vector2(281, 315)
-red = 1
-
-[node name="Potion2" parent="PlayerColliders" instance=ExtResource("1_i166f")]
-position = Vector2(432, 73)
-green = 1
-
-[node name="BrewingStand" parent="PlayerColliders" instance=ExtResource("6_wcngd")]
-position = Vector2(393, 269)
-green = 1
-blue = 1
-potion = ExtResource("1_i166f")
-
-[node name="Player" parent="." instance=ExtResource("1_jww0w")]
-position = Vector2(591, 333)
-base_speed = 200.0
-max_speed = 400.0
-throttle_acceleration = 1000.0
-passive_acceleration = -1000.0
-
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 0
@@ -80,36 +54,59 @@ position = Vector2(1152, 394)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_jww0w")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Tileset(TODO)" type="Node2D" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Tileset(TODO)"]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tileset(TODO)/StaticBody2D2"]
 position = Vector2(869.5, 309)
 shape = SubResource("RectangleShape2D_jww0w")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Hazard"]]
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Cannon" parent="Hazards" instance=ExtResource("7_xv074")]
+position = Vector2(390, 488)
+rotation = -1.07913
+
+[node name="Cannon2" parent="Hazards" instance=ExtResource("7_xv074")]
+position = Vector2(521, 488)
+rotation = -1.48466
+
+[node name="Catapult" parent="Hazards" instance=ExtResource("8_sytrn")]
+position = Vector2(82, 238)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hazards" groups=["Hazard"]]
 position = Vector2(182.762, 118.371)
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/StaticBody2D"]
 shape = SubResource("CircleShape2D_nbgty")
 debug_color = Color(0.944911, 0.0655937, 0.561244, 0.42)
 
-[node name="Crossbow" parent="." instance=ExtResource("7_xv074")]
-position = Vector2(366, 546)
-rotation = -1.28095
-wakeup = 0.33
+[node name="Pickups" type="Node2D" parent="."]
 
-[node name="Crossbow2" parent="." instance=ExtResource("7_xv074")]
-position = Vector2(486, 557)
-rotation = -1.63637
+[node name="DeliveryPoint" parent="Pickups" instance=ExtResource("5_hnne4")]
+position = Vector2(532, 405)
 
-[node name="Crossbow3" parent="." instance=ExtResource("7_xv074")]
-position = Vector2(763, 544)
-rotation = -2.06261
-wakeup = 0.66
+[node name="Potion" parent="Pickups" instance=ExtResource("1_i166f")]
+position = Vector2(281, 315)
+red = 1
 
-[node name="Catapult" parent="." instance=ExtResource("8_sytrn")]
-position = Vector2(82, 238)
+[node name="Potion2" parent="Pickups" instance=ExtResource("1_i166f")]
+position = Vector2(432, 73)
+green = 1
+
+[node name="BrewingStand" parent="Pickups" instance=ExtResource("6_wcngd")]
+position = Vector2(393, 269)
+green = 1
+blue = 1
+
+[node name="Player" parent="." instance=ExtResource("1_jww0w")]
+position = Vector2(591, 333)
+base_speed = 200.0
+max_speed = 400.0
+throttle_acceleration = 1000.0
+passive_acceleration = -1000.0

@@ -32,8 +32,8 @@ folder_colors={
 
 [global_group]
 
-Hazard=""
 GameManager=""
+Hazard=""
 Player=""
 
 [input]

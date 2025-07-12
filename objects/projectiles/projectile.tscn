@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://xwkjdsly88n5"]
+
+[ext_resource type="Script" uid="uid://bjy4iq1ykcw6t" path="res://objects/projectiles/projectile.gd" id="1_c1bky"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1bky"]
+radius = 1.0
+
+[node name="Projectile" type="CharacterBody2D" groups=["Hazard"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_c1bky")
+
+[node name="Visibility" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3.57628e-07, 0)
+scale = Vector2(0.3, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CircleShape2D_c1bky")
+debug_color = Color(0.992116, 0, 0.256465, 0.42)
