@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1tm5mhwegffe"]
+
+[ext_resource type="Script" uid="uid://dcyd4hlx6y2uh" path="res://objects/potion_color_display/color_display.gd" id="1_685k8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_up8tn"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="PotionColorDisplay" type="PanelContainer"]
+custom_minimum_size = Vector2(64.36, 94.695)
+script = ExtResource("1_685k8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ProgressC" type="ProgressBar" parent="HBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="TargetC" type="Panel" parent="HBoxContainer/ProgressC"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_up8tn")
+
+[node name="ProgressM" type="ProgressBar" parent="HBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 0, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="TargetM" type="Panel" parent="HBoxContainer/ProgressM"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_up8tn")
+
+[node name="ProgressY" type="ProgressBar" parent="HBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="TargetY" type="Panel" parent="HBoxContainer/ProgressY"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_up8tn")
