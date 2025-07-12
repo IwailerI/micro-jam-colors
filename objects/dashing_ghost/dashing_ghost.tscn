@@ -106,7 +106,10 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkkrn"]
 radius = 7.0
 
-[node name="DashingGhost" type="Area2D"]
+[node name="DashingGhost" type="CharacterBody2D" groups=["Hazard"]]
+collision_layer = 4
+collision_mask = 9
+motion_mode = 1
 script = ExtResource("1_lkkrn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -32,7 +32,8 @@ position = Vector2(145, 572)
 position = Vector2(1066, 612)
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
-collision_layer = 2
+position = Vector2(-1, 0)
+collision_layer = 10
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries"]
