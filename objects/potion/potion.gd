@@ -15,9 +15,13 @@ func _ready() -> void:
 	assert(cyan or magenta or yellow, "colorless potion")
 	var color := PALETTE.lookup(cyan, magenta, yellow)
 	$Polygon2D.color = color # TODO: change to sprite
+	gm.player().died.connect(
+		func() -> void:
+			monitoring = false
+	)
 
 
 func _on_body_entered(_body: Node2D) -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 	queue_free()
-	GameManager.get_instance().add_colors(int(cyan), int(magenta), int(yellow))
+	gm.add_colors(int(cyan), int(magenta), int(yellow))

@@ -41,7 +41,9 @@ func add_colors(c: int, m: int, y: int) -> void:
 
 
 func gameover(_has_won: bool, _lost_message: String = "") -> void:
-	if _has_won:
-		OS.alert("You won!")
-	else:
-		OS.alert("You lost! " + _lost_message)
+	print("Gameover", " win=", _has_won, " msg=", _lost_message)
+	get_tree().paused = true 
+	# TODO: remove OS.alert (and code below), and add gameover menu
+	OS.alert("You won!" if _has_won else "You lost! " + _lost_message)
+	get_tree().paused = false
+	get_tree().reload_current_scene()

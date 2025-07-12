@@ -19,6 +19,7 @@ signal died()
 @onready var radius := ($CollisionShape2D.shape as CircleShape2D).radius
 @onready var sprite: Node2D = $Polygon2D
 @onready var speed: float = base_speed
+@onready var death_animation_timer: Timer = $DeathTimer
 @onready var normal_collision_mask: int
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
@@ -147,7 +148,13 @@ func die(vel := Vector2.ZERO) -> void:
 	else:
 		velocity = vel
 	death_time = Time.get_ticks_msec()
+	death_animation_timer.timeout.connect(_finish_dying)
+	death_animation_timer.start()
 	died.emit()
+
+
+func _finish_dying():
+	GameManager.get_instance().gameover(false, "died")
 
 
 func do_ramp() -> void:
