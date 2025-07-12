@@ -15,7 +15,11 @@ static func GetInstance() -> GameManager:
 	return gms[0]
 
 
+func Player() -> Player:
+	return get_tree().get_first_node_in_group(&"Player")
+
+
 func AddColors(r: int, g: int, b: int):
 	red = min(red + r, MAX_COLOR_VALUE)
-	green = min(green + r, MAX_COLOR_VALUE)
-	blue = min(blue + r, MAX_COLOR_VALUE)
+	green = min(green + g, MAX_COLOR_VALUE)
+	blue = min(blue + b, MAX_COLOR_VALUE)
