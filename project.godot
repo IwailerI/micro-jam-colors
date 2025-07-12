@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Micro Jam Colors"
-run/main_scene="uid://be41k6pgj28jm"
+run/main_scene="uid://c5nfk6ysqdde6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -32,8 +32,8 @@ folder_colors={
 
 [global_group]
 
-Hazard=""
 GameManager=""
+Hazard=""
 Player=""
 
 [input]

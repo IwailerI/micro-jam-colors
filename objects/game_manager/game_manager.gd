@@ -20,7 +20,9 @@ static func get_instance() -> GameManager:
 
 
 func player() -> Player:
-	return get_tree().get_first_node_in_group(&"Player")
+	var p := get_tree().get_first_node_in_group(&"Player")
+	assert(is_instance_valid(p))
+	return p
 
 
 func add_colors(r: int, g: int, b: int) -> void:
@@ -31,4 +33,4 @@ func add_colors(r: int, g: int, b: int) -> void:
 
 
 func gameover(_has_won: bool, _lost_message: String = "") -> void:
-	print("gameover was called")
+	print("gameover was called", _has_won)

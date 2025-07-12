@@ -1,0 +1,128 @@
+[gd_scene load_steps=17 format=3 uid="uid://c5nfk6ysqdde6"]
+
+[ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="1_asqhp"]
+[ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_b0o62"]
+[ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="3_4qo56"]
+[ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="4_ac3ax"]
+[ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="5_d6bxs"]
+[ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="6_8vb6f"]
+[ext_resource type="PackedScene" uid="uid://dwffie5p7ox4j" path="res://objects/canon/canon.tscn" id="7_w5s1c"]
+[ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="8_3dtxm"]
+[ext_resource type="PackedScene" uid="uid://b3st7qybhqsyy" path="res://objects/crossbow/crossbow.tscn" id="9_j44qt"]
+[ext_resource type="PackedScene" uid="uid://dp6usse28mhgw" path="res://objects/ramp/ramp.tscn" id="10_gmqnj"]
+[ext_resource type="PackedScene" uid="uid://bsi7svopihfx7" path="res://objects/ghost/ghost.tscn" id="11_ac3ax"]
+[ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="11_b0o62"]
+[ext_resource type="Texture2D" uid="uid://c5nv645uriap3" path="res://assets/tmp/ramp.png" id="12_8vb6f"]
+[ext_resource type="PackedScene" uid="uid://ktlik37x6m5v" path="res://objects/dashing_ghost/dashing_ghost.tscn" id="12_d6bxs"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_asqhp"]
+distance = -649.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv23w"]
+size = Vector2(352, 117)
+
+[node name="Level" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Speedometer" parent="CanvasLayer" instance=ExtResource("1_asqhp")]
+position = Vector2(145, 572)
+
+[node name="InputDirection" parent="CanvasLayer" instance=ExtResource("2_b0o62")]
+position = Vector2(1066, 612)
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 0.51)
+shape = SubResource("WorldBoundaryShape2D_asqhp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(647.64, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_asqhp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 647.61)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_asqhp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(504.605, 0)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_asqhp")
+
+[node name="GameManager" parent="." instance=ExtResource("3_4qo56")]
+
+[node name="Player" parent="." instance=ExtResource("4_ac3ax")]
+position = Vector2(564, 327)
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="Potion" parent="Pickups" instance=ExtResource("5_d6bxs")]
+position = Vector2(291, 332)
+red = 1
+
+[node name="Potion2" parent="Pickups" instance=ExtResource("5_d6bxs")]
+position = Vector2(290, 171)
+green = 1
+blue = 1
+
+[node name="BrewingStand" parent="Pickups" instance=ExtResource("6_8vb6f")]
+position = Vector2(206, 249)
+red = 1
+blue = 1
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Cannon" parent="Hazards" instance=ExtResource("7_w5s1c")]
+position = Vector2(912, 165)
+rotation = -2.47481
+scale = Vector2(1, 1)
+
+[node name="Cannon2" parent="Hazards" instance=ExtResource("7_w5s1c")]
+position = Vector2(931, 335)
+rotation = 2.85458
+
+[node name="Catapult" parent="Hazards" instance=ExtResource("8_3dtxm")]
+position = Vector2(1005, 261)
+
+[node name="Crossbow" parent="Hazards" instance=ExtResource("9_j44qt")]
+position = Vector2(861, 258)
+
+[node name="Ghost" parent="Hazards" instance=ExtResource("11_ac3ax")]
+position = Vector2(90.1611, 388.786)
+
+[node name="DashingGhost" parent="Hazards" instance=ExtResource("12_d6bxs")]
+position = Vector2(995.241, 459.329)
+
+[node name="Tileset(TODO)" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tileset(TODO)"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tileset(TODO)/StaticBody2D"]
+position = Vector2(566, 227.5)
+shape = SubResource("RectangleShape2D_cv23w")
+
+[node name="Polygon2D" type="Polygon2D" parent="Tileset(TODO)/StaticBody2D"]
+texture_repeat = 2
+texture = ExtResource("12_8vb6f")
+texture_scale = Vector2(-4.735, -4.735)
+polygon = PackedVector2Array(742, 286, 742, 169, 390, 169, 390, 286)
+
+[node name="Ramp" parent="Tileset(TODO)" instance=ExtResource("10_gmqnj")]
+position = Vector2(570, 469)
+
+[node name="Ramp2" parent="Tileset(TODO)" instance=ExtResource("10_gmqnj")]
+position = Vector2(571, 136)
+rotation = 3.11704
+
+[node name="DeliveryPoint" parent="." instance=ExtResource("11_b0o62")]
+position = Vector2(572, 593)
+red = 1
+green = 1
+blue = 1

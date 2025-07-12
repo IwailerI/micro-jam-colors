@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ij77fx7jvsgq"]
+
+[ext_resource type="PackedScene" uid="uid://xwkjdsly88n5" path="res://objects/projectiles/projectile.tscn" id="1_f04ft"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f04ft"]
+radius = 1.0
+height = 12.0
+
+[node name="CrossbowBolt" instance=ExtResource("1_f04ft")]
+speed = 800.0
+
+[node name="Visibility" parent="." index="0"]
+position = Vector2(-4.5, 0)
+scale = Vector2(1.55, 0.45)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." index="1"]
+position = Vector2(1, 1)
+scale = Vector2(0.792364, 0.558289)
+color = Color(1, 0.495858, 0.599217, 1)
+polygon = PackedVector2Array(-25, -8, -18, -4, 5, -4, 4, -9, 12, -2, 5, 4, 6, 1, -17, 0, -25, 4, -21, -2)
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CapsuleShape2D_f04ft")

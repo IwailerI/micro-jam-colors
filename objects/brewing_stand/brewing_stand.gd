@@ -1,12 +1,13 @@
 extends Node2D
 
+const POTION_PREFAB := preload("res://objects/potion/potion.tscn")
+
 @export_category("Color values")
 @export_range(0, 1) var red: int
 @export_range(0, 1) var green: int 
 @export_range(0, 1) var blue: int
 
 @export_category("Brewing values")
-@export var potion: PackedScene
 @export_range(1, 60) var brewing_time: int
 
 @onready var respawn_progressbar: TextureProgressBar = $RespawnProgressBar
@@ -15,7 +16,7 @@ var respawn_timer: Timer
 
 
 func _ready() -> void:
-	assert(is_instance_valid(potion))
+	assert(red == 1 || green == 1 || blue == 1)
 	respawn_timer = $RespawnTimer
 	respawn_timer.timeout.connect(_finish_brewing)
 	_start_brewing()
@@ -32,7 +33,7 @@ func _process(_delta: float) -> void:
 
 func _finish_brewing() -> void:
 	respawn_progressbar.visible = false
-	var potion_node := potion.instantiate()
+	var potion_node := POTION_PREFAB.instantiate()
 	potion_node.red = red
 	potion_node.green = green
 	potion_node.blue = blue

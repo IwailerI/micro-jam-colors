@@ -1,14 +1,13 @@
 extends StaticBody2D
 
 
-const CROSSBOW_BOLT := preload("res://objects/projectiles/crossbow_bolt.tscn")
+const CANONBALL := preload("res://objects/projectiles/canonball.tscn")
 
 ## Duration in seconds before crossbow starts shooting.
 @export var wakeup: float = 0.5
 @export var cooldown: float = 1.5
 
 @onready var cooldown_timer: Timer = $Cooldown
-@onready var player: Player = GameManager.get_instance().player()
 
 
 func _ready() -> void:
@@ -22,12 +21,8 @@ func _setup() -> void:
 	cooldown_timer.start(cooldown)
 
 
-func _physics_process(_delta: float) -> void:
-	look_at(player.position) # TODO(wailer): mb to preemtive, but no
-
-
 func _on_shoot_cooldown_timeout() -> void:
-	var inst := CROSSBOW_BOLT.instantiate() as Node2D
+	var inst := CANONBALL.instantiate() as Node2D
 	get_parent().add_child(inst)
 	inst.global_rotation = global_rotation
 	inst.global_position = global_position
