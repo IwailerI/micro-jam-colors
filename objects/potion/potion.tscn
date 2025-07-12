@@ -7,7 +7,6 @@ radius = 16.0312
 
 [node name="Potion" type="Area2D"]
 collision_layer = 0
-collision_mask = 4
 script = ExtResource("1_1xu65")
 red = 1
 

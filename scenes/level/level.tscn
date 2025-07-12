@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://be41k6pgj28jm"]
+[gd_scene load_steps=8 format=3 uid="uid://be41k6pgj28jm"]
 
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="1_i166f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="1_jww0w"]
@@ -30,6 +30,8 @@ position = Vector2(591, 333)
 position = Vector2(177, 510)
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Up" type="CollisionShape2D" parent="WorldBorder"]
 rotation = 3.14159
