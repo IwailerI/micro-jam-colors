@@ -100,22 +100,16 @@ debug_color = Color(0.944911, 0.0655937, 0.561244, 0.42)
 [node name="Crossbow" parent="." instance=ExtResource("7_xv074")]
 position = Vector2(366, 546)
 rotation = -1.28095
-wakeup = 0.333
-cooldown = 1.0
+wakeup = 0.33
 
 [node name="Crossbow2" parent="." instance=ExtResource("7_xv074")]
 position = Vector2(486, 557)
 rotation = -1.63637
-wakeup = 0.667
-cooldown = 1.0
 
 [node name="Crossbow3" parent="." instance=ExtResource("7_xv074")]
 position = Vector2(763, 544)
 rotation = -2.06261
-wakeup = 1.0
-cooldown = 1.0
+wakeup = 0.66
 
 [node name="Catapult" parent="." instance=ExtResource("8_sytrn")]
 position = Vector2(82, 238)
-wakeup = 2.0
-cooldown = 1.0
