@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://be41k6pgj28jm"]
+[gd_scene load_steps=14 format=3 uid="uid://be41k6pgj28jm"]
 
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="1_i166f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="1_jww0w"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="6_wcngd"]
 [ext_resource type="PackedScene" uid="uid://dwffie5p7ox4j" path="res://objects/crossbow/crossbow.tscn" id="7_xv074"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="8_sytrn"]
+[ext_resource type="PackedScene" uid="uid://dp6usse28mhgw" path="res://objects/ramp/ramp.tscn" id="10_tf2q7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jww0w"]
 
@@ -53,13 +54,14 @@ potion = ExtResource("1_i166f")
 
 [node name="Player" parent="." instance=ExtResource("1_jww0w")]
 position = Vector2(591, 333)
+collision_mask = 14
 base_speed = 200.0
 max_speed = 400.0
 throttle_acceleration = 1000.0
 passive_acceleration = -1000.0
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
-collision_layer = 2
+collision_layer = 10
 collision_mask = 0
 
 [node name="Up" type="CollisionShape2D" parent="WorldBorder"]
@@ -113,3 +115,11 @@ wakeup = 0.66
 
 [node name="Catapult" parent="." instance=ExtResource("8_sytrn")]
 position = Vector2(82, 238)
+
+[node name="Ramp" parent="." instance=ExtResource("10_tf2q7")]
+position = Vector2(932, 456)
+rotation = 4.71238
+
+[node name="Ramp2" parent="." instance=ExtResource("10_tf2q7")]
+position = Vector2(516, 112)
+rotation = 7.59217
