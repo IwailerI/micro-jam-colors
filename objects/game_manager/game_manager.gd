@@ -33,4 +33,4 @@ func add_colors(r: int, g: int, b: int) -> void:
 
 
 func gameover(_has_won: bool, _lost_message: String = "") -> void:
-	print("gameover was called")
+	print("gameover was called", _has_won)
