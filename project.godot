@@ -25,10 +25,12 @@ window/stretch/aspect="expand"
 folder_colors={
 "res://assets/": "red",
 "res://levels/": "yellow",
-"res://objects/": "blue",
 "res://objects/brewing_stand/": "green",
 "res://objects/catapult/": "orange",
+"res://objects/dashing_ghost/": "gray",
 "res://objects/delivery_point/": "green",
+"res://objects/flamethrower/": "orange",
+"res://objects/ghost/": "gray",
 "res://objects/potion/": "green",
 "res://objects/shooting_towers/": "orange",
 "res://scenes/": "purple",
