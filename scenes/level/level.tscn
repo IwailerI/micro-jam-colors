@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://be41k6pgj28jm"]
+[gd_scene load_steps=15 format=3 uid="uid://be41k6pgj28jm"]
 
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="1_i166f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="1_jww0w"]
@@ -8,13 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="5_hnne4"]
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="6_wcngd"]
 [ext_resource type="PackedScene" uid="uid://dwffie5p7ox4j" path="res://objects/crossbow/crossbow.tscn" id="7_xv074"]
+[ext_resource type="Texture2D" uid="uid://v8tnsfdrxgnh" path="res://icon.svg" id="8_pe1ox"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="8_sytrn"]
 [ext_resource type="PackedScene" uid="uid://dp6usse28mhgw" path="res://objects/ramp/ramp.tscn" id="10_tf2q7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jww0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jww0w"]
-size = Vector2(85, 496)
+size = Vector2(84, 496)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nbgty"]
 radius = 6.26984
@@ -83,21 +84,34 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_jww0w")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(861, 324)
 collision_layer = 2
 collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+texture_repeat = 2
+color = Color(0.181365, 0.256131, 0.135452, 1)
+texture = ExtResource("8_pe1ox")
+texture_scale = Vector2(15.365, 15.365)
+polygon = PackedVector2Array(-42, -248, 42, -248, 42, 248, -42, 248)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(869.5, 309)
 shape = SubResource("RectangleShape2D_jww0w")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Hazard"]]
 position = Vector2(182.762, 118.371)
 collision_layer = 4
 collision_mask = 0
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_nbgty")
 debug_color = Color(0.944911, 0.0655937, 0.561244, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(1, 0.308347, 0.707747, 1)
+polygon = PackedVector2Array(-0.761993, 3.629, -0.761993, -4.371, -2.76199, -4.371, -2.76199, -6.371, -0.761993, -6.371, -0.761993, -9.371, 1.23801, -9.371, 1.23801, -6.371, 3.23801, -6.371, 3.23801, -4.371, 1.23801, -4.371, 1.23801, 3.629)
 
 [node name="Crossbow" parent="." instance=ExtResource("7_xv074")]
 position = Vector2(366, 546)
