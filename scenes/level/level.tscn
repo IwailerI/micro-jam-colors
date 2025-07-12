@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://be41k6pgj28jm"]
+[gd_scene load_steps=10 format=3 uid="uid://be41k6pgj28jm"]
 
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="1_i166f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="1_jww0w"]
 [ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="1_qkmgm"]
 [ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_nbgty"]
 [ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="3_i166f"]
+[ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="5_hnne4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jww0w"]
 
@@ -16,14 +17,28 @@ radius = 6.26984
 
 [node name="Node2D" type="Node2D"]
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InputDirection" parent="UI" instance=ExtResource("2_nbgty")]
+position = Vector2(1013, 530)
+
+[node name="Speedometer" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("3_i166f")]
+position = Vector2(175, 567)
+player = NodePath("../../Player")
+
 [node name="GameManager" parent="." instance=ExtResource("1_qkmgm")]
 unique_name_in_owner = true
 
-[node name="Potion" parent="." instance=ExtResource("1_i166f")]
+[node name="PlayerColliders" type="Node" parent="."]
+
+[node name="DeliveryPoint" parent="PlayerColliders" instance=ExtResource("5_hnne4")]
+position = Vector2(532, 405)
+
+[node name="Potion" parent="PlayerColliders" instance=ExtResource("1_i166f")]
 position = Vector2(281, 315)
 
-[node name="Potion" parent="Potion" instance=ExtResource("1_i166f")]
-position = Vector2(151, -242)
+[node name="Potion2" parent="PlayerColliders" instance=ExtResource("1_i166f")]
+position = Vector2(432, 73)
 
 [node name="Player" parent="." instance=ExtResource("1_jww0w")]
 position = Vector2(591, 333)
@@ -70,12 +85,3 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_nbgty")
 debug_color = Color(0.944911, 0.0655937, 0.561244, 0.42)
-
-[node name="UI" type="Node2D" parent="."]
-
-[node name="InputDirection" parent="UI" instance=ExtResource("2_nbgty")]
-position = Vector2(1013, 530)
-
-[node name="Speedometer" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("3_i166f")]
-position = Vector2(175, 567)
-player = NodePath("../../Player")
