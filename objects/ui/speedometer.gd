@@ -11,7 +11,7 @@ extends Node2D
 
 func _process(_delta: float) -> void:
 	# TODO: get from player
-	var speed: float = player.speed
+	var speed: float = player.speed if player.alive else 0.0
 
 	# hand.rotation = (1 - speed / max_speed) * PI * (-1)
 	hand.rotation = lerp(min_angle, max_angle, speed / max_speed)

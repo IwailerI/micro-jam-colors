@@ -42,10 +42,10 @@ position = Vector2(432, 73)
 
 [node name="Player" parent="." instance=ExtResource("1_jww0w")]
 position = Vector2(591, 333)
-base_speed = 300.0
-max_speed = 800.0
+base_speed = 200.0
+max_speed = 400.0
 throttle_acceleration = 1000.0
-passive_acceleration = -200.0
+passive_acceleration = -1000.0
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 collision_layer = 2
