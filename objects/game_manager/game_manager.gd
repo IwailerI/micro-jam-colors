@@ -20,9 +20,9 @@ static func get_instance() -> GameManager:
 
 
 func player() -> Player:
-	var player := get_tree().get_first_node_in_group(&"Player")
-	assert(is_instance_valid(player))
-	return player 
+	var p := get_tree().get_first_node_in_group(&"Player")
+	assert(is_instance_valid(p))
+	return p
 
 
 func add_colors(r: int, g: int, b: int) -> void:
