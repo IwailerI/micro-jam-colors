@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5nfk6ysqdde6"]
+[gd_scene load_steps=18 format=3 uid="uid://c5nfk6ysqdde6"]
 
 [ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="1_asqhp"]
 [ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_b0o62"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="11_b0o62"]
 [ext_resource type="Texture2D" uid="uid://c5nv645uriap3" path="res://assets/tmp/ramp.png" id="12_8vb6f"]
 [ext_resource type="PackedScene" uid="uid://ktlik37x6m5v" path="res://objects/dashing_ghost/dashing_ghost.tscn" id="12_d6bxs"]
+[ext_resource type="PackedScene" uid="uid://hww67fbeqy5u" path="res://objects/flamethrower/flamethrower.tscn" id="12_w5s1c"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_asqhp"]
 distance = -649.0
@@ -97,6 +98,9 @@ position = Vector2(90.1611, 388.786)
 
 [node name="DashingGhost" parent="Hazards" instance=ExtResource("12_d6bxs")]
 position = Vector2(995.241, 459.329)
+
+[node name="Flamethrower" parent="Hazards" instance=ExtResource("12_w5s1c")]
+position = Vector2(384, 398)
 
 [node name="Tileset(TODO)" type="Node2D" parent="."]
 

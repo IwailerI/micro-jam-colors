@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://hww67fbeqy5u"]
+
+[ext_resource type="Script" uid="uid://wsxb5yuhwxns" path="res://objects/flamethrower/flamethrower.gd" id="1_rq011"]
+[ext_resource type="Script" uid="uid://q7w0gxkt2dwi" path="res://objects/flamethrower/damage_area.gd" id="2_vmihf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7gg7v"]
+radius = 16.0
+
+[sub_resource type="Gradient" id="Gradient_rq011"]
+offsets = PackedFloat32Array(0, 0.186667, 0.793333, 1)
+colors = PackedColorArray(0.808137, 3.27289e-06, 7.70092e-07, 1, 1, 0, 0, 1, 0.857493, 0.488415, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_vmihf"]
+offsets = PackedFloat32Array(0.993333)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq011"]
+radius = 2.0
+height = 38.0
+
+[node name="Flamethrower" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_rq011")
+shooting_time = 5.0
+cooldown_time = 2.5
+preprocess_time = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7gg7v")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-2, 0)
+polygon = PackedVector2Array(-11, 4, -10, -5, 7, -12, -3, -3, 15, -3, 14, 4, -3, 4, 7, 9)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(16, 0)
+emitting = false
+amount = 500
+lifetime_randomness = 0.25
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector2(100, 0)
+radial_accel_min = -10.0
+radial_accel_max = -5.0
+color_ramp = SubResource("Gradient_rq011")
+color_initial_ramp = SubResource("Gradient_vmihf")
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("2_vmihf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(30, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rq011")
+
+[connection signal="body_entered" from="DamageArea" to="DamageArea" method="_on_body_entered"]
