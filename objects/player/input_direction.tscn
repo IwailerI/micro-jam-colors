@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://byhqyeheckqeq"]
+
+[ext_resource type="Script" uid="uid://djgbuyq011gl2" path="res://objects/player/input_direction.gd" id="1_08bx7"]
+
+[node name="InputDirection" type="Node2D"]
+script = ExtResource("1_08bx7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -67.0
+offset_right = 48.0
+offset_bottom = -44.0
+text = "Player input:"

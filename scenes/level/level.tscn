@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://be41k6pgj28jm"]
+
+[ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="1_jww0w"]
+[ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_nbgty"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jww0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jww0w"]
+size = Vector2(85, 496)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jww0w")]
+position = Vector2(591, 333)
+
+[node name="InputDirection" parent="." instance=ExtResource("2_nbgty")]
+position = Vector2(177, 510)
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="Up" type="CollisionShape2D" parent="WorldBorder"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_jww0w")
+
+[node name="Down" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(12, 648)
+shape = SubResource("WorldBoundaryShape2D_jww0w")
+
+[node name="Left" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(0, 495)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_jww0w")
+
+[node name="Right" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(1152, 394)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_jww0w")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(869.5, 309)
+shape = SubResource("RectangleShape2D_jww0w")
