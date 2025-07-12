@@ -1,3 +1,5 @@
+class_name Player
+
 extends CharacterBody2D
 
 enum CollisionAlgo {
@@ -22,7 +24,6 @@ func _physics_process(delta: float) -> void:
 	var throttle_pressed := Input.is_action_pressed("throttle")
 	var acceleration: float = throttle_acceleration if throttle_pressed else passive_acceleration
 	speed = clamp(speed + acceleration * delta, base_speed, max_speed)
-	print(speed)
 
 	# handling direction
 	var inp := Input.get_vector("movement_left", "movement_right", "movement_up", "movement_down")
