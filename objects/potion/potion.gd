@@ -1,20 +1,23 @@
 extends Area2D
 
 
-@export_category("Color values")
-@export_range(0, 1) var red: int
-@export_range(0, 1) var green: int
-@export_range(0, 1) var blue: int
+const PALETTE := preload("res://objects/palette/default.tres")
+
+@export_group("Color values")
+@export var cyan: bool = false
+@export var magenta: bool = false
+@export var yellow: bool = false
 
 @onready var gm: GameManager = GameManager.get_instance()
 
+
 func _ready() -> void:
-	assert(red == 1 || green == 1 || blue == 1)
-	var color = Color(red, green, blue, 1) # TODO: maybe change to different color Pallet
+	assert(cyan or magenta or yellow, "colorless potion")
+	var color := PALETTE.lookup(cyan, magenta, yellow)
 	$Polygon2D.color = color # TODO: change to sprite
 
 
 func _on_body_entered(_body: Node2D) -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
-	visible = false
-	GameManager.get_instance().add_colors(red, green, blue)
+	queue_free()
+	GameManager.get_instance().add_colors(int(cyan), int(magenta), int(yellow))

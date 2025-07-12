@@ -5,8 +5,8 @@ signal warning_popup
 
 @export_category("Color requirement")
 @export_range(0, GameManager.MAX_COLOR_VALUE) var red: int
-@export_range(0, GameManager.MAX_COLOR_VALUE) var green: int 
-@export_range(0, GameManager.MAX_COLOR_VALUE) var blue: int 
+@export_range(0, GameManager.MAX_COLOR_VALUE) var green: int
+@export_range(0, GameManager.MAX_COLOR_VALUE) var blue: int
 @export var broken_requirement_message: String = "too many colors"
 
 var gm: GameManager
@@ -24,7 +24,7 @@ func _on_added_colors(r: int, g: int, b: int) -> void:
 
 
 func _on_body_entered(_body: Node2D) -> void:
-	if gm.red < red: warning_popup.emit()
-	elif gm.green < green: warning_popup.emit()
-	elif gm.blue < blue: warning_popup.emit()
+	if gm.cyan < red: warning_popup.emit()
+	elif gm.magenta < green: warning_popup.emit()
+	elif gm.yellow < blue: warning_popup.emit()
 	else: gm.gameover(true)

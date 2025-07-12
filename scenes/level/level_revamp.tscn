@@ -64,17 +64,15 @@ position = Vector2(564, 327)
 
 [node name="Potion" parent="Pickups" instance=ExtResource("5_d6bxs")]
 position = Vector2(291, 332)
-red = 1
+magenta = true
 
 [node name="Potion2" parent="Pickups" instance=ExtResource("5_d6bxs")]
 position = Vector2(290, 171)
-green = 1
-blue = 1
+cyan = true
 
 [node name="BrewingStand" parent="Pickups" instance=ExtResource("6_8vb6f")]
 position = Vector2(206, 249)
-red = 1
-blue = 1
+yellow = true
 
 [node name="Hazards" type="Node2D" parent="."]
 
