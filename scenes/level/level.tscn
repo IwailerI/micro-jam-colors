@@ -12,6 +12,10 @@ size = Vector2(85, 496)
 
 [node name="Player" parent="." instance=ExtResource("1_jww0w")]
 position = Vector2(591, 333)
+base_speed = 300.0
+max_speed = 800.0
+throttle_acceleration = 1000.0
+passive_acceleration = -200.0
 
 [node name="InputDirection" parent="." instance=ExtResource("2_nbgty")]
 position = Vector2(177, 510)
