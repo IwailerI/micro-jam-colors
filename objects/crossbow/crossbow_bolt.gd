@@ -16,6 +16,8 @@ func _physics_process(delta: float) -> void:
 		var col := move_and_collide(rem)
 		if col == null:
 			break
+		if col.get_collider() is Player:
+			col.get_collider().die()
 		if col.get_collider() != creator:
 			queue_free()
 		rem = col.get_remainder()
