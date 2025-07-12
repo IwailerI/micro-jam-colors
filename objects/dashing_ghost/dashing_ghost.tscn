@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://ktlik37x6m5v"]
+
+[ext_resource type="Texture2D" uid="uid://pw4dvw4xevp2" path="res://assets/tmp/ghost.png" id="1_apw7s"]
+[ext_resource type="Script" uid="uid://5ko7263dmede" path="res://objects/dashing_ghost/dashing_ghost.gd" id="1_lkkrn"]
+
+[sub_resource type="Animation" id="Animation_8eosc"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.26, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.847059)]
+}
+
+[sub_resource type="Animation" id="Animation_gel6x"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0, 2, 0, 0, 0),
+"points": PackedFloat32Array(-1.26, 0, 0, 0.333333, 0, 0.945, -0.333333, 0, 0.333333, 0, -1.26, -0.333333, 0, 0, 0, 0.945, -0.333333, 0, 0.333333, 0, -1.26, -0.333333, 0, 0, 0, 0.945, -0.333333, 0, 0.333333, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.26667, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.847059), Color(0.767594, 0.131253, 0.20115, 0.847059), Color(1, 1, 1, 0.847059)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.46667, 1.83333, 2.23333, 2.7, 3.1, 3.36667, 3.56667, 3.8, 4, 4.06667, 4.1, 4.13333, 4.16667, 4.2, 4.23333, 4.26667, 4.3, 4.4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.26667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_dash_timer"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CPUParticles2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.26667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"restart"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ogwu"]
+_data = {
+&"RESET": SubResource("Animation_8eosc"),
+&"idle": SubResource("Animation_gel6x")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lkkrn"]
+radius = 7.0
+
+[node name="DashingGhost" type="Area2D"]
+script = ExtResource("1_lkkrn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2ogwu")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.847059)
+texture = ExtResource("1_apw7s")
+offset = Vector2(0, -1.26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lkkrn")
+debug_color = Color(0.952058, 1.92523e-07, 0.560555, 0.42)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 800
+one_shot = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 28.17
+initial_velocity_max = 28.17
+color = Color(0.939023, 0, 0.38271, 1)
