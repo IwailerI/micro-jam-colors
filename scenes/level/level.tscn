@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://be41k6pgj28jm"]
+[gd_scene load_steps=14 format=3 uid="uid://be41k6pgj28jm"]
 
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="1_i166f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="1_jww0w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_nbgty"]
 [ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="3_i166f"]
 [ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="5_hnne4"]
+[ext_resource type="PackedScene" uid="uid://b3st7qybhqsyy" path="res://objects/crossbow/crossbow.tscn" id="6_tf2q7"]
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="6_wcngd"]
 [ext_resource type="PackedScene" uid="uid://dwffie5p7ox4j" path="res://objects/canon/canon.tscn" id="7_xv074"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="8_sytrn"]
@@ -85,6 +86,9 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/StaticBody2D"]
 shape = SubResource("CircleShape2D_nbgty")
 debug_color = Color(0.944911, 0.0655937, 0.561244, 0.42)
+
+[node name="Crossbow" parent="Hazards" instance=ExtResource("6_tf2q7")]
+position = Vector2(703, 524)
 
 [node name="Pickups" type="Node2D" parent="."]
 
