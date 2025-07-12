@@ -7,6 +7,7 @@ radius = 1.0
 height = 12.0
 
 [node name="CrossbowBolt" instance=ExtResource("1_f04ft")]
+speed = 800.0
 
 [node name="Visibility" parent="." index="0"]
 position = Vector2(-4.5, 0)
