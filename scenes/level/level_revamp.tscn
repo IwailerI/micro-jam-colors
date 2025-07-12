@@ -100,7 +100,7 @@ position = Vector2(90.1611, 388.786)
 position = Vector2(995.241, 459.329)
 
 [node name="Flamethrower" parent="Hazards" instance=ExtResource("12_w5s1c")]
-position = Vector2(384, 398)
+position = Vector2(262, 330)
 
 [node name="Tileset(TODO)" type="Node2D" parent="."]
 
