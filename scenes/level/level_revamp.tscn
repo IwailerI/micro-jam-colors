@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="4_ac3ax"]
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="5_d6bxs"]
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="6_8vb6f"]
-[ext_resource type="PackedScene" uid="uid://dwffie5p7ox4j" path="res://objects/canon/canon.tscn" id="7_w5s1c"]
+[ext_resource type="PackedScene" uid="uid://bman1c5f4u5us" path="res://objects/shooting_towers/canon/canon.tscn" id="7_w5s1c"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="8_3dtxm"]
-[ext_resource type="PackedScene" uid="uid://b3st7qybhqsyy" path="res://objects/crossbow/crossbow.tscn" id="9_j44qt"]
+[ext_resource type="PackedScene" uid="uid://dx1mapm4bc8ne" path="res://objects/shooting_towers/crossbow/crossbow.tscn" id="9_j44qt"]
 [ext_resource type="PackedScene" uid="uid://dp6usse28mhgw" path="res://objects/ramp/ramp.tscn" id="10_gmqnj"]
 [ext_resource type="PackedScene" uid="uid://bsi7svopihfx7" path="res://objects/ghost/ghost.tscn" id="11_ac3ax"]
 [ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="11_b0o62"]
@@ -80,8 +80,7 @@ blue = 1
 
 [node name="Cannon" parent="Hazards" instance=ExtResource("7_w5s1c")]
 position = Vector2(912, 165)
-rotation = -2.47481
-scale = Vector2(1, 1)
+rotation = 3.80838
 
 [node name="Cannon2" parent="Hazards" instance=ExtResource("7_w5s1c")]
 position = Vector2(931, 335)
