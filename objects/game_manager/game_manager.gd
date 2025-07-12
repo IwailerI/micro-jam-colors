@@ -10,13 +10,17 @@ var green: int = 0
 var blue: int = 0
 
 
-## Do not use this, please.
-## %GameManager is better.
+## Do not use global magic strings.
+## Prefer this method over %GameManger.
 static func get_instance() -> GameManager:
-	var tree := Engine.get_main_loop() as SceneTree 
+	var tree := Engine.get_main_loop() as SceneTree
 	var gms := tree.get_nodes_in_group("GameManager")
-	assert(len(gms) == 1, "not invalid amount of game manager")
+	assert(len(gms) == 1, "invalid amount of game manager")
 	return gms[0]
+
+
+func player() -> Player:
+	return get_tree().get_first_node_in_group(&"Player")
 
 
 func add_colors(r: int, g: int, b: int) -> void:
@@ -26,5 +30,5 @@ func add_colors(r: int, g: int, b: int) -> void:
 	added_colors.emit(red, green, blue)
 
 
-func gameover(has_won: bool, lost_message: String = "") -> void:
+func gameover(_has_won: bool, _lost_message: String = "") -> void:
 	print("gameover was called")
