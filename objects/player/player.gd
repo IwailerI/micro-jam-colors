@@ -19,11 +19,18 @@ signal died()
 @onready var radius := ($CollisionShape2D.shape as CircleShape2D).radius
 @onready var sprite: Node2D = $Polygon2D
 @onready var speed: float = base_speed
+@onready var normal_collision_mask: int
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var direction: float = -PI * 0.5
 var alive := true
 var death_time := 0 # Millisecond ticks
 var ramping := false
+var ramping_done := false # set after ramping interval passes
+
+
+func _ready() -> void:
+	normal_collision_mask = collision_mask
 
 
 func _physics_process(delta: float) -> void:
@@ -96,6 +103,21 @@ func _ramping_movement(delta: float) -> void:
 
 		direction = col.get_remainder().bounce(normal).angle()
 		left = col.get_remainder().length()
+	
+	if ramping_done: # try landing
+		var params := PhysicsShapeQueryParameters2D.new()
+		params.collide_with_areas = false
+		params.collide_with_bodies = true
+		params.collision_mask = normal_collision_mask
+		params.shape = collision_shape_2d.shape
+		params.transform = collision_shape_2d.global_transform
+
+		if not get_world_2d().direct_space_state.intersect_shape(params).is_empty():
+			# well, let's just hope the next frame this will get better
+			return
+		
+		ramping = false
+		set_deferred("collision_mask", normal_collision_mask)
 
 
 func _dead_movement(delta: float) -> void:
@@ -114,7 +136,7 @@ func _dead_movement(delta: float) -> void:
 
 func die(vel := Vector2.ZERO) -> void:
 	if ramping:
-		return # do not case ¯\_(ツ)_/¯
+		return # do not care ¯\_(ツ)_/¯
 
 	if not alive:
 		return
@@ -132,16 +154,11 @@ func do_ramp() -> void:
 	if ramping:
 		return
 	ramping = true
+	ramping_done = false
 
-	var was := collision_mask
 	set_deferred("collision_mask", ramping_collision)
 	var t := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).chain()
 	t.tween_property(sprite, "scale", Vector2.ONE * 1.5, 0.5)
 	t.tween_interval(ramping_time - 1.0)
 	t.tween_property(sprite, "scale", Vector2.ONE, 0.5)
-
-	await get_tree().create_timer(ramping_time).timeout
-
-	ramping = false
-	set_deferred("collision_mask", was)
-	create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUART).tween_property(sprite, "scale", Vector2.ONE, 0.5)
+	t.tween_callback(set.bind("ramping_done", true))
