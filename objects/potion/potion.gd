@@ -12,4 +12,5 @@ func _ready() -> void:
 
 func _on_body_entered(_body: Node2D) -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
-	GameManager.GetInstance().AddColors(red, green, blue)
+	visible = false
+	GameManager.get_instance().add_colors(red, green, blue)
