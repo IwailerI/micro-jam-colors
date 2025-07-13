@@ -14,7 +14,7 @@ shader_parameter/pixels_r = 14
 shader_parameter/rays = 5
 shader_parameter/inner = 0.175
 shader_parameter/rot_per_second = 0.05
-shader_parameter/col = Color(1, 0.918691, 0.160838, 0.576471)
+shader_parameter/col = Color(1, 1, 1, 0.576471)
 
 [node name="Potion" type="Area2D"]
 collision_layer = 0

@@ -1,22 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://ij77fx7jvsgq"]
+[gd_scene load_steps=7 format=3 uid="uid://ij77fx7jvsgq"]
 
 [ext_resource type="PackedScene" uid="uid://xwkjdsly88n5" path="res://objects/shooting_towers/projectile.tscn" id="1_f04ft"]
+[ext_resource type="Texture2D" uid="uid://qhatsj1jodec" path="res://assets/crossbow_bolt.png" id="2_beum8"]
+[ext_resource type="Script" uid="uid://cxc7d6pwd76tf" path="res://objects/shooting_towers/crossbow/reparent.gd" id="3_s22hn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f04ft"]
 radius = 1.0
 height = 12.0
 
+[sub_resource type="Gradient" id="Gradient_s22hn"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_evgq8"]
+offsets = PackedFloat32Array(0, 0.38, 1)
+colors = PackedColorArray(0.372549, 0.803922, 0.894118, 1, 0.66939, 0.703403, 0.987899, 1, 0.118912, 0.520231, 0.682163, 1)
+
 [node name="CrossbowBolt" instance=ExtResource("1_f04ft")]
 
 [node name="Visibility" parent="." index="0"]
-position = Vector2(-4.5, 0)
-scale = Vector2(1.55, 0.45)
+position = Vector2(9.53674e-07, 0)
+scale = Vector2(3.1, 2)
 
-[node name="Polygon2D2" type="Polygon2D" parent="." index="1"]
-position = Vector2(1, 1)
-scale = Vector2(0.792364, 0.558289)
-color = Color(1, 0.495858, 0.599217, 1)
-polygon = PackedVector2Array(-25, -8, -18, -4, 5, -4, 4, -9, 12, -2, 5, 4, 6, 1, -17, 0, -25, 4, -21, -2)
-
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_f04ft")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_beum8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="3"]
+emitting = false
+amount = 128
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 3.59
+gravity = Vector2(0, 0)
+radial_accel_min = 8.08
+radial_accel_max = 8.08
+color_ramp = SubResource("Gradient_s22hn")
+color_initial_ramp = SubResource("Gradient_evgq8")
+script = ExtResource("3_s22hn")
