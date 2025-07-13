@@ -73,6 +73,6 @@ func _finish_brewing() -> void:
 
 func _update_colors() -> void:
 	var c := PALETTE.lookup(red, green, blue)
-	var poly := ($Polygon2D as Polygon2D)
-	c.a = poly.color.a
-	poly.color = c
+	var fill := ($Mat as Sprite2D)
+	c.a = fill.modulate.a
+	fill.modulate = c

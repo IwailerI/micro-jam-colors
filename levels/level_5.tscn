@@ -5,6 +5,12 @@
 
 [node name="Level" instance=ExtResource("1_erq1u")]
 
+[node name="PotionColorDisplay" parent="CanvasLayer" index="0"]
+offset_left = 178.0
+offset_top = 337.0
+offset_right = 242.36
+offset_bottom = 481.0
+
 [node name="Player" parent="." index="3"]
 position = Vector2(122, 567)
 

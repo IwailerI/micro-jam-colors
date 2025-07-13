@@ -16,6 +16,21 @@ extends PanelContainer
 @onready var potion: TextureRect = %Potion
 @onready var paper: TextureRect = %Paper
 
+@onready var nodes := {
+	r = {
+		unlit = [$RGB/R/Unlit1, $RGB/R/Unlit2, $RGB/R/Unlit3, $RGB/R/Unlit4],
+		lit = [$RGB/R/Lit1, $RGB/R/Lit2, $RGB/R/Lit3, $RGB/R/Lit4],
+	},
+	g = {
+		unlit = [$RGB/G/Unlit1, $RGB/G/Unlit2, $RGB/G/Unlit3, $RGB/G/Unlit4],
+		lit = [$RGB/G/Lit1, $RGB/G/Lit2, $RGB/G/Lit3, $RGB/G/Lit4],
+	},
+	b = {
+		unlit = [$RGB/B/Unlit2, $RGB/B/Unlit3, $RGB/B/Unlit4, $RGB/B/Unlit1],
+		lit = [$RGB/B/Lit2, $RGB/B/Lit3, $RGB/B/Lit4, $RGB/B/Lit1],
+	},
+}
+
 func _ready() -> void:
 	var gm := GameManager.get_instance()
 	gm.added_colors.connect(func(c: int, m: int, y: int) -> void:
@@ -34,26 +49,25 @@ func set_state(want: Vector3i, have: Vector3i, dur := NAN) -> void:
 	if have == -Vector3i.ONE:
 		have = Vector3i(gm.red, gm.green, gm.blue)
 
-	var t := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).set_parallel()
+	var t := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BOUNCE).set_parallel()
 
 	have = have.clamp(Vector3.ZERO, Vector3i.ONE * 4)
-	t.tween_property(progress_r, "value", have.x / 4.0, dur)
-	t.tween_property(progress_g, "value", have.y / 4.0, dur)
-	t.tween_property(progress_b, "value", have.z / 4.0, dur)
-
 	want = want.clamp(Vector3.ZERO, Vector3i.ONE * 4)
-	t.tween_property(target_r, "anchor_top", 1.0 - want.x / 4.0, dur)
-	t.tween_property(target_g, "anchor_top", 1.0 - want.y / 4.0, dur)
-	t.tween_property(target_b, "anchor_top", 1.0 - want.z / 4.0, dur)
 
-	t.tween_property(target_r, "self_modulate", _get_target_col(have.x, want.x), dur)
-	t.tween_property(target_g, "self_modulate", _get_target_col(have.y, want.y), dur)
-	t.tween_property(target_b, "self_modulate", _get_target_col(have.z, want.z), dur)
+	_do_color(t, nodes.r, have.x, want.x, dur)
+	_do_color(t, nodes.g, have.y, want.y, dur)
+	_do_color(t, nodes.b, have.z, want.z, dur)
 
 	var col_have := Color(have.x / 4.0, have.y / 4.0, have.z / 4.0)
 	var col_want := Color(want.x / 4.0, want.y / 4.0, want.z / 4.0)
 	t.tween_property(potion, "modulate", col_have, dur)
 	t.tween_property(paper, "modulate", col_want, dur)
+
+
+func _do_color(t: Tween, data: Dictionary, have: int, want: int, dur: float) -> void:
+	for i: int in 4:
+		t.tween_property(data.unlit[i], "modulate:a", float(want > i), dur)
+		t.tween_property(data.lit[i], "modulate:a", float(have > i), dur)
 
 
 func _get_target_col(have: int, want: int) -> Color:
