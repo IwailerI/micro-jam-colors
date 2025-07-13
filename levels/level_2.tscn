@@ -7,9 +7,9 @@
 [node name="Level" instance=ExtResource("1_mi4ay")]
 
 [node name="GameManager" parent="." index="0"]
-need_cyan = 2
-need_magenta = 2
-need_yellow = 2
+need_red = 2
+need_green = 2
+need_blue = 2
 
 [node name="Player" parent="." index="3"]
 position = Vector2(289, 53)
@@ -19,29 +19,29 @@ tile_map_data = PackedByteArray("AAAGABIAAAACAAUAAAAGABEAAAACAAQAAAAGABAAAAACAAQ
 
 [node name="Potion" parent="Pickups" index="0" instance=ExtResource("3_0srwa")]
 position = Vector2(544, 72)
-cyan = true
+red = true
 
 [node name="Potion2" parent="Pickups" index="1" instance=ExtResource("3_0srwa")]
 position = Vector2(805, 72)
-cyan = true
+red = true
 
 [node name="Potion3" parent="Pickups" index="2" instance=ExtResource("3_0srwa")]
 position = Vector2(674, 357)
-cyan = true
-magenta = true
+green = true
+blue = true
 
 [node name="Potion5" parent="Pickups" index="3" instance=ExtResource("3_0srwa")]
 position = Vector2(600, 629)
-yellow = true
+blue = true
 
 [node name="Potion6" parent="Pickups" index="4" instance=ExtResource("3_0srwa")]
 position = Vector2(399, 630)
-yellow = true
+blue = true
 
 [node name="Potion4" parent="Pickups" index="5" instance=ExtResource("3_0srwa")]
 position = Vector2(409, 359)
-magenta = true
-yellow = true
+red = true
+green = true
 
 [node name="Canon" parent="Hazards" index="0" instance=ExtResource("2_pqqg8")]
 position = Vector2(1058, 204)

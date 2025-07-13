@@ -6,11 +6,6 @@
 
 [node name="Level" instance=ExtResource("1_e58jx")]
 
-[node name="GameManager" parent="." index="0"]
-need_cyan = 2
-need_magenta = 2
-need_yellow = 2
-
 [node name="Player" parent="." index="3"]
 position = Vector2(56, 64)
 
@@ -22,17 +17,14 @@ tile_map_data = PackedByteArray("AAAPAAkAAAABAAQAAAAPAAgAAAABAAQAAAAPAAcAAAABAAY
 
 [node name="BrewingStand" parent="Pickups" index="0" instance=ExtResource("2_bw15b")]
 position = Vector2(400, 571)
-cyan = true
 spawn_limit = 0
 
 [node name="BrewingStand2" parent="Pickups" index="1" instance=ExtResource("2_bw15b")]
 position = Vector2(909, 106)
-magenta = true
 spawn_limit = 0
 
 [node name="BrewingStand3" parent="Pickups" index="2" instance=ExtResource("2_bw15b")]
 position = Vector2(908, 572)
-yellow = true
 spawn_limit = 0
 
 [node name="Canon" parent="Hazards" index="0" instance=ExtResource("3_a8hrv")]
