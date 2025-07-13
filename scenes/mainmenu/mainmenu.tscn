@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4cdiiuvogpet"]
+[gd_scene load_steps=10 format=3 uid="uid://c4cdiiuvogpet"]
 
 [ext_resource type="PackedScene" uid="uid://7u7dmuh7u7ca" path="res://scenes/mainmenu/level_selection.tscn" id="1_1css7"]
 [ext_resource type="Script" uid="uid://x2o52u6q7kyo" path="res://scenes/mainmenu/continue.gd" id="1_oktx4"]
 [ext_resource type="Script" uid="uid://cq5uc04um7k80" path="res://scenes/mainmenu/reset.gd" id="2_ckupo"]
 [ext_resource type="Script" uid="uid://uj4jd65vcgdo" path="res://scenes/mainmenu/window.gd" id="3_fi8nj"]
 [ext_resource type="PackedScene" uid="uid://bco8edvycsrid" path="res://scenes/sounds_settings/sounds_settings.tscn" id="4_xyqql"]
+[ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="6_2x7eg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xyqql"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_so3ay"]
 font_size = 60
@@ -20,7 +23,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(19, 648)
+shape = SubResource("WorldBoundaryShape2D_xyqql")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(0, 576)
+rotation = 1.57079
+shape = SubResource("WorldBoundaryShape2D_xyqql")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(1152, 562)
+rotation = 4.71238
+shape = SubResource("WorldBoundaryShape2D_xyqql")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(994, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_xyqql")
+
+[node name="Player" parent="Node2D" instance=ExtResource("6_2x7eg")]
+position = Vector2(187, 381)
+rotation = 0.785397
+collision_mask = 14
+menu = true
+
 [node name="Label" type="Label" parent="."]
+z_index = 10
 layout_mode = 0
 offset_left = 184.0
 offset_top = 80.0
@@ -30,6 +65,7 @@ text = "BAK - Biker Alchemy Knight"
 label_settings = SubResource("LabelSettings_so3ay")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 10
 layout_mode = 0
 offset_left = 256.0
 offset_top = 192.0

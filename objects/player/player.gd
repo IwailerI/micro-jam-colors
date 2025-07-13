@@ -13,6 +13,8 @@ const RAMPING_TIME: float = 0.6
 @export var throttle_acceleration: float = 50.0
 @export var passive_acceleration: float = -25.0 # deceleration when not pressing throttle
 
+@export var menu := false
+
 @export_category("Ramping")
 @export var ramping_speed: float = 500.0
 @export_flags_2d_physics var ramping_collision: int = 1
@@ -33,6 +35,9 @@ var dead_rotation: float = 0.0
 
 func _ready() -> void:
 	normal_collision_mask = collision_mask
+	if menu:
+		direction = PI * 0.25
+		global_rotation = direction
 
 
 func _physics_process(delta: float) -> void:
@@ -47,12 +52,14 @@ func _physics_process(delta: float) -> void:
 
 func _alive_movement(delta: float) -> void:
 	# handling throttle
-	var throttle_pressed := Input.is_action_pressed("throttle")
+	var throttle_pressed := not menu and Input.is_action_pressed("throttle")
 	var acceleration: float = throttle_acceleration if throttle_pressed else passive_acceleration
 	speed = clamp(speed + acceleration * delta, base_speed, max_speed)
 
 	# handling direction
 	var inp := Input.get_vector("movement_left", "movement_right", "movement_up", "movement_down")
+	if menu:
+		inp = Vector2.ZERO
 
 	var wanted_angle := 0.0
 	if inp.is_zero_approx():
