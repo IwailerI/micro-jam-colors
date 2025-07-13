@@ -6,19 +6,19 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_em26g"]
 atlas = ExtResource("3_em26g")
-region = Rect2(0, 0, 25, 25)
+region = Rect2(0, 0, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bhxjg"]
 atlas = ExtResource("3_em26g")
-region = Rect2(0, 0, 25, 25)
+region = Rect2(0, 0, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwnsn"]
 atlas = ExtResource("3_em26g")
-region = Rect2(0, 25, 25, 25)
+region = Rect2(0, 38, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qv5a6"]
 atlas = ExtResource("3_em26g")
-region = Rect2(0, 50, 25, 25)
+region = Rect2(0, 76, 38, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fl14p"]
 animations = [{
@@ -54,7 +54,9 @@ cooldown = 1.0
 
 [node name="Base" parent="." index="1"]
 visible = false
+scale = Vector2(1, 1)
 
 [node name="Gun" parent="." index="2"]
+scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_fl14p")
 animation = &"shoot"

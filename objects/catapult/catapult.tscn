@@ -6,23 +6,23 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_akbj1"]
 atlas = ExtResource("2_iga2m")
-region = Rect2(0, 0, 37, 30)
+region = Rect2(0, 0, 72, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_knavd"]
 atlas = ExtResource("2_iga2m")
-region = Rect2(0, 0, 37, 30)
+region = Rect2(0, 0, 72, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51imq"]
 atlas = ExtResource("2_iga2m")
-region = Rect2(0, 30, 37, 30)
+region = Rect2(0, 64, 72, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58pu4"]
 atlas = ExtResource("2_iga2m")
-region = Rect2(0, 60, 37, 30)
+region = Rect2(0, 128, 72, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uhkjw"]
 atlas = ExtResource("2_iga2m")
-region = Rect2(0, 90, 37, 30)
+region = Rect2(0, 192, 72, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7f8j"]
 animations = [{
@@ -53,7 +53,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3h4q7"]
-radius = 12.0416
+radius = 24.0208
 
 [node name="Catapult" type="StaticBody2D"]
 script = ExtResource("1_t8e78")
@@ -62,12 +62,11 @@ wakeup = 1.5
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="Base" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
 texture = ExtResource("2_akbj1")
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_n7f8j")
+animation = &"shoot"
 autoplay = "default"
 offset = Vector2(3.5, 0)
 

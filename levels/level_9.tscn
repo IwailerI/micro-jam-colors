@@ -9,6 +9,12 @@
 [node name="GameManager" parent="." index="0"]
 need_green = 1
 
+[node name="PotionColorDisplay" parent="CanvasLayer" index="0"]
+offset_left = 616.0
+offset_top = 348.0
+offset_right = 680.36
+offset_bottom = 492.0
+
 [node name="Player" parent="." index="3"]
 position = Vector2(1067, 599)
 

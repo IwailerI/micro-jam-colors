@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://c3a1uc6mhaao2" path="res://assets/ramp.png" id="2_u5fcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1r73"]
-size = Vector2(58, 5.5)
+size = Vector2(92, 5.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5fcm"]
-size = Vector2(20.5083, 4.09808)
+size = Vector2(39.2541, 4.09808)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbh34"]
-size = Vector2(42, 11)
+size = Vector2(76, 35)
 
 [node name="Ramp" type="StaticBody2D"]
 collision_layer = 2
@@ -21,18 +21,18 @@ script = ExtResource("1_u5fcm")
 texture = ExtResource("2_u5fcm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9.25)
+position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_m1r73")
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(24, -1)
+position = Vector2(39, 0)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_u5fcm")
 one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-24, -1)
+position = Vector2(-39, 0)
 rotation = -1.57079
 shape = SubResource("RectangleShape2D_u5fcm")
 one_way_collision = true
@@ -42,6 +42,6 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
-position = Vector2(0, -0.5)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_xbh34")
 debug_color = Color(0, 0.951565, 0.678064, 0.42)
