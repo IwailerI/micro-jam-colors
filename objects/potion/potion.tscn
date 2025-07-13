@@ -25,10 +25,12 @@ visible = false
 shape = SubResource("CircleShape2D_o0d5j")
 
 [node name="Glow" type="Node2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_e2j7a")
 script = ExtResource("4_oclih")
 
 [node name="Polygon" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-2, 4, -2, -2, 2, -2, 2, 4, 1, 5, -1, 5)
 
 [node name="Sprite" type="Sprite2D" parent="."]

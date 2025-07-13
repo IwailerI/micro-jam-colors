@@ -10,6 +10,12 @@
 need_green = 2
 need_blue = 2
 
+[node name="PotionColorDisplay" parent="CanvasLayer" index="0"]
+offset_left = 553.0
+offset_top = 196.0
+offset_right = 617.36
+offset_bottom = 340.0
+
 [node name="Player" parent="." index="3"]
 position = Vector2(503, 363)
 
