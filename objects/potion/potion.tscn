@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cksspyp3fdpcv" path="res://objects/potion/potion.gd" id="1_1xu65"]
 [ext_resource type="Texture2D" uid="uid://2vdbhmbv7hlr" path="res://assets/potion.png" id="3_3usu6"]
-[ext_resource type="Shader" uid="uid://cdwvpcwa0t5nd" path="res://objects/potion/glow.gdshader" id="4_1nq3u"]
-[ext_resource type="Script" uid="uid://ddqx60he1rfex" path="res://objects/potion/shader_glow.gd" id="4_oclih"]
+[ext_resource type="Shader" path="res://objects/potion/glow.gdshader" id="4_1nq3u"]
+[ext_resource type="Script" path="res://objects/potion/shader_glow.gd" id="4_oclih"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o0d5j"]
 radius = 16.0312
