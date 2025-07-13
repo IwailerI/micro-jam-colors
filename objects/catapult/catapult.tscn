@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://skitiu8xadwy"]
+[gd_scene load_steps=5 format=3 uid="uid://skitiu8xadwy"]
 
 [ext_resource type="Script" uid="uid://b4k5dpnl82ytj" path="res://objects/catapult/catapult.gd" id="1_t8e78"]
+[ext_resource type="Texture2D" uid="uid://cauxhnsxgrpl4" path="res://assets/bfg_base.png" id="2_akbj1"]
+[ext_resource type="Texture2D" uid="uid://iubq1xs7yw28" path="res://assets/bfg.png" id="2_iga2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3h4q7"]
 radius = 9.0
@@ -11,10 +13,12 @@ wakeup = 1.5
 
 [node name="Cooldown" type="Timer" parent="."]
 
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_akbj1")
+
+[node name="Gun" type="Sprite2D" parent="."]
+texture = ExtResource("2_iga2m")
+offset = Vector2(8, 0)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3h4q7")
-
-[node name="Sprite" type="Polygon2D" parent="."]
-scale = Vector2(3.45317, 3.45317)
-color = Color(0.983108, 0.620366, 0.748052, 1)
-polygon = PackedVector2Array(4.34384, -2.02712, -3.47507, -2.31671, -4.05425, -2.02712, -3.76466, -1.44795, -3.18548, -1.15836, -3.18548, -0.579178, -4.34384, -0.579178, -6.95014, -0.579178, -9.26685, -0.579178, -9.52239, -1.38135, -10.6105, -1.5578, -11.294, -1.15836, -11.5836, -0.289589, -11.5836, 0.868767, -10.7148, 1.73753, -9.26685, 1.73753, -8.68767, 1.15836, -8.97726, 0.289589, -8.39808, 0.289589, -6.37096, 0.289589, -4.63342, 0.289589, -3.47507, 0.289589, -2.89589, 0.579178, -3.47507, 1.15836, -3.76466, 1.44795, -2.6063, 1.73753, -1.44795, 1.73753, 0, 1.73753, 1.73753, 1.73753, 2.89589, 1.73753, 4.05425, 1.73753, 4.92301, 1.44795, 4.34384, 0.868767, 3.18548, 0.868767, 1.73753, 0.868767, 1.15836, 0.868767, 0.868767, 0.579178, 0.868767, 0, 0.868767, -0.579178, 2.02712, -0.579178, 3.47507, -0.579178, 4.34384, -0.579178, 4.92301, -1.15836, 4.63342, -1.44795)

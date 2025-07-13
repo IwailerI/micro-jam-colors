@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://dp6usse28mhgw"]
 
-[ext_resource type="Texture2D" uid="uid://c5nv645uriap3" path="res://assets/tmp/ramp.png" id="1_m1r73"]
 [ext_resource type="Script" uid="uid://d2jiqgkwlgtab" path="res://objects/ramp/ramp.gd" id="1_u5fcm"]
+[ext_resource type="Texture2D" uid="uid://c3a1uc6mhaao2" path="res://assets/ramp.png" id="2_u5fcm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1r73"]
-size = Vector2(18, 5)
+size = Vector2(58, 5.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5fcm"]
 size = Vector2(20.5083, 4.09808)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbh34"]
-size = Vector2(14, 9)
+size = Vector2(42, 11)
 
 [node name="Ramp" type="StaticBody2D"]
 collision_layer = 2
@@ -18,22 +18,22 @@ collision_mask = 0
 script = ExtResource("1_u5fcm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_m1r73")
+texture = ExtResource("2_u5fcm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7.5)
+position = Vector2(0, -9.25)
 shape = SubResource("RectangleShape2D_m1r73")
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(9, 1)
-rotation = 1.0472
+position = Vector2(24, -1)
+rotation = 1.83259
 shape = SubResource("RectangleShape2D_u5fcm")
 one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-9, 1)
-rotation = -1.0472
+position = Vector2(-24, -1)
+rotation = -1.83259
 shape = SubResource("RectangleShape2D_u5fcm")
 one_way_collision = true
 

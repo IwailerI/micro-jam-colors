@@ -9,12 +9,14 @@ const PALETTE := preload("res://objects/palette/default.tres")
 @export var yellow: bool = false
 
 @onready var gm: GameManager = GameManager.get_instance()
+@onready var glow: Node2D = $Glow
 
 
 func _ready() -> void:
 	assert(cyan or magenta or yellow, "colorless potion")
 	var color := PALETTE.lookup(cyan, magenta, yellow)
-	$Polygon2D.color = color # TODO: change to sprite
+	$Polygon.color = color
+	$Glow.modulate = color
 	gm.player().died.connect(
 		func() -> void:
 			monitoring = false

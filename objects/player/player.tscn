@@ -1,6 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdj8wgxuxnkiv"]
+[gd_scene load_steps=12 format=3 uid="uid://cdj8wgxuxnkiv"]
 
 [ext_resource type="Script" uid="uid://bpay4q0vfmdan" path="res://objects/player/player.gd" id="1_cqmt1"]
+[ext_resource type="Texture2D" uid="uid://bprne3m24u664" path="res://assets/player.png" id="2_g7ett"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7ett"]
+atlas = ExtResource("2_g7ett")
+region = Rect2(0, 0, 26, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssrue"]
+atlas = ExtResource("2_g7ett")
+region = Rect2(26, 0, 26, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnjyq"]
+atlas = ExtResource("2_g7ett")
+region = Rect2(52, 0, 26, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnkmh"]
+atlas = ExtResource("2_g7ett")
+region = Rect2(78, 0, 26, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkryw"]
+atlas = ExtResource("2_g7ett")
+region = Rect2(104, 0, 26, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow0dq"]
+atlas = ExtResource("2_g7ett")
+region = Rect2(130, 0, 26, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4kly"]
+atlas = ExtResource("2_g7ett")
+region = Rect2(156, 0, 26, 61)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgwla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7ett")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssrue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnjyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnkmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkryw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow0dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4kly")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jww0w"]
 radius = 12.6632
@@ -16,10 +74,9 @@ throttle_acceleration = 500.0
 passive_acceleration = -500.0
 ramping_collision = 8
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-0.366638, 0.869293)
-color = Color(0.598836, 0.120402, 0.382083, 1)
-polygon = PackedVector2Array(-3, 22, -12, 0, -22, 1, 1, -27, 23, 0, 13, -1, 5, 22)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xgwla")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jww0w")
