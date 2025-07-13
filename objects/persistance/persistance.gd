@@ -28,6 +28,7 @@ const LEVEL_NAME: Dictionary = {
 	17: "TOC-2 - theory of colors",
 	18: "Attack on Ghosts",
 	19: "A-VV-ARIA",
+	20: "FINALE",
 }
 
 ## How many levels does the game has.
