@@ -553,7 +553,7 @@ terrain_set_0/terrain_0/name = "Wall"
 terrain_set_0/terrain_0/color = Color(0.40358, 0.222397, 0.827043, 1)
 sources/0 = SubResource("TileSetAtlasSource_3dtxm")
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("3_4qo56")]
 need_red = 2

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="2_bw15b"]
 [ext_resource type="PackedScene" uid="uid://bman1c5f4u5us" path="res://objects/shooting_towers/canon/canon.tscn" id="3_a8hrv"]
 
-[node name="Level" instance=ExtResource("1_e58jx")]
+[node name="Level2" instance=ExtResource("1_e58jx")]
 
 [node name="Player" parent="." index="3"]
 position = Vector2(56, 64)
@@ -17,15 +17,12 @@ tile_map_data = PackedByteArray("AAAPAAkAAAABAAQAAAAPAAgAAAABAAQAAAAPAAcAAAABAAY
 
 [node name="BrewingStand" parent="Pickups" index="0" instance=ExtResource("2_bw15b")]
 position = Vector2(400, 571)
-spawn_limit = 0
 
 [node name="BrewingStand2" parent="Pickups" index="1" instance=ExtResource("2_bw15b")]
 position = Vector2(909, 106)
-spawn_limit = 0
 
 [node name="BrewingStand3" parent="Pickups" index="2" instance=ExtResource("2_bw15b")]
 position = Vector2(908, 572)
-spawn_limit = 0
 
 [node name="Canon" parent="Hazards" index="0" instance=ExtResource("3_a8hrv")]
 position = Vector2(1042, 624)

@@ -8,7 +8,7 @@ func _ready() -> void:
 	for level_id in furthest_num:
 		var inst := LEVELITEM.instantiate()
 		var label := inst.get_child(0) as Label
-		label.text = str(level_id + 1)
+		label.text = str(level_id)
 		var button := inst.get_child(1) as LevelSelectionItemButton
 		button.text = Persistance.LEVEL_NAME[level_id]
 		button.level_id = level_id

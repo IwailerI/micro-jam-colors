@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://5l0qm63sb5at" path="res://scenes/level/level_empty.tscn" id="1_eus5j"]
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="2_823pn"]
 
-[node name="Level" instance=ExtResource("1_eus5j")]
+[node name="Level2" instance=ExtResource("1_eus5j")]
 
 [node name="GameManager" parent="." index="0"]
 need_red = 1
