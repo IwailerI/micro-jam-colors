@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt0stmwrnku5k"]
+[gd_scene load_steps=8 format=3 uid="uid://bt0stmwrnku5k"]
 
 [ext_resource type="Script" uid="uid://dmcwaqv3kf00t" path="res://objects/brewing_stand/brewing_stand.gd" id="1_ni832"]
 [ext_resource type="Texture2D" uid="uid://ba0hxch5inn54" path="res://assets/tmp/brewing_under.png" id="2_2qkfa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cp6crorcl2ywb" path="res://assets/cooler_base.png" id="4_dcvpl"]
 [ext_resource type="Texture2D" uid="uid://ciua264jwumo0" path="res://assets/cooler_bottle.png" id="5_403qy"]
 [ext_resource type="Texture2D" uid="uid://bqgf7hyv8av3i" path="res://assets/cooler_mat.png" id="5_nktgo"]
+[ext_resource type="AudioStream" uid="uid://d0vtnor5mwy70" path="res://sounds/sfx/pour-drink-41197 (mp3cut.net).mp3" id="7_nktgo"]
 
 [node name="BrewingStand" type="Node2D"]
 script = ExtResource("1_ni832")
@@ -38,3 +39,9 @@ texture = ExtResource("5_nktgo")
 [node name="Bottle" type="Sprite2D" parent="."]
 position = Vector2(0, -36.5)
 texture = ExtResource("5_403qy")
+
+[node name="BrewedSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_nktgo")
+volume_db = -6.0
+pitch_scale = 1.05
+bus = &"SFX"

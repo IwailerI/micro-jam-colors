@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0vtnor5mwy70"
+path="res://.godot/imported/pour-drink-41197 (mp3cut.net).mp3-73ce48e34d2fdaebce6f6e9ebd357d17.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/pour-drink-41197 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/pour-drink-41197 (mp3cut.net).mp3-73ce48e34d2fdaebce6f6e9ebd357d17.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

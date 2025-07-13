@@ -68,6 +68,9 @@ func _finish_brewing() -> void:
 	if spawn_limit <= 0 or potions_spawned < spawn_limit:
 		potion_node.tree_exited.connect(_start_brewing)
 
+	$BrewedSFX.pitch_scale = randf_range(0.93, 1.07)
+	$BrewedSFX.play()
+
 	add_child(potion_node)
 
 
