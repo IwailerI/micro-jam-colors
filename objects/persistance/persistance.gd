@@ -19,12 +19,13 @@ const LEVEL_NAME: Dictionary = {
 	8: "Hot day Mai-ai-mi",
 	9: "Rock n Fire",
 	10: "Ghost Dash v2.2",
-	11: "Theory of colors",
+	11: "TOC-1 - theory of colors",
 	12: "Bad Pot Cream",
 	13: "Possible game",
 	14: "Big Mother Gun",
 	15: "Two Mother Gun",
 	16: "III triple lanes",
+	17: "TOC-2 - theory of colors",
 }
 
 ## How many levels does the game has.
