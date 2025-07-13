@@ -6,6 +6,7 @@ const GHOST = preload("res://objects/ghost/ghost.tscn")
 
 @export var speed: float = 600
 @export var rest_accel: float = 400.0
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var done_funny := false
 
@@ -17,13 +18,19 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not GameManager.get_instance().player().alive and not done_funny:
+	var p := GameManager.get_instance().player()
+	if not p.alive and not done_funny:
 		queue_free()
 		var inst := GHOST.instantiate()
 		get_parent().add_child(inst)
 		inst.global_position = global_position
 		done_funny = true
 		return
+
+	if velocity.is_zero_approx():
+		sprite_2d.look_at(p.global_position)
+	else:
+		sprite_2d.look_at(to_global(velocity)) # lol
 
 	if done_funny:
 		return

@@ -1,7 +1,5 @@
-[gd_scene load_steps=22 format=4 uid="uid://c5nfk6ysqdde6"]
+[gd_scene load_steps=20 format=4 uid="uid://c5nfk6ysqdde6"]
 
-[ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="1_asqhp"]
-[ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_b0o62"]
 [ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="3_4qo56"]
 [ext_resource type="PackedScene" uid="uid://d1tm5mhwegffe" path="res://objects/potion_color_display/potion_color_display.tscn" id="3_8vb6f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="4_ac3ax"]
@@ -560,13 +558,6 @@ need_magenta = 1
 need_yellow = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Speedometer" parent="CanvasLayer" instance=ExtResource("1_asqhp")]
-modulate = Color(1, 1, 1, 0.733333)
-position = Vector2(145, 572)
-
-[node name="InputDirection" parent="CanvasLayer" instance=ExtResource("2_b0o62")]
-position = Vector2(1066, 612)
 
 [node name="PotionColorDisplay" parent="CanvasLayer" instance=ExtResource("3_8vb6f")]
 offset_left = 1077.0
