@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Palette" load_steps=2 format=3 uid="uid://2orfjhlno2t0"]
+[gd_resource type="Resource" script_class="Palette" load_steps=2 format=3 uid="uid://b5i6mwj25ihr1"]
 
 [ext_resource type="Script" uid="uid://cp04ky8p4hvl0" path="res://objects/palette/palette.gd" id="1_diyj4"]
 
