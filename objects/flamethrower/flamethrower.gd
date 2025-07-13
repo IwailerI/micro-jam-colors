@@ -10,6 +10,7 @@ extends StaticBody2D
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var damaging_area: Area2D = $DamageArea
 @onready var sprite: AnimatedSprite2D = $Sprite
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var shooting: bool = false
 
@@ -26,9 +27,11 @@ func _toggle() -> void:
 	shooting = not shooting
 
 	if shooting:
+		audio.play()
 		sprite.play("fire")
 		sprite.speed_scale = 1.0 / shooting_time
 	else:
+		audio.stop()
 		sprite.play_backwards("fire")
 		sprite.speed_scale = 1.0 / cooldown_time
 
