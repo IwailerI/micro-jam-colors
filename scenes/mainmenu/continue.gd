@@ -6,7 +6,7 @@ const BUTTONTEXT: String = "Continue - %d"
 
 
 func _ready() -> void:
-	text = BUTTONTEXT % (furthest_id+1)
+	text = BUTTONTEXT % (furthest_id)
 	grab_focus()
 
 
