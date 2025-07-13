@@ -20,14 +20,17 @@ extends PanelContainer
 	r = {
 		unlit = [$RGB/R/Unlit1, $RGB/R/Unlit2, $RGB/R/Unlit3, $RGB/R/Unlit4],
 		lit = [$RGB/R/Lit1, $RGB/R/Lit2, $RGB/R/Lit3, $RGB/R/Lit4],
+		label = $RGB/R/Label,
 	},
 	g = {
 		unlit = [$RGB/G/Unlit1, $RGB/G/Unlit2, $RGB/G/Unlit3, $RGB/G/Unlit4],
 		lit = [$RGB/G/Lit1, $RGB/G/Lit2, $RGB/G/Lit3, $RGB/G/Lit4],
+		label = $RGB/G/Label,
 	},
 	b = {
 		unlit = [$RGB/B/Unlit2, $RGB/B/Unlit3, $RGB/B/Unlit4, $RGB/B/Unlit1],
 		lit = [$RGB/B/Lit2, $RGB/B/Lit3, $RGB/B/Lit4, $RGB/B/Lit1],
+		label = $RGB/B/Label,
 	},
 }
 
@@ -68,6 +71,7 @@ func _do_color(t: Tween, data: Dictionary, have: int, want: int, dur: float) -> 
 	for i: int in 4:
 		t.tween_property(data.unlit[i], "modulate:a", float(want > i), dur)
 		t.tween_property(data.lit[i], "modulate:a", float(have > i), dur)
+	data.label.text = "%d/%d" % [have, want]
 
 
 func _get_target_col(have: int, want: int) -> Color:
