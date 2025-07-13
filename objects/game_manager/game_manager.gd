@@ -1,21 +1,49 @@
 class_name GameManager
 extends Node
 
+signal added_colors(c: int, m: int, y: int)
+
 const MAX_COLOR_VALUE = 4
 
-var red: int = 0
-var green: int = 0
-var blue: int = 0
+@export_category("Color requirement")
+@export_range(0, GameManager.MAX_COLOR_VALUE) var need_cyan: int
+@export_range(0, GameManager.MAX_COLOR_VALUE) var need_magenta: int
+@export_range(0, GameManager.MAX_COLOR_VALUE) var need_yellow: int
+
+var cyan: int = 0
+var magenta: int = 0
+var yellow: int = 0
 
 
-static func GetInstance() -> GameManager:
+## Do not use global magic strings.
+## Prefer this method over %GameManger.
+static func get_instance() -> GameManager:
 	var tree := Engine.get_main_loop() as SceneTree
 	var gms := tree.get_nodes_in_group("GameManager")
-	assert(len(gms) == 1, "Tried to get instance of the game manager while there is invalid amount of them.")
+	assert(len(gms) == 1, "invalid amount of game manager")
 	return gms[0]
 
 
-func AddColors(r: int, g: int, b: int):
-	red = min(red + r, MAX_COLOR_VALUE)
-	green = min(green + r, MAX_COLOR_VALUE)
-	blue = min(blue + r, MAX_COLOR_VALUE)
+func player() -> Player:
+	var p := get_tree().get_first_node_in_group(&"Player")
+	assert(is_instance_valid(p))
+	return p
+
+
+func add_colors(c: int, m: int, y: int) -> void:
+	cyan = min(cyan + c, MAX_COLOR_VALUE)
+	magenta = min(magenta + m, MAX_COLOR_VALUE)
+	yellow = min(yellow + y, MAX_COLOR_VALUE)
+	added_colors.emit(cyan, magenta, yellow)
+
+	if cyan > need_cyan or magenta > need_magenta or yellow > need_yellow:
+		gameover(false, "Too much color!")
+
+
+func gameover(_has_won: bool, _lost_message: String = "") -> void:
+	print("Gameover", " win=", _has_won, " msg=", _lost_message)
+	get_tree().paused = true 
+	# TODO: remove OS.alert (and code below), and add gameover menu
+	OS.alert("You won!" if _has_won else "You lost! " + _lost_message)
+	get_tree().paused = false
+	get_tree().reload_current_scene()

@@ -8,7 +8,6 @@ radius = 16.0312
 [node name="Potion" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_1xu65")
-red = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-2.38419e-07, -0.0909083)

@@ -5,11 +5,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jww0w"]
 radius = 12.6632
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 1
 collision_mask = 6
 script = ExtResource("1_cqmt1")
 rotation_speed = 10.13
-ground_speed = 400.0
+base_speed = 200.0
+max_speed = 400.0
+throttle_acceleration = 500.0
+passive_acceleration = -500.0
+ramping_collision = 8
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-0.366638, 0.869293)
@@ -18,3 +23,8 @@ polygon = PackedVector2Array(-3, 22, -12, 0, -22, 1, 1, -27, 23, 0, 13, -1, 5, 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jww0w")
+
+[node name="DeathTimer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 2.0
+one_shot = true

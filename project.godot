@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Micro Jam Colors"
-run/main_scene="uid://be41k6pgj28jm"
+run/main_scene="uid://c5nfk6ysqdde6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,7 +25,14 @@ window/stretch/aspect="expand"
 folder_colors={
 "res://assets/": "red",
 "res://levels/": "yellow",
-"res://objects/": "blue",
+"res://objects/brewing_stand/": "green",
+"res://objects/catapult/": "orange",
+"res://objects/dashing_ghost/": "gray",
+"res://objects/delivery_point/": "green",
+"res://objects/flamethrower/": "orange",
+"res://objects/ghost/": "gray",
+"res://objects/potion/": "green",
+"res://objects/shooting_towers/": "orange",
 "res://scenes/": "purple",
 "res://sounds/": "green"
 }
@@ -34,6 +41,7 @@ folder_colors={
 
 GameManager=""
 Hazard=""
+Player=""
 
 [input]
 
@@ -65,9 +73,24 @@ movement_down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+throttle={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Environment"
 2d_physics/layer_3="Hazard"
+2d_physics/layer_4="WorldBoundary"
+throttle={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
