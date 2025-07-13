@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dx1mapm4bc8ne" path="res://objects/shooting_towers/crossbow/crossbow.tscn" id="2_s4mq8"]
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="3_t0qhu"]
 
-[node name="Level" instance=ExtResource("1_fwt2v")]
+[node name="Level2" instance=ExtResource("1_fwt2v")]
 
 [node name="GameManager" parent="." index="0"]
 need_green = 2
