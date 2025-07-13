@@ -29,7 +29,7 @@ script = ExtResource("1_m4y2d")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.227451, 0.227451, 0.227451, 0.254902)
+color = Color(0, 0, 0, 0.588235)
 
 [node name="GameoverStatus" type="Label" parent="."]
 layout_mode = 0

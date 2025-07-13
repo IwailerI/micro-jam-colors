@@ -43,9 +43,6 @@ var last_loaded_id: int = 0
 
 
 func _ready() -> void:
-	if OS.is_debug_build():
-		completed_amount = LEVEL_AMOUNT - 2
-		_serialize()
 	_deserialize()
 
 
