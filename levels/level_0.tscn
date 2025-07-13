@@ -29,12 +29,16 @@ position = Vector2(997, 264)
 blue = true
 
 [node name="Label" type="Label" parent="." index="8"]
-offset_left = 459.0
-offset_top = 376.0
-offset_right = 677.0
-offset_bottom = 425.0
-text = "W A S D or arrows to move
-SPACE to boost"
+offset_left = 419.0
+offset_top = 383.0
+offset_right = 732.0
+offset_bottom = 536.0
+text = "W, A, S, D or arrows or left stick to move.
+
+Space or controller A button to boost
+(if you don't have an A button, 
+just mash around on your controller, 
+you will probably find the right button)."
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="." index="9"]
