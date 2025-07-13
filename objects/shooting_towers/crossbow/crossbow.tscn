@@ -74,6 +74,7 @@ animations = [{
 }]
 
 [node name="Crossbow" instance=ExtResource("1_7twyi")]
+MIN_PITCH = 1.0
 projectile_prefab = ExtResource("2_84fr2")
 projectile_speed = 600.0
 cooldown = 2.0

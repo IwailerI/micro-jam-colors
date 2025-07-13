@@ -1,6 +1,8 @@
 extends StaticBody2D
 
 
+@export var MIN_PITCH: float = 0.8
+@export var MAX_PITCH: float = 1.2
 @export var projectile_prefab: PackedScene
 @export var projectile_speed: float = 0.0
 ## Duration in seconds before crossbow starts shooting.
@@ -13,6 +15,8 @@ extends StaticBody2D
 @onready var marker: Marker2D = $Marker2D
 @onready var base: Sprite2D = $Base
 @onready var gun: AnimatedSprite2D = $Gun
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 
 func _ready() -> void:
 	base.visible = rotating_to_player
@@ -47,3 +51,5 @@ func _on_shoot_cooldown_timeout() -> void:
 	inst.global_position = marker.global_position
 	inst.global_rotation = gun.global_rotation
 	(inst as PhysicsBody2D).add_collision_exception_with(self)
+	audio.pitch_scale = randf_range(MIN_PITCH, MAX_PITCH)
+	audio.play()
