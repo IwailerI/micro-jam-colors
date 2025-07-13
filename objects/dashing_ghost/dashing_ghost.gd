@@ -6,6 +6,8 @@ const GHOST = preload("res://objects/ghost/ghost.tscn")
 
 @export var speed: float = 600
 @export var rest_accel: float = 400.0
+@export var offset: float = 0.0
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var done_funny := false
@@ -15,6 +17,13 @@ var done_funny := false
 
 func _ready() -> void:
 	animation_player.play(&"idle")
+
+	if offset > 0:
+		animation_player.pause()
+		(func() -> void:
+			await get_tree().create_timer(offset).timeout
+			animation_player.play()
+		).call_deferred()
 
 
 func _physics_process(delta: float) -> void:

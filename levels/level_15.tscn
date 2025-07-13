@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://ddqnrqkdugakn"]
+[gd_scene load_steps=5 format=4 uid="uid://c2g26jlqaekc3"]
 
 [ext_resource type="PackedScene" uid="uid://5l0qm63sb5at" path="res://scenes/level/level_empty.tscn" id="1_hyfp4"]
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="2_3mbpm"]
@@ -10,6 +10,12 @@
 [node name="GameManager" parent="." index="0"]
 need_green = 2
 need_blue = 2
+
+[node name="PotionColorDisplay" parent="CanvasLayer" index="0"]
+offset_left = 1076.0
+offset_top = -8.0
+offset_right = 1140.36
+offset_bottom = 136.0
 
 [node name="Player" parent="." index="3"]
 position = Vector2(577, 591)

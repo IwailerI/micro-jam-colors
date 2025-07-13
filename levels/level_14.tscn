@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://f4of1ipydp83"]
+[gd_scene load_steps=4 format=4 uid="uid://dogn3qnembnon"]
 
 [ext_resource type="PackedScene" uid="uid://5l0qm63sb5at" path="res://scenes/level/level_empty.tscn" id="1_6k4bi"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="2_6qos1"]
@@ -11,10 +11,10 @@ need_green = 2
 need_blue = 2
 
 [node name="PotionColorDisplay" parent="CanvasLayer" index="0"]
-offset_left = 1086.0
-offset_top = -24.0
-offset_right = 1150.36
-offset_bottom = 120.0
+offset_left = 1066.0
+offset_top = -25.0
+offset_right = 1130.36
+offset_bottom = 119.0
 
 [node name="Player" parent="." index="3"]
 position = Vector2(564, 588)
