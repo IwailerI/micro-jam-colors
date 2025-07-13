@@ -2,6 +2,8 @@ extends Node
 
 const SAVE_FILE: String = "user://BAK_completed"
 
+const SOUND_FILE: String = "user://sounds.json"
+
 ## Path to load a level.
 ## Usage: LEVEL_PATH % level_id
 const LEVEL_PATH: String = "res://levels/level_%d.tscn"
@@ -35,6 +37,7 @@ const LEVEL_NAME: Dictionary = {
 ## Starts with 1 till amount-1 (0 level is tutorial).
 var LEVEL_AMOUNT: int = LEVEL_NAME.size() - 1
 
+var sounds: Array = [0.5, 0.5, 0.5]
 var completed_amount: int = 0
 var last_loaded_id: int = 0
 
@@ -61,6 +64,30 @@ func _deserialize() -> void:
 		return
 	completed_amount = file.get_8()
 	file.close()
+
+
+func get_volume(bus_id) -> float:
+	var file := FileAccess.open(SOUND_FILE, FileAccess.READ)
+	if file == null:
+		save_volume()
+		return sounds[bus_id]
+	var data := file.get_as_text()
+	file.close()
+	sounds = JSON.parse_string(data) as Array
+	print(sounds)
+	return sounds[bus_id]
+
+
+func save_volume() -> void:
+	var data := JSON.stringify(sounds)
+	var file := FileAccess.open(SOUND_FILE, FileAccess.WRITE)
+	file.store_string(data)
+	file.close()
+
+
+func set_volume(bus_id, volume) -> void:
+	sounds[bus_id] = volume
+	save_volume()
 
 
 ## Returns the furthest available level id.
