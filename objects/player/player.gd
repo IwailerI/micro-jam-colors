@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 signal died()
 
+const RAMPING_TIME: float = 0.6
+
 @export var death_accel := 300.0
 @export var rotation_speed: float = PI
 @export var base_speed: float = 150.0
@@ -12,7 +14,6 @@ signal died()
 @export var passive_acceleration: float = -25.0 # deceleration when not pressing throttle
 
 @export_category("Ramping")
-@export var ramping_time: float = 1.0
 @export var ramping_speed: float = 500.0
 @export_flags_2d_physics var ramping_collision: int = 1
 
@@ -25,9 +26,9 @@ signal died()
 
 var direction: float = -PI * 0.5
 var alive := true
-var death_time := 0 # Millisecond ticks
 var ramping := false
 var ramping_done := false # set after ramping interval passes
+var dead_rotation: float = 0.0
 
 
 func _ready() -> void:
@@ -45,7 +46,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _alive_movement(delta: float) -> void:
-
 	# handling throttle
 	var throttle_pressed := Input.is_action_pressed("throttle")
 	var acceleration: float = throttle_acceleration if throttle_pressed else passive_acceleration
@@ -65,7 +65,7 @@ func _alive_movement(delta: float) -> void:
 
 	direction = rotate_toward(direction, wanted_angle, rotation_speed * delta)
 
-	sprite.rotation = direction + PI * 0.5
+	sprite.global_rotation = direction + PI * 0.5
 
 	var left := speed * delta
 
@@ -90,7 +90,7 @@ func _alive_movement(delta: float) -> void:
 
 
 func _ramping_movement(delta: float) -> void:
-	sprite.rotation = direction + PI * 0.5
+	sprite.global_rotation = direction + PI * 0.5
 
 	var left := ramping_speed * delta
 
@@ -122,17 +122,21 @@ func _ramping_movement(delta: float) -> void:
 
 
 func _dead_movement(delta: float) -> void:
+	dead_rotation += delta * PI
+
 	velocity = velocity.move_toward(Vector2.ZERO, death_accel * delta)
+	var rem := velocity * delta
 	for i: int in 32:
-		var col := move_and_collide(velocity * delta)
+		var col := move_and_collide(rem)
 		if col == null:
 			break
 
 		var normal := col.get_normal()
 		global_position = col.get_position() + radius * normal
-		velocity = col.get_remainder().bounce(normal)
+		rem = col.get_remainder().bounce(normal)
+		velocity = velocity.bounce(normal)
 
-	sprite.rotation = velocity.angle() + PI * 0.5 + float(Time.get_ticks_msec() - death_time) * 0.001 * PI
+	sprite.global_rotation = dead_rotation
 
 
 func die(vel := Vector2.ZERO) -> void:
@@ -147,9 +151,9 @@ func die(vel := Vector2.ZERO) -> void:
 		velocity = Vector2.from_angle(direction) * speed
 	else:
 		velocity = vel
-	death_time = Time.get_ticks_msec()
 	death_animation_timer.timeout.connect(_finish_dying)
 	death_animation_timer.start()
+	dead_rotation = rotation
 	died.emit()
 
 
@@ -165,7 +169,6 @@ func do_ramp() -> void:
 
 	set_deferred("collision_mask", ramping_collision)
 	var t := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).chain()
-	t.tween_property(sprite, "scale", Vector2.ONE * 1.5, 0.5)
-	t.tween_interval(ramping_time - 1.0)
-	t.tween_property(sprite, "scale", Vector2.ONE, 0.5)
+	t.tween_property(sprite, "scale", Vector2.ONE * 1.5, 0.3)
+	t.tween_property(sprite, "scale", Vector2.ONE, 0.3)
 	t.tween_callback(set.bind("ramping_done", true))

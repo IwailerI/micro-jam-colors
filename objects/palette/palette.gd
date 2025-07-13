@@ -1,23 +1,24 @@
+@tool
 class_name Palette
 extends Resource
 
 
-@export var c := Color.CYAN
-@export var m := Color.MAGENTA
-@export var y := Color.YELLOW
-@export var cm := Color.BLUE
-@export var cy := Color.GREEN
-@export var my := Color.RED
-@export var cmy := Color.BLACK
+@export var r := Color.RED
+@export var g := Color.GREEN
+@export var b := Color.BLUE
+@export var rg := Color.YELLOW
+@export var gb := Color.CYAN
+@export var rb := Color.MAGENTA
+@export var rgb := Color.WHITE
 
 
-func lookup(cyan: bool, magenta: bool, yellow: bool) -> Color:
-    match [cyan, magenta, yellow]:
-        [true, true, true]: return cmy
-        [true, true, false]: return cm
-        [true, false, true]: return cy
-        [false, true, true]: return my
-        [true, false, false]: return c
-        [false, true, false]: return m
-        [false, false, true]: return y
-        _: return Color.WHITE
+func lookup(red: bool, green: bool, blue: bool) -> Color:
+    match [red, green, blue]:
+        [true, true, true]: return rgb
+        [true, true, false]: return rg
+        [true, false, true]: return rb
+        [false, true, true]: return gb
+        [true, false, false]: return r
+        [false, true, false]: return g
+        [false, false, true]: return b
+        _: return Color.BLACK

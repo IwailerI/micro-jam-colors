@@ -10,6 +10,7 @@ extends StaticBody2D
 
 @onready var cooldown_timer: Timer = $Cooldown
 @onready var player: Player = GameManager.get_instance().player()
+@onready var marker: Marker2D = $Marker2D
 @onready var base: Sprite2D = $Base
 @onready var gun: AnimatedSprite2D = $Gun
 
@@ -42,6 +43,6 @@ func _on_shoot_cooldown_timeout() -> void:
 	var inst := projectile_prefab.instantiate() as Projectile
 	inst.speed = projectile_speed
 	get_parent().add_child(inst)
+	inst.global_position = marker.global_position
 	inst.global_rotation = gun.global_rotation
-	inst.global_position = global_position
 	(inst as PhysicsBody2D).add_collision_exception_with(self)

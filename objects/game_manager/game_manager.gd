@@ -1,18 +1,22 @@
 class_name GameManager
 extends Node
 
-signal added_colors(c: int, m: int, y: int)
+signal added_colors(r: int, g: int, b: int)
+signal game_was_over(has_won: bool, lost_message: String)
 
 const MAX_COLOR_VALUE = 4
 
 @export_category("Color requirement")
-@export_range(0, GameManager.MAX_COLOR_VALUE) var need_cyan: int
-@export_range(0, GameManager.MAX_COLOR_VALUE) var need_magenta: int
-@export_range(0, GameManager.MAX_COLOR_VALUE) var need_yellow: int
+@export_range(0, GameManager.MAX_COLOR_VALUE) var need_red: int
+@export_range(0, GameManager.MAX_COLOR_VALUE) var need_green: int
+@export_range(0, GameManager.MAX_COLOR_VALUE) var need_blue: int
 
-var cyan: int = 0
-var magenta: int = 0
-var yellow: int = 0
+## Used by pause menu to check if game paused because of the menu or if game has ended
+var playing: bool = true
+
+var red: int = 0
+var green: int = 0
+var blue: int = 0
 
 
 ## Do not use global magic strings.
@@ -31,25 +35,21 @@ func player() -> Player:
 
 
 func requirement_check() -> bool:
-	return cyan == need_cyan && magenta == need_magenta && yellow == need_yellow
+	return red == need_red && green == need_green && blue == need_blue
 
 
-func add_colors(c: int, m: int, y: int) -> void:
-	cyan = min(cyan + c, MAX_COLOR_VALUE)
-	magenta = min(magenta + m, MAX_COLOR_VALUE)
-	yellow = min(yellow + y, MAX_COLOR_VALUE)
-	added_colors.emit(cyan, magenta, yellow)
+func add_colors(r: int, g: int, b: int) -> void:
+	red = min(red + r, MAX_COLOR_VALUE)
+	green = min(green + g, MAX_COLOR_VALUE)
+	blue = min(blue + b, MAX_COLOR_VALUE)
+	added_colors.emit(red, green, blue)
 
-	if cyan > need_cyan or magenta > need_magenta or yellow > need_yellow:
+	if red > need_red or green > need_green or blue > need_blue:
 		gameover(false, "Too much color!")
 
 
-func gameover(_has_won: bool, _lost_message: String = "") -> void:
-	(func() -> void:
-		print("Gameover", " win=", _has_won, " msg=", _lost_message)
-		get_tree().paused = true
-		# TODO: remove OS.alert (and code below), and add gameover menu
-		OS.alert("You won!" if _has_won else "You lost! " + _lost_message)
-		get_tree().paused = false
-		get_tree().reload_current_scene()
-	).call_deferred()
+func gameover(has_won: bool, lost_message: String = "") -> void:
+	playing = false
+	print("Gameover", " win=", has_won, " msg=", lost_message)
+	get_tree().paused = true
+	game_was_over.emit(has_won, lost_message)

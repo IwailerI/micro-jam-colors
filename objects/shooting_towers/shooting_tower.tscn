@@ -46,3 +46,6 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ihhhh")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(13, 0.0223793)

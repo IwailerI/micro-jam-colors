@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://hww67fbeqy5u"]
+[gd_scene load_steps=17 format=3 uid="uid://hww67fbeqy5u"]
 
 [ext_resource type="Script" uid="uid://wsxb5yuhwxns" path="res://objects/flamethrower/flamethrower.gd" id="1_rq011"]
+[ext_resource type="Script" path="res://objects/flamethrower/cpu_particles_2d.gd" id="2_reqsw"]
 [ext_resource type="Script" uid="uid://q7w0gxkt2dwi" path="res://objects/flamethrower/damage_area.gd" id="2_vmihf"]
 [ext_resource type="Texture2D" uid="uid://c3fwtfvjs77j0" path="res://assets/flamethrower.png" id="3_reqsw"]
 
@@ -16,8 +17,8 @@ offsets = PackedFloat32Array(0.993333)
 colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq011"]
-radius = 2.0
-height = 38.0
+radius = 8.0
+height = 68.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_reqsw"]
 atlas = ExtResource("3_reqsw")
@@ -86,7 +87,7 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_rq011")
 shooting_time = 5.0
-cooldown_time = 2.5
+cooldown_time = 5.0
 preprocess_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -96,23 +97,24 @@ shape = SubResource("CircleShape2D_7gg7v")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(16, 0)
-emitting = false
-amount = 500
+amount = 1000
+lifetime = 1.5
 lifetime_randomness = 0.25
 emission_shape = 1
-emission_sphere_radius = 5.0
+emission_sphere_radius = 3.0
 gravity = Vector2(100, 0)
-radial_accel_min = -10.0
-radial_accel_max = -5.0
+radial_accel_min = 10.0
+radial_accel_max = 20.0
 color_ramp = SubResource("Gradient_rq011")
 color_initial_ramp = SubResource("Gradient_vmihf")
+script = ExtResource("2_reqsw")
 
 [node name="DamageArea" type="Area2D" parent="."]
 collision_layer = 0
 script = ExtResource("2_vmihf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-position = Vector2(30, 0)
+position = Vector2(47, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rq011")
 

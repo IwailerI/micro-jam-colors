@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://col36bs7erjvk"]
+
+[ext_resource type="Script" uid="uid://bjag0x23fv84x" path="res://scenes/mainmenu/level_item.gd" id="1_r1dbx"]
+
+[node name="LevelItemContainer" type="HBoxContainer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+
+[node name="ItemNumber" type="Label" parent="."]
+layout_mode = 2
+text = "1 "
+
+[node name="ItemButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "level_name
+"
+script = ExtResource("1_r1dbx")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://brnvv24l4ksh5"]
+[gd_scene load_steps=18 format=3 uid="uid://brnvv24l4ksh5"]
 
 [ext_resource type="Script" uid="uid://vmt33ihdvtej" path="res://objects/catapult/explosion.gd" id="1_ngrm2"]
 [ext_resource type="Texture2D" uid="uid://c5y04wxt52ygd" path="res://assets/babah.png" id="2_p2lgp"]
+[ext_resource type="Texture2D" uid="uid://8p5aa0ukawer" path="res://assets/bfg_beam.png" id="3_x2egx"]
 
 [sub_resource type="Animation" id="Animation_p2lgp"]
 length = 0.001
@@ -40,6 +41,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Line2D:width")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
 }
 
 [sub_resource type="Animation" id="Animation_ngrm2"]
@@ -97,6 +122,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Line2D:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.45, 0.5, 0.65, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Line2D:width")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.453804, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 10.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x2egx"]
@@ -176,6 +225,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_o3cx5"]
+offsets = PackedFloat32Array(0, 0.0666667, 0.773333, 0.926667)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Explosion" type="Node2D"]
 script = ExtResource("1_ngrm2")
 collision = 1
@@ -188,3 +241,11 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_rftpn")
+
+[node name="Line2D" type="Line2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+points = PackedVector2Array(-420, 145, -118, 45, 0, 0)
+default_color = Color(0.4, 0.882353, 0.615686, 1)
+gradient = SubResource("Gradient_o3cx5")
+texture = ExtResource("3_x2egx")
+texture_mode = 2

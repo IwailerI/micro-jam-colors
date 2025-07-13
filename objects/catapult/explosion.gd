@@ -6,10 +6,21 @@ extends Node2D
 @export var effect_fadeout: float = 0.3
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var line_2d: Line2D = $Line2D
+
+var source: Vector2
 
 
 func _ready() -> void:
     animation_player.play(&"explode")
+    if source == Vector2.ZERO:
+        line_2d.hide()
+    else:
+        line_2d.points = PackedVector2Array([
+            to_local(source),
+            to_local(source).lerp(Vector2.ZERO, 0.8),
+            Vector2.ZERO,
+        ])
 
 
 func do_explosion() -> void:

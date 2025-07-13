@@ -47,7 +47,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uhkjw")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
 "speed": 15.0
 }]
@@ -66,10 +66,7 @@ texture = ExtResource("2_akbj1")
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n7f8j")
-animation = &"shoot"
 autoplay = "default"
-frame = 2
-frame_progress = 0.186393
 offset = Vector2(3.5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
