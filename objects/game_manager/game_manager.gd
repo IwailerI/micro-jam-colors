@@ -43,9 +43,9 @@ func requirement_check() -> bool:
 
 
 func add_colors(r: int, g: int, b: int) -> void:
-	red = min(red + r, MAX_COLOR_VALUE)
-	green = min(green + g, MAX_COLOR_VALUE)
-	blue = min(blue + b, MAX_COLOR_VALUE)
+	red += r
+	green += g
+	blue += b
 	added_colors.emit(red, green, blue)
 
 	if red > need_red or green > need_green or blue > need_blue:
