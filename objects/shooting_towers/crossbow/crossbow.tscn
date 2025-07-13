@@ -79,6 +79,10 @@ projectile_speed = 600.0
 cooldown = 2.0
 rotating_to_player = true
 
+[node name="Base" parent="." index="1"]
+scale = Vector2(1.5, 1.5)
+
 [node name="Gun" parent="." index="2"]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_3jjmo")
 animation = &"shoot"

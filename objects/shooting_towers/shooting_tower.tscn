@@ -28,7 +28,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihhhh"]
-radius = 9.0
+radius = 13.0384
 
 [node name="ShootingTower" type="StaticBody2D"]
 collision_layer = 2
@@ -38,9 +38,11 @@ script = ExtResource("1_ofe4b")
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="Base" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_caxoc")
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_3y7wo")
 autoplay = "default"
 

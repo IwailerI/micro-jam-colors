@@ -53,7 +53,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3h4q7"]
-radius = 9.0
+radius = 12.0416
 
 [node name="Catapult" type="StaticBody2D"]
 script = ExtResource("1_t8e78")
@@ -62,9 +62,11 @@ wakeup = 1.5
 [node name="Cooldown" type="Timer" parent="."]
 
 [node name="Base" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("2_akbj1")
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_n7f8j")
 autoplay = "default"
 offset = Vector2(3.5, 0)
