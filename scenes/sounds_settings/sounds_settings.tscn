@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bco8edvycsrid"]
+[gd_scene load_steps=3 format=3 uid="uid://bco8edvycsrid"]
+
+[ext_resource type="Script" uid="uid://cd2vjxrurd5o5" path="res://scenes/sounds_settings/sounds_slider.gd" id="1_qclxg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d5f1f"]
 font_size = 24
@@ -22,7 +24,10 @@ text = "GENERAL"
 
 [node name="Global" type="HSlider" parent="."]
 layout_mode = 2
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("1_qclxg")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 2
@@ -30,7 +35,11 @@ text = "MUSIC"
 
 [node name="Music" type="HSlider" parent="."]
 layout_mode = 2
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("1_qclxg")
+bus_id = 1
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 2
@@ -38,4 +47,8 @@ text = "SFX"
 
 [node name="Sfx" type="HSlider" parent="."]
 layout_mode = 2
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("1_qclxg")
+bus_id = 2
