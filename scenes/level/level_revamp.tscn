@@ -667,6 +667,9 @@ position = Vector2(90.1611, 388.786)
 
 [node name="DashingGhost" parent="Hazards" instance=ExtResource("12_d6bxs")]
 position = Vector2(995.241, 459.329)
+speed = 600.0
+rest_accel = 400.0
+offset = 0.0
 
 [node name="Flamethrower" parent="Hazards" instance=ExtResource("12_w5s1c")]
 position = Vector2(262, 330)
