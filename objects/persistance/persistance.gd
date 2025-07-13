@@ -23,7 +23,7 @@ const LEVEL_NAME: Dictionary = {
 
 ## How many levels does the game has.
 ## Starts with 0 till the amount-1
-const LEVEL_AMOUNT: int = 10
+const LEVEL_AMOUNT: int = 11
 
 var completed_amount: int = 0
 var last_loaded_id: int = 0
