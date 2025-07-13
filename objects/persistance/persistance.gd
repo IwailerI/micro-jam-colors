@@ -15,12 +15,12 @@ const LEVEL_NAME: Dictionary = {
 	4: "Double lanes",
 	5: "Chilly situation",
 	6: "Brewing disaster",
-	7: "Ghostly stew",
+	7: "Bashing stew",
 }
 
 ## How many levels does the game has.
 ## Starts with 0 till the amount-1
-const LEVEL_AMOUNT: int = 6
+const LEVEL_AMOUNT: int = 8
 
 var completed_amount: int = 0
 var last_loaded_id: int = 0
