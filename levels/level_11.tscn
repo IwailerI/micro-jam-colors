@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://ofmgoamuk3jq"]
+[gd_scene load_steps=5 format=4 uid="uid://pa5nym1i8gsa"]
 
 [ext_resource type="PackedScene" uid="uid://5l0qm63sb5at" path="res://scenes/level/level_empty.tscn" id="1_kvqw7"]
 [ext_resource type="PackedScene" uid="uid://bman1c5f4u5us" path="res://objects/shooting_towers/canon/canon.tscn" id="2_lqyau"]
