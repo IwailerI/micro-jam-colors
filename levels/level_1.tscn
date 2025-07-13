@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxahyyb8ireht"]
 
-[ext_resource type="PackedScene" uid="uid://cohl7dnn2062i" path="res://scenes/level/level_empty.tscn" id="1_vn7o3"]
+[ext_resource type="PackedScene" uid="uid://5l0qm63sb5at" path="res://scenes/level/level_empty.tscn" id="1_vn7o3"]
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="2_jirdo"]
 [ext_resource type="PackedScene" uid="uid://bman1c5f4u5us" path="res://objects/shooting_towers/canon/canon.tscn" id="3_bt44k"]
 
@@ -29,7 +29,6 @@ yellow = true
 [node name="Canon" parent="Hazards" index="0" instance=ExtResource("3_bt44k")]
 position = Vector2(396, 136)
 rotation = 1.57338
-scale = Vector2(1, 1)
 
 [node name="Canon2" parent="Hazards" index="1" instance=ExtResource("3_bt44k")]
 position = Vector2(751, 126)

@@ -15,11 +15,13 @@ need_magenta = 3
 position = Vector2(261, 328)
 cyan = true
 brewing_time = 5
+spawn_limit = null
 
 [node name="BrewingStand2" parent="Pickups" index="1" instance=ExtResource("4_ilhis")]
 position = Vector2(916, 320)
 magenta = true
 brewing_time = 5
+spawn_limit = null
 
 [node name="Crossbow" parent="Hazards" index="0" instance=ExtResource("2_v5uil")]
 position = Vector2(260, 122)
