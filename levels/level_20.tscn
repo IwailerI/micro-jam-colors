@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://dxhmjaokw7ijd"]
+[gd_scene load_steps=6 format=4 uid="uid://cllhd2ho7ol8a"]
 
 [ext_resource type="PackedScene" uid="uid://5l0qm63sb5at" path="res://scenes/level/level_empty.tscn" id="1_v68h0"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="2_6fhj0"]
@@ -125,25 +125,37 @@ position = Vector2(19, 266)
 rotation = 1.5708
 
 [node name="Canon" parent="Hazards" index="20" instance=ExtResource("4_vkyvx")]
-position = Vector2(1075, 619)
+position = Vector2(1081, 625)
 rotation = -3.14159
 wakeup = 1.0
 cooldown = 3.0
 
 [node name="Canon2" parent="Hazards" index="21" instance=ExtResource("4_vkyvx")]
-position = Vector2(1074, 542)
+position = Vector2(1077, 531)
 rotation = 3.14159
 wakeup = 1.0
 cooldown = 3.0
 
-[node name="Canon3" parent="Hazards" index="22" instance=ExtResource("4_vkyvx")]
-position = Vector2(32, 508)
+[node name="Canon5" parent="Hazards" index="22" instance=ExtResource("4_vkyvx")]
+position = Vector2(1079, 437)
+rotation = 3.14159
+wakeup = 1.0
+cooldown = 3.0
+
+[node name="Canon3" parent="Hazards" index="23" instance=ExtResource("4_vkyvx")]
+position = Vector2(25, 481)
 rotation = 6.28318
 wakeup = 2.5
 cooldown = 3.0
 
-[node name="Canon4" parent="Hazards" index="23" instance=ExtResource("4_vkyvx")]
-position = Vector2(32, 583)
+[node name="Canon6" parent="Hazards" index="24" instance=ExtResource("4_vkyvx")]
+position = Vector2(27, 391)
+rotation = 6.28318
+wakeup = 2.5
+cooldown = 3.0
+
+[node name="Canon4" parent="Hazards" index="25" instance=ExtResource("4_vkyvx")]
+position = Vector2(27, 578)
 rotation = 0.0
 wakeup = 2.5
 cooldown = 3.0
@@ -151,19 +163,19 @@ cooldown = 3.0
 [node name="BrewingStand" parent="Pickups" index="0" instance=ExtResource("5_vkyvx")]
 position = Vector2(541, 511)
 green = true
-brewing_time = 7
+brewing_time = 15
 spawn_limit = 4
 
 [node name="BrewingStand2" parent="Pickups" index="1" instance=ExtResource("5_vkyvx")]
 position = Vector2(151, 442)
 red = true
-brewing_time = 7
+brewing_time = 15
 spawn_limit = 4
 
 [node name="BrewingStand3" parent="Pickups" index="2" instance=ExtResource("5_vkyvx")]
 position = Vector2(944, 434)
 blue = true
-brewing_time = 7
+brewing_time = 15
 spawn_limit = 4
 
 [node name="DeliveryPoint" parent="." index="7"]
