@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5nfk6ysqdde6"]
+[gd_scene load_steps=22 format=4 uid="uid://c5nfk6ysqdde6"]
 
 [ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="3_4qo56"]
 [ext_resource type="PackedScene" uid="uid://d1tm5mhwegffe" path="res://objects/potion_color_display/potion_color_display.tscn" id="3_8vb6f"]
@@ -571,7 +571,6 @@ offset_bottom = 159.0
 visible = false
 
 [node name="GameoverMenu" parent="CanvasLayer" instance=ExtResource("6_j44qt")]
-visible = false
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 position = Vector2(-1, 0)
@@ -666,4 +665,5 @@ position = Vector2(995.241, 459.329)
 position = Vector2(262, 330)
 
 [node name="DeliveryPoint" parent="." instance=ExtResource("11_b0o62")]
+z_index = 0
 position = Vector2(572, 593)

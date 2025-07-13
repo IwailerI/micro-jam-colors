@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdar474e52e6k"]
 
-[ext_resource type="PackedScene" uid="uid://cohl7dnn2062i" path="res://scenes/level/level_empty.tscn" id="1_mi4ay"]
+[ext_resource type="PackedScene" uid="uid://5l0qm63sb5at" path="res://scenes/level/level_empty.tscn" id="1_mi4ay"]
 [ext_resource type="PackedScene" uid="uid://dx1mapm4bc8ne" path="res://objects/shooting_towers/crossbow/crossbow.tscn" id="2_v5uil"]
 [ext_resource type="PackedScene" uid="uid://hww67fbeqy5u" path="res://objects/flamethrower/flamethrower.tscn" id="3_5722l"]
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="4_ilhis"]

@@ -8,6 +8,7 @@ func _ready() -> void:
 	GameManager.get_instance().game_was_over.connect(
 		func(has_won: bool, lost_message: String) -> void:
 			visible = next_id < Persistance.LEVEL_AMOUNT && has_won
+			grab_focus()
 	)
 
 
