@@ -44,8 +44,12 @@ func add_colors(r: int, g: int, b: int) -> void:
 	blue = min(blue + b, MAX_COLOR_VALUE)
 	added_colors.emit(red, green, blue)
 
-	if red > need_red or green > need_green or blue > need_blue:
-		gameover(false, "Too much color!")
+	if red > need_red:
+		gameover(false, "Too much RED color!")
+	if green > need_green:
+		gameover(false, "Too much GREEN color!")
+	if blue > need_blue:
+		gameover(false, "Too much BLUE color!")
 
 
 func gameover(has_won: bool, lost_message: String = "") -> void:
