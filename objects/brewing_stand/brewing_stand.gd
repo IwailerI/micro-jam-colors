@@ -5,17 +5,17 @@ const POTION := preload("res://objects/potion/potion.tscn")
 const PALETTE := preload("res://objects/palette/default.tres")
 
 @export_group("Color values")
-@export var cyan: bool:
+@export var red: bool:
 	set(v):
-		cyan = v
+		red = v
 		_update_colors()
-@export var magenta: bool:
+@export var green: bool:
 	set(v):
-		magenta = v
+		green = v
 		_update_colors()
-@export var yellow: bool:
+@export var blue: bool:
 	set(v):
-		yellow = v
+		blue = v
 		_update_colors()
 
 @export_group("Brewing values")
@@ -31,15 +31,15 @@ var potions_spawned := 0
 
 func _ready() -> void:
 	_update_colors()
-	
+
 	if not Engine.is_editor_hint():
-		assert(cyan or magenta or yellow, "colorless potion spawner")
+		assert(red or green or blue, "colorless potion spawner")
 
 		respawn_timer = $RespawnTimer
 		respawn_timer.timeout.connect(_finish_brewing)
 
 		_start_brewing()
-		
+
 
 func _start_brewing() -> void:
 	if not respawn_timer.is_inside_tree():
@@ -58,9 +58,9 @@ func _finish_brewing() -> void:
 	potions_spawned += 1
 	respawn_progressbar.visible = false
 	var potion_node := POTION.instantiate()
-	potion_node.cyan = cyan
-	potion_node.magenta = magenta
-	potion_node.yellow = yellow
+	potion_node.red = red
+	potion_node.green = green
+	potion_node.blue = blue
 
 	if potions_spawned == spawn_limit:
 		$Polygon2D.hide()
@@ -72,7 +72,7 @@ func _finish_brewing() -> void:
 
 
 func _update_colors() -> void:
-	var c := PALETTE.lookup(cyan, magenta, yellow)
+	var c := PALETTE.lookup(red, green, blue)
 	var poly := ($Polygon2D as Polygon2D)
 	c.a = poly.color.a
 	poly.color = c

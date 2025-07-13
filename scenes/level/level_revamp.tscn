@@ -556,9 +556,9 @@ sources/0 = SubResource("TileSetAtlasSource_3dtxm")
 [node name="Level" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("3_4qo56")]
-need_cyan = 1
-need_magenta = 2
-need_yellow = 1
+need_red = 2
+need_green = 2
+need_blue = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -622,20 +622,22 @@ rotation = 3.11704
 
 [node name="Potion" parent="Pickups" instance=ExtResource("5_d6bxs")]
 position = Vector2(291, 332)
-cyan = true
+red = true
+green = true
+blue = true
 
 [node name="Potion2" parent="Pickups" instance=ExtResource("5_d6bxs")]
 position = Vector2(290, 171)
-magenta = true
+green = true
 
 [node name="Potion3" parent="Pickups" instance=ExtResource("5_d6bxs")]
 position = Vector2(806, 74)
-cyan = true
-magenta = true
+red = true
+blue = true
 
 [node name="BrewingStand" parent="Pickups" instance=ExtResource("6_8vb6f")]
 position = Vector2(207, 249)
-yellow = true
+blue = true
 spawn_limit = 2
 
 [node name="Hazards" type="Node2D" parent="."]

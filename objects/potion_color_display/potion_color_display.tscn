@@ -20,9 +20,9 @@ script = ExtResource("1_685k8")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ProgressC" type="ProgressBar" parent="HBoxContainer"]
+[node name="ProgressR" type="ProgressBar" parent="HBoxContainer"]
 unique_name_in_owner = true
-self_modulate = Color(0, 1, 1, 1)
+self_modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -31,7 +31,7 @@ value = 1.0
 fill_mode = 3
 show_percentage = false
 
-[node name="TargetC" type="Panel" parent="HBoxContainer/ProgressC"]
+[node name="TargetR" type="Panel" parent="HBoxContainer/ProgressR"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 1
@@ -42,9 +42,9 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_up8tn")
 
-[node name="ProgressM" type="ProgressBar" parent="HBoxContainer"]
+[node name="ProgressG" type="ProgressBar" parent="HBoxContainer"]
 unique_name_in_owner = true
-self_modulate = Color(1, 0, 1, 1)
+self_modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -52,7 +52,7 @@ max_value = 1.0
 fill_mode = 3
 show_percentage = false
 
-[node name="TargetM" type="Panel" parent="HBoxContainer/ProgressM"]
+[node name="TargetG" type="Panel" parent="HBoxContainer/ProgressG"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 1
@@ -63,9 +63,9 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_up8tn")
 
-[node name="ProgressY" type="ProgressBar" parent="HBoxContainer"]
+[node name="ProgressB" type="ProgressBar" parent="HBoxContainer"]
 unique_name_in_owner = true
-self_modulate = Color(1, 1, 0, 1)
+self_modulate = Color(0, 0, 1, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -73,7 +73,7 @@ max_value = 1.0
 fill_mode = 3
 show_percentage = false
 
-[node name="TargetY" type="Panel" parent="HBoxContainer/ProgressY"]
+[node name="TargetB" type="Panel" parent="HBoxContainer/ProgressB"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 1
