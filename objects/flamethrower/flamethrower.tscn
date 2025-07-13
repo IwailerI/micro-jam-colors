@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hww67fbeqy5u"]
+[gd_scene load_steps=9 format=3 uid="uid://hww67fbeqy5u"]
 
 [ext_resource type="Script" uid="uid://wsxb5yuhwxns" path="res://objects/flamethrower/flamethrower.gd" id="1_rq011"]
 [ext_resource type="Script" uid="uid://0cl1e1gnuupd" path="res://objects/flamethrower/cpu_particles_2d.gd" id="2_reqsw"]
@@ -25,7 +25,7 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_rq011")
 shooting_time = 5.0
-cooldown_time = 2.5
+cooldown_time = 5.0
 preprocess_time = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
