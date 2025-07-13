@@ -21,9 +21,12 @@ const PALETTE := preload("res://objects/palette/default.tres")
 @export_group("Brewing values")
 @export_range(1, 60) var brewing_time: int
 
+@export var spawn_limit: int = 0
+
 @onready var respawn_progressbar: TextureProgressBar = $RespawnProgressBar
 
 var respawn_timer: Timer
+var potions_spawned := 0
 
 
 func _ready() -> void:
@@ -52,12 +55,19 @@ func _process(_delta: float) -> void:
 
 
 func _finish_brewing() -> void:
+	potions_spawned += 1
 	respawn_progressbar.visible = false
 	var potion_node := POTION.instantiate()
 	potion_node.cyan = cyan
 	potion_node.magenta = magenta
 	potion_node.yellow = yellow
-	potion_node.tree_exited.connect(_start_brewing)
+
+	if potions_spawned == spawn_limit:
+		$Polygon2D.hide()
+
+	if spawn_limit > 0 and potions_spawned < spawn_limit:
+		potion_node.tree_exited.connect(_start_brewing)
+
 	add_child(potion_node)
 
 
