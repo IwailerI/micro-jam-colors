@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 signal died()
 
+const RAMPING_TIME: float = 0.6
+
 @export var death_accel := 300.0
 @export var rotation_speed: float = PI
 @export var base_speed: float = 150.0
@@ -12,7 +14,6 @@ signal died()
 @export var passive_acceleration: float = -25.0 # deceleration when not pressing throttle
 
 @export_category("Ramping")
-@export var ramping_time: float = 1.0
 @export var ramping_speed: float = 500.0
 @export_flags_2d_physics var ramping_collision: int = 1
 
@@ -64,7 +65,7 @@ func _alive_movement(delta: float) -> void:
 
 	direction = rotate_toward(direction, wanted_angle, rotation_speed * delta)
 
-	sprite.rotation = direction + PI * 0.5
+	sprite.global_rotation = direction + PI * 0.5
 
 	var left := speed * delta
 
@@ -89,7 +90,7 @@ func _alive_movement(delta: float) -> void:
 
 
 func _ramping_movement(delta: float) -> void:
-	sprite.rotation = direction + PI * 0.5
+	sprite.global_rotation = direction + PI * 0.5
 
 	var left := ramping_speed * delta
 
@@ -135,7 +136,7 @@ func _dead_movement(delta: float) -> void:
 		rem = col.get_remainder().bounce(normal)
 		velocity = velocity.bounce(normal)
 
-	sprite.rotation = dead_rotation
+	sprite.global_rotation = dead_rotation
 
 
 func die(vel := Vector2.ZERO) -> void:
@@ -168,7 +169,6 @@ func do_ramp() -> void:
 
 	set_deferred("collision_mask", ramping_collision)
 	var t := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).chain()
-	t.tween_property(sprite, "scale", Vector2.ONE * 1.5, 0.5)
-	t.tween_interval(ramping_time - 1.0)
-	t.tween_property(sprite, "scale", Vector2.ONE, 0.5)
+	t.tween_property(sprite, "scale", Vector2.ONE * 1.5, 0.3)
+	t.tween_property(sprite, "scale", Vector2.ONE, 0.3)
 	t.tween_callback(set.bind("ramping_done", true))
