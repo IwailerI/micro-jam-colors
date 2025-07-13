@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="3_0k6b4"]
 [ext_resource type="PackedScene" uid="uid://bsi7svopihfx7" path="res://objects/ghost/ghost.tscn" id="4_vveym"]
 
-[node name="Level" instance=ExtResource("1_41ixw")]
+[node name="Level3" instance=ExtResource("1_41ixw")]
 
 [node name="GameManager" parent="." index="0"]
 need_green = 1

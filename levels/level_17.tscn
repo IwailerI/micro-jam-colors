@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hww67fbeqy5u" path="res://objects/flamethrower/flamethrower.tscn" id="4_e1vc6"]
 [ext_resource type="PackedScene" uid="uid://ktlik37x6m5v" path="res://objects/dashing_ghost/dashing_ghost.tscn" id="5_cuy2k"]
 
-[node name="Level" instance=ExtResource("1_t43a2")]
+[node name="Level3" instance=ExtResource("1_t43a2")]
 
 [node name="GameManager" parent="." index="0"]
 need_red = 3

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dx1mapm4bc8ne" path="res://objects/shooting_towers/crossbow/crossbow.tscn" id="6_lxhgl"]
 [ext_resource type="PackedScene" uid="uid://bman1c5f4u5us" path="res://objects/shooting_towers/canon/canon.tscn" id="7_4tr0b"]
 
-[node name="Level" instance=ExtResource("1_2ykeg")]
+[node name="Level3" instance=ExtResource("1_2ykeg")]
 
 [node name="GameManager" parent="." index="0"]
 need_red = 2
