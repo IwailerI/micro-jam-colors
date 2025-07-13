@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Persistance="*res://objects/persistance/persistance.gd"
+GlobalMusic="*res://objects/music/global_music.gd"
 
 [display]
 
@@ -47,6 +48,7 @@ folder_colors={
 GameManager=""
 Hazard=""
 Player=""
+Music=""
 
 [input]
 

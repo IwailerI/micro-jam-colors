@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://caanctxo185sy"
-path="res://.godot/imported/ost_with_begin_pause.wav-e77bd643be25a9ec8c47608714314608.sample"
+path="res://.godot/imported/ost_with_begin_pause.wav-4788398a83a47df8321af968a7737cbf.sample"
 
 [deps]
 
-source_file="res://ost/ost_with_begin_pause.wav"
-dest_files=["res://.godot/imported/ost_with_begin_pause.wav-e77bd643be25a9ec8c47608714314608.sample"]
+source_file="res://sounds/ost/ost_with_begin_pause.wav"
+dest_files=["res://.godot/imported/ost_with_begin_pause.wav-4788398a83a47df8321af968a7737cbf.sample"]
 
 [params]
 
