@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cohl7dnn2062i"]
+[gd_scene load_steps=10 format=3 uid="uid://cohl7dnn2062i"]
 
 [ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="1_ivku7"]
 [ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="2_ss4b2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1tm5mhwegffe" path="res://objects/potion_color_display/potion_color_display.tscn" id="4_0fkkc"]
 [ext_resource type="PackedScene" uid="uid://qra28xh6dyh1" path="res://scenes/pause_menu/pause_menu.tscn" id="5_wyi7n"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="6_3rml5"]
+[ext_resource type="PackedScene" uid="uid://6ecclfxooqe2" path="res://scenes/gameover_menu/gameover_menu.tscn" id="6_qlge3"]
 [ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="17_mf35j"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_asqhp"]
@@ -32,6 +33,8 @@ offset_bottom = 159.0
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_wyi7n")]
 visible = false
+
+[node name="GameoverMenu" parent="CanvasLayer" instance=ExtResource("6_qlge3")]
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 position = Vector2(-1, 0)

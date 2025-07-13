@@ -26,3 +26,4 @@ texture_progress = ExtResource("3_16s6d")
 tint_under = Color(0, 0, 0, 1)
 
 [node name="RespawnTimer" type="Timer" parent="."]
+one_shot = true

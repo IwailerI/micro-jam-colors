@@ -53,7 +53,7 @@ func get_furthest_id() -> int:
 func load_level(id: int) -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file(LEVEL_PATH % id)
-
+	last_loaded_id = id
 
 ## Saves that last loaded level was completed.
 func complete_last_loaded() -> void:
