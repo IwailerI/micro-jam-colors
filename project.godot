@@ -36,6 +36,7 @@ folder_colors={
 "res://objects/flamethrower/": "orange",
 "res://objects/ghost/": "gray",
 "res://objects/potion/": "green",
+"res://objects/ramp/": "pink",
 "res://objects/shooting_towers/": "orange",
 "res://scenes/": "purple",
 "res://sounds/": "green"

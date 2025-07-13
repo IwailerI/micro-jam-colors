@@ -26,6 +26,7 @@ const LEVEL_NAME: Dictionary = {
 	15: "Two Mother Gun",
 	16: "III triple lanes",
 	17: "TOC-2 - theory of colors",
+	18: "Attack on Ghosts",
 }
 
 ## How many levels does the game has.
