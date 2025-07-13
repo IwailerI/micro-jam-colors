@@ -31,6 +31,33 @@ position = Vector2(286, 175)
 [node name="Ramp2" parent="Tileset" index="4" instance=ExtResource("2_hyj07")]
 position = Vector2(1010, 473)
 
+[node name="Canon" parent="Hazards" index="0" instance=ExtResource("4_uo28x")]
+position = Vector2(1120, 268)
+rotation = -3.14159
+wakeup = 0.0
+cooldown = 1.5
+
+[node name="Canon2" parent="Hazards" index="1" instance=ExtResource("4_uo28x")]
+position = Vector2(1122, 314)
+rotation = -3.14159
+wakeup = 0.0
+cooldown = 1.5
+
+[node name="Canon3" parent="Hazards" index="2" instance=ExtResource("4_uo28x")]
+position = Vector2(1122, 364)
+rotation = -3.14159
+wakeup = 0.0
+cooldown = 1.5
+
+[node name="Flamethrower" parent="Hazards" index="3" instance=ExtResource("5_8j7gf")]
+position = Vector2(786, 636)
+rotation = -2.03331
+
+[node name="Catapult" parent="Hazards" index="4" instance=ExtResource("7_syfuq")]
+position = Vector2(67, 48)
+wakeup = 6.0
+cooldown = 6.0
+
 [node name="BrewingStand" parent="Pickups" index="0" instance=ExtResource("8_syfuq")]
 position = Vector2(659, 35)
 red = true
@@ -80,33 +107,6 @@ cooldown = 3.0
 position = Vector2(29, 430)
 wakeup = 3.0
 cooldown = 3.0
-
-[node name="Canon" parent="Hazards" index="0" instance=ExtResource("4_uo28x")]
-position = Vector2(1120, 268)
-rotation = -3.14159
-wakeup = 0.0
-cooldown = 1.5
-
-[node name="Canon2" parent="Hazards" index="1" instance=ExtResource("4_uo28x")]
-position = Vector2(1122, 314)
-rotation = -3.14159
-wakeup = 0.0
-cooldown = 1.5
-
-[node name="Canon3" parent="Hazards" index="2" instance=ExtResource("4_uo28x")]
-position = Vector2(1122, 364)
-rotation = -3.14159
-wakeup = 0.0
-cooldown = 1.5
-
-[node name="Flamethrower" parent="Hazards" index="3" instance=ExtResource("5_8j7gf")]
-position = Vector2(786, 636)
-rotation = -2.03331
-
-[node name="Catapult" parent="Hazards" index="4" instance=ExtResource("7_syfuq")]
-position = Vector2(67, 48)
-wakeup = 6.0
-cooldown = 6.0
 
 [node name="DeliveryPoint" parent="." index="7"]
 position = Vector2(1010, 34)

@@ -49,27 +49,6 @@ rotation = -1.5708
 position = Vector2(444, 320)
 rotation = 4.71239
 
-[node name="Potion" parent="Pickups" index="0" instance=ExtResource("3_fi01u")]
-position = Vector2(289, 97)
-green = true
-
-[node name="Potion3" parent="Pickups" index="1" instance=ExtResource("3_fi01u")]
-position = Vector2(721, 139)
-green = true
-
-[node name="BrewingStand" parent="Pickups" index="2" instance=ExtResource("4_ur0a4")]
-position = Vector2(1116, 497)
-red = true
-blue = true
-brewing_time = 5
-spawn_limit = 2
-
-[node name="BrewingStand2" parent="Pickups" index="3" instance=ExtResource("4_ur0a4")]
-position = Vector2(130, 557)
-blue = true
-brewing_time = 5
-spawn_limit = 2
-
 [node name="Catapult" parent="Hazards" index="0" instance=ExtResource("5_ur0a4")]
 position = Vector2(755, 308)
 wakeup = 0.0
@@ -104,6 +83,27 @@ rotation = 2.87979
 [node name="Canon4" parent="Hazards" index="8" instance=ExtResource("7_4tr0b")]
 position = Vector2(569, 88)
 rotation = 2.87979
+
+[node name="Potion" parent="Pickups" index="0" instance=ExtResource("3_fi01u")]
+position = Vector2(289, 97)
+green = true
+
+[node name="Potion3" parent="Pickups" index="1" instance=ExtResource("3_fi01u")]
+position = Vector2(721, 139)
+green = true
+
+[node name="BrewingStand" parent="Pickups" index="2" instance=ExtResource("4_ur0a4")]
+position = Vector2(1116, 497)
+red = true
+blue = true
+brewing_time = 5
+spawn_limit = 2
+
+[node name="BrewingStand2" parent="Pickups" index="3" instance=ExtResource("4_ur0a4")]
+position = Vector2(130, 557)
+blue = true
+brewing_time = 5
+spawn_limit = 2
 
 [node name="DeliveryPoint" parent="." index="7"]
 position = Vector2(567, 310)

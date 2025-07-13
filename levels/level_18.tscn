@@ -33,20 +33,6 @@ rotation = -3.14159
 position = Vector2(429, 283)
 rotation = 1.5708
 
-[node name="BrewingStand" parent="Pickups" index="0" instance=ExtResource("4_4xto2")]
-position = Vector2(955, 68)
-red = true
-brewing_time = 5
-
-[node name="BrewingStand2" parent="Pickups" index="1" instance=ExtResource("4_4xto2")]
-position = Vector2(605, 54)
-green = true
-
-[node name="BrewingStand3" parent="Pickups" index="2" instance=ExtResource("4_4xto2")]
-position = Vector2(136, 281)
-blue = true
-brewing_time = 15
-
 [node name="Ghost" parent="Hazards" index="0" instance=ExtResource("2_5q5d7")]
 position = Vector2(49, 488)
 speed = 175.0
@@ -74,6 +60,20 @@ speed = 75.0
 [node name="Ghost8" parent="Hazards" index="6" instance=ExtResource("2_5q5d7")]
 position = Vector2(626, 587)
 speed = 75.0
+
+[node name="BrewingStand" parent="Pickups" index="0" instance=ExtResource("4_4xto2")]
+position = Vector2(955, 68)
+red = true
+brewing_time = 5
+
+[node name="BrewingStand2" parent="Pickups" index="1" instance=ExtResource("4_4xto2")]
+position = Vector2(605, 54)
+green = true
+
+[node name="BrewingStand3" parent="Pickups" index="2" instance=ExtResource("4_4xto2")]
+position = Vector2(136, 281)
+blue = true
+brewing_time = 15
 
 [node name="DeliveryPoint" parent="." index="7"]
 position = Vector2(49, 563)
