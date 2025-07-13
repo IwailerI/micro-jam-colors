@@ -8,21 +8,26 @@ const LEVEL_PATH: String = "res://levels/level_%d.tscn"
 
 ## id: name
 const LEVEL_NAME: Dictionary = {
-	0: "test_name",
-	1: "test_name",
-	2: "test_name",
+	0: "Tutorial",
+	1: "City center",
+	2: "Home invasion",
+	3: "Open crossroad",
+	4: "Double lanes",
+	5: "Chilly situation",
+	6: "Brewing disaster",
+	7: "Ghostly stew",
 }
 
 ## How many levels does the game has.
 ## Starts with 0 till the amount-1
-const LEVEL_AMOUNT: int = 3
+const LEVEL_AMOUNT: int = 6
 
 var completed_amount: int = 0
 var last_loaded_id: int = 0
 
 
 func _ready() -> void:
-	if OS.is_debug_build(): 
+	if OS.is_debug_build():
 		completed_amount = LEVEL_AMOUNT
 		_serialize()
 	_deserialize()
@@ -47,7 +52,7 @@ func _deserialize() -> void:
 
 ## Returns the furthest available level id.
 func get_furthest_id() -> int:
-	return clamp(completed_amount, 0, LEVEL_AMOUNT-1)
+	return clamp(completed_amount, 0, LEVEL_AMOUNT - 1)
 
 
 func load_level(id: int) -> void:
