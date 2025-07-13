@@ -13,6 +13,8 @@ extends PanelContainer
 @onready var target_g: Panel = %TargetG
 @onready var target_b: Panel = %TargetB
 
+@onready var potion: TextureRect = %Potion
+@onready var paper: TextureRect = %Paper
 
 func _ready() -> void:
 	var gm := GameManager.get_instance()
@@ -47,6 +49,11 @@ func set_state(want: Vector3i, have: Vector3i, dur := NAN) -> void:
 	t.tween_property(target_r, "self_modulate", _get_target_col(have.x, want.x), dur)
 	t.tween_property(target_g, "self_modulate", _get_target_col(have.y, want.y), dur)
 	t.tween_property(target_b, "self_modulate", _get_target_col(have.z, want.z), dur)
+
+	var col_have := Color(have.x / 4.0, have.y / 4.0, have.z / 4.0)
+	var col_want := Color(want.x / 4.0, want.y / 4.0, want.z / 4.0)
+	t.tween_property(potion, "modulate", col_have, dur)
+	t.tween_property(paper, "modulate", col_want, dur)
 
 
 func _get_target_col(have: int, want: int) -> Color:
