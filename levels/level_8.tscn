@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bsi7svopihfx7" path="res://objects/ghost/ghost.tscn" id="3_y1kxu"]
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="4_rmft0"]
 
-[node name="Level2" instance=ExtResource("1_y1kxu")]
+[node name="Level3" instance=ExtResource("1_y1kxu")]
 
 [node name="GameManager" parent="." index="0"]
 need_red = 3
@@ -19,6 +19,28 @@ tile_map_data = PackedByteArray("AAAyABoAAAAFAAEAAAAyABsAAAAFAAEAAAAvAB0AAAAFAAE
 
 [node name="Walls" parent="Tileset" index="1"]
 tile_map_data = PackedByteArray("AAAgABEAAAACAAUAAAAgABAAAAACAAQAAAAgAA8AAAACAAQAAAAgAA4AAAACAAQAAAAgAA0AAAACAAQAAAAgAAwAAAACAAQAAAAfABEAAAABAAUAAAAfABAAAAABAAQAAAAfAA8AAAABAAQAAAAfAA4AAAABAAQAAAAfAA0AAAABAAQAAAAfAAwAAAABAAQAAAAeABEAAAAAAAUAAAAeABAAAAAAAAQAAAAeAA8AAAAAAAQAAAAeAA4AAAAAAAQAAAAeAA0AAAAAAAQAAAAeAAwAAAAAAAQAAAAgAAsAAAACAAQAAAAgAAoAAAACAAQAAAAgAAkAAAACAAQAAAAgAAgAAAACAAQAAAAgAAcAAAACAAQAAAAgAAYAAAACAAQAAAAgAAUAAAACAAQAAAAgAAQAAAACAAQAAAAgAAMAAAACAAQAAAAgAAIAAAACAAQAAAAgAAEAAAACAAQAAAAgAAAAAAACAAQAAAAgAP//AAACAAMAAAAfAAsAAAABAAQAAAAfAAoAAAABAAQAAAAfAAkAAAABAAQAAAAfAAgAAAABAAQAAAAfAAcAAAACAAYAAAAfAAYAAAABAAQAAAAfAAUAAAABAAQAAAAfAAQAAAABAAQAAAAfAAMAAAABAAQAAAAfAAIAAAABAAQAAAAfAAEAAAAAAAYAAAAfAAAAAAABAAQAAAAfAP//AAABAAMAAAAeAAsAAAAAAAQAAAAeAAoAAAAAAAQAAAAeAAkAAAAAAAQAAAAeAAgAAAAAAAQAAAAeAAcAAAAAAAQAAAAeAAYAAAAAAAQAAAAeAAUAAAAAAAQAAAAeAAQAAAAAAAQAAAAeAAMAAAAAAAQAAAAeAAIAAAAAAAQAAAAeAAEAAAAAAAQAAAAeAAAAAAAAAAQAAAAeAP//AAAAAAMAAAAgACgAAAACAAUAAAAgACcAAAACAAQAAAAgACYAAAACAAQAAAAgACUAAAACAAQAAAAgACQAAAACAAQAAAAgACMAAAACAAQAAAAgACIAAAACAAQAAAAgACEAAAACAAQAAAAgACAAAAACAAQAAAAgAB8AAAACAAQAAAAgAB4AAAACAAQAAAAgAB0AAAACAAQAAAAgABwAAAACAAQAAAAgABsAAAACAAQAAAAgABoAAAACAAQAAAAgABkAAAACAAMAAAAfACgAAAABAAUAAAAfACcAAAABAAQAAAAfACYAAAABAAQAAAAfACUAAAABAAQAAAAfACQAAAABAAQAAAAfACMAAAABAAQAAAAfACIAAAABAAYAAAAfACEAAAABAAQAAAAfACAAAAABAAQAAAAfAB8AAAABAAYAAAAfAB4AAAABAAQAAAAfAB0AAAABAAQAAAAfABwAAAABAAQAAAAfABsAAAABAAQAAAAfABoAAAABAAQAAAAfABkAAAABAAMAAAAeACgAAAAAAAUAAAAeACcAAAAAAAQAAAAeACYAAAAAAAQAAAAeACUAAAAAAAQAAAAeACQAAAAAAAQAAAAeACMAAAAAAAQAAAAeACIAAAAAAAQAAAAeACEAAAAAAAQAAAAeACAAAAAAAAQAAAAeAB8AAAAAAAQAAAAeAB4AAAAAAAQAAAAeAB0AAAAAAAQAAAAeABwAAAAAAAQAAAAeABsAAAAAAAQAAAAeABoAAAAAAAQAAAAeABkAAAAAAAMAAAA=")
+
+[node name="Flamethrower" parent="Hazards" index="0" instance=ExtResource("2_rmft0")]
+position = Vector2(504, 307)
+rotation = 1.5708
+shooting_time = 3.0
+cooldown_time = 3.0
+
+[node name="Ghost" parent="Hazards" index="1" instance=ExtResource("3_y1kxu")]
+position = Vector2(439, 275)
+speed = 75.0
+
+[node name="Ghost2" parent="Hazards" index="2" instance=ExtResource("3_y1kxu")]
+position = Vector2(566, 276)
+speed = 75.0
+
+[node name="Ghost3" parent="Hazards" index="3" instance=ExtResource("3_y1kxu")]
+position = Vector2(566, 397)
+speed = 75.0
+
+[node name="Ghost4" parent="Hazards" index="4" instance=ExtResource("3_y1kxu")]
+position = Vector2(440, 392)
+speed = 75.0
 
 [node name="BrewingStand" parent="Pickups" index="0" instance=ExtResource("4_rmft0")]
 position = Vector2(213, 128)
@@ -39,24 +61,6 @@ spawn_limit = 2
 position = Vector2(229, 578)
 blue = true
 spawn_limit = 2
-
-[node name="Flamethrower" parent="Hazards" index="0" instance=ExtResource("2_rmft0")]
-position = Vector2(504, 307)
-rotation = 1.5708
-shooting_time = 3.0
-cooldown_time = 3.0
-
-[node name="Ghost" parent="Hazards" index="1" instance=ExtResource("3_y1kxu")]
-position = Vector2(439, 275)
-
-[node name="Ghost2" parent="Hazards" index="2" instance=ExtResource("3_y1kxu")]
-position = Vector2(566, 276)
-
-[node name="Ghost3" parent="Hazards" index="3" instance=ExtResource("3_y1kxu")]
-position = Vector2(566, 397)
-
-[node name="Ghost4" parent="Hazards" index="4" instance=ExtResource("3_y1kxu")]
-position = Vector2(440, 392)
 
 [node name="DeliveryPoint" parent="." index="7"]
 position = Vector2(1091, 331)

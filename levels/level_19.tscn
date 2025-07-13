@@ -59,29 +59,29 @@ wakeup = 6.0
 cooldown = 6.0
 
 [node name="BrewingStand" parent="Pickups" index="0" instance=ExtResource("8_syfuq")]
-position = Vector2(659, 35)
+position = Vector2(671, 77)
 red = true
 brewing_time = 20
 
 [node name="BrewingStand2" parent="Pickups" index="1" instance=ExtResource("8_syfuq")]
-position = Vector2(386, 31)
+position = Vector2(397, 83)
 red = true
 green = true
 brewing_time = 20
 
 [node name="BrewingStand6" parent="Pickups" index="2" instance=ExtResource("8_syfuq")]
-position = Vector2(517, 31)
+position = Vector2(534, 81)
 green = true
 brewing_time = 20
 
 [node name="BrewingStand3" parent="Pickups" index="3" instance=ExtResource("8_syfuq")]
-position = Vector2(531, 614)
+position = Vector2(525, 609)
 green = true
 blue = true
 brewing_time = 20
 
 [node name="BrewingStand4" parent="Pickups" index="4" instance=ExtResource("8_syfuq")]
-position = Vector2(671, 614)
+position = Vector2(669, 611)
 blue = true
 brewing_time = 20
 
