@@ -616,7 +616,7 @@ position = Vector2(570, 469)
 
 [node name="Ramp2" parent="Tileset" instance=ExtResource("10_gmqnj")]
 position = Vector2(571, 136)
-rotation = 3.11704
+rotation = 3.14159
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -656,6 +656,8 @@ rotation = 2.85458
 
 [node name="Catapult" parent="Hazards" instance=ExtResource("8_3dtxm")]
 position = Vector2(1005, 261)
+cooldown = 0.2
+preempt_player = false
 
 [node name="Crossbow" parent="Hazards" instance=ExtResource("9_j44qt")]
 position = Vector2(861, 258)

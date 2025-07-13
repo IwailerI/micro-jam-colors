@@ -6,35 +6,35 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsvto"]
 atlas = ExtResource("3_bsvto")
-region = Rect2(0, 0, 25, 25)
+region = Rect2(0, 0, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3jjmo"]
 atlas = ExtResource("3_bsvto")
-region = Rect2(0, 0, 25, 25)
+region = Rect2(0, 0, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0l0c1"]
 atlas = ExtResource("3_bsvto")
-region = Rect2(0, 25, 25, 25)
+region = Rect2(0, 38, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1fdq"]
 atlas = ExtResource("3_bsvto")
-region = Rect2(0, 50, 25, 25)
+region = Rect2(0, 76, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l5xsi"]
 atlas = ExtResource("3_bsvto")
-region = Rect2(0, 75, 25, 25)
+region = Rect2(0, 114, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0upl7"]
 atlas = ExtResource("3_bsvto")
-region = Rect2(0, 100, 25, 25)
+region = Rect2(0, 152, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h0he4"]
 atlas = ExtResource("3_bsvto")
-region = Rect2(0, 125, 25, 25)
+region = Rect2(0, 190, 38, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylnwt"]
 atlas = ExtResource("3_bsvto")
-region = Rect2(0, 150, 25, 25)
+region = Rect2(0, 228, 38, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3jjmo"]
 animations = [{
