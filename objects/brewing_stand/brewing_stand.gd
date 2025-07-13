@@ -63,7 +63,7 @@ func _finish_brewing() -> void:
 	potion_node.blue = blue
 
 	if potions_spawned == spawn_limit:
-		$Polygon2D.hide()
+		$Mat.hide()
 
 	if spawn_limit <= 0 or potions_spawned < spawn_limit:
 		potion_node.tree_exited.connect(_start_brewing)
