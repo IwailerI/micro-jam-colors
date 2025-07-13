@@ -35,7 +35,6 @@ func _start_brewing() -> void:
 		await respawn_timer.tree_entered
 	respawn_timer.start(brewing_time)
 	respawn_progressbar.visible = true
-	print(respawn_timer)
 
 
 func _process(_delta: float) -> void:
