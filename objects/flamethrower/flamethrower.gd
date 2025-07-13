@@ -9,6 +9,7 @@ extends StaticBody2D
 @onready var timer: Timer = $Timer
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var damaging_area: Area2D = $DamageArea
+@onready var sprite: AnimatedSprite2D = $Sprite
 
 var shooting: bool = true
 
@@ -20,7 +21,15 @@ func _ready() -> void:
 
 
 func _toggle() -> void:
-	shooting = !shooting
+	shooting = not shooting
+
+	if shooting:
+		sprite.play("fire")
+		sprite.speed_scale = 1.0 / shooting_time
+	else:
+		sprite.play_backwards("fire")
+		sprite.speed_scale = 1.0 / cooldown_time
+
 	timer.start(shooting_time if shooting else cooldown_time)
 	particles.emitting = shooting
 	damaging_area.monitoring = shooting

@@ -1,10 +1,84 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx1mapm4bc8ne"]
+[gd_scene load_steps=13 format=3 uid="uid://dx1mapm4bc8ne"]
 
 [ext_resource type="PackedScene" uid="uid://ce5ltmvfrc74j" path="res://objects/shooting_towers/shooting_tower.tscn" id="1_7twyi"]
 [ext_resource type="PackedScene" uid="uid://ij77fx7jvsgq" path="res://objects/shooting_towers/crossbow/crossbow_bolt.tscn" id="2_84fr2"]
+[ext_resource type="Texture2D" uid="uid://dh0bow47tb1ma" path="res://assets/crossbow.png" id="3_bsvto"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsvto"]
+atlas = ExtResource("3_bsvto")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jjmo"]
+atlas = ExtResource("3_bsvto")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l0c1"]
+atlas = ExtResource("3_bsvto")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1fdq"]
+atlas = ExtResource("3_bsvto")
+region = Rect2(0, 50, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5xsi"]
+atlas = ExtResource("3_bsvto")
+region = Rect2(0, 75, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0upl7"]
+atlas = ExtResource("3_bsvto")
+region = Rect2(0, 100, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0he4"]
+atlas = ExtResource("3_bsvto")
+region = Rect2(0, 125, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylnwt"]
+atlas = ExtResource("3_bsvto")
+region = Rect2(0, 150, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jjmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsvto")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jjmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l0c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1fdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5xsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0upl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0he4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylnwt")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 15.0
+}]
 
 [node name="Crossbow" instance=ExtResource("1_7twyi")]
 projectile_prefab = ExtResource("2_84fr2")
 projectile_speed = 600.0
 cooldown = 2.0
 rotating_to_player = true
+
+[node name="Gun" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_3jjmo")
+animation = &"shoot"

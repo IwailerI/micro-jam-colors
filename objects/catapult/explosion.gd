@@ -5,11 +5,7 @@ extends Node2D
 @export var warning_time: float = 0.5
 @export var effect_fadeout: float = 0.3
 
-@onready var warn: Polygon2D = $Warn
-@onready var bang: Polygon2D = $Bang
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-var did_explode := false
 
 
 func _ready() -> void:
@@ -19,7 +15,7 @@ func _ready() -> void:
 func do_explosion() -> void:
     var params := PhysicsShapeQueryParameters2D.new()
     var circle := CircleShape2D.new()
-    circle.radius = 50.0
+    circle.radius = 60.0
     params.shape = circle
     params.transform = global_transform
     params.collision_mask = collision

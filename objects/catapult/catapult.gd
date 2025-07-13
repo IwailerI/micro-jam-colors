@@ -9,7 +9,8 @@ const CATAPULT_EXPLOSION := preload("res://objects/catapult/explosion.tscn")
 @export var preempt_player: bool = true
 
 @onready var cooldown_timer: Timer = $Cooldown
-@onready var gun: Sprite2D = $Gun
+@onready var gun: AnimatedSprite2D = $Gun
+
 
 func _ready() -> void:
 	_setup.call_deferred() # awaiting in read is bad

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hww67fbeqy5u"]
+[gd_scene load_steps=16 format=3 uid="uid://hww67fbeqy5u"]
 
 [ext_resource type="Script" uid="uid://wsxb5yuhwxns" path="res://objects/flamethrower/flamethrower.gd" id="1_rq011"]
 [ext_resource type="Script" uid="uid://q7w0gxkt2dwi" path="res://objects/flamethrower/damage_area.gd" id="2_vmihf"]
@@ -18,6 +18,68 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq011"]
 radius = 2.0
 height = 38.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reqsw"]
+atlas = ExtResource("3_reqsw")
+region = Rect2(0, 0, 30, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vxil"]
+atlas = ExtResource("3_reqsw")
+region = Rect2(0, 0, 30, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyhsy"]
+atlas = ExtResource("3_reqsw")
+region = Rect2(0, 25, 30, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_526no"]
+atlas = ExtResource("3_reqsw")
+region = Rect2(0, 50, 30, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djj0v"]
+atlas = ExtResource("3_reqsw")
+region = Rect2(0, 75, 30, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2choq"]
+atlas = ExtResource("3_reqsw")
+region = Rect2(0, 100, 30, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32hop"]
+atlas = ExtResource("3_reqsw")
+region = Rect2(0, 125, 30, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cn4tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reqsw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vxil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyhsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_526no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djj0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2choq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32hop")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 6.0
+}]
 
 [node name="Flamethrower" type="StaticBody2D"]
 collision_layer = 2
@@ -54,8 +116,10 @@ position = Vector2(30, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rq011")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_reqsw")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cn4tg")
+animation = &"fire"
+autoplay = "default"
 offset = Vector2(2.5, 0)
 
 [connection signal="body_entered" from="DamageArea" to="DamageArea" method="_on_body_entered"]
