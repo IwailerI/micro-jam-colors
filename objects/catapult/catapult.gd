@@ -19,6 +19,7 @@ func _ready() -> void:
 func _setup() -> void:
 	if wakeup > 0:
 		await get_tree().create_timer(wakeup).timeout
+	_on_shoot_cooldown_timeout()
 	cooldown_timer.start(cooldown)
 
 

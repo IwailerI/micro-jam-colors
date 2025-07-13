@@ -10,7 +10,7 @@ extends StaticBody2D
 @onready var particles: CPUParticles2D = $CPUParticles2D
 @onready var damaging_area: Area2D = $DamageArea
 
-var shooting: bool = true
+var shooting: bool = false
 
 
 func _ready() -> void:

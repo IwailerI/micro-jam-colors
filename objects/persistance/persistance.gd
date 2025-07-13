@@ -15,16 +15,20 @@ const LEVEL_NAME: Dictionary = {
 	4: "Double lanes",
 	5: "Chilly situation",
 	6: "Brewing disaster",
-	7: "Bashing stew",
+	7: "Ghost Dash - 1",
 	8: "Hot day",
 	9: "Rock n Fire",
-	10: "Bashing stew - 2",
-	11: "Too many colors",
+	10: "Ghost Dash - 2",
+	11: "Color theory",
+	12: "TOO many colors",
+	13: "Impossible game",
+	14: "BFG - 1",
+	15: "BFG - 2",
 }
 
 ## How many levels does the game has.
 ## Starts with 0 till the amount-1
-const LEVEL_AMOUNT: int = 12
+const LEVEL_AMOUNT: int = 16
 
 var completed_amount: int = 0
 var last_loaded_id: int = 0
