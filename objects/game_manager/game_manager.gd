@@ -46,6 +46,9 @@ func add_colors(r: int, g: int, b: int) -> void:
 
 	if red > need_red or green > need_green or blue > need_blue:
 		gameover(false, "Too much color!")
+	
+	if requirement_check():
+		$AudioStreamPlayer.play()
 
 
 func gameover(has_won: bool, lost_message: String = "") -> void:

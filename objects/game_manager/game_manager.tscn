@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddb1rbjhwv3os"]
+[gd_scene load_steps=3 format=3 uid="uid://ddb1rbjhwv3os"]
 
 [ext_resource type="Script" uid="uid://dj8w8x8308ff7" path="res://objects/game_manager/game_manager.gd" id="1_fsdx1"]
+[ext_resource type="AudioStream" uid="uid://crwc5css2gc5n" path="res://sounds/sfx/new-notification-09-352705.mp3" id="2_oul7e"]
 
 [node name="GameManager" type="Node" groups=["GameManager"]]
 script = ExtResource("1_fsdx1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_oul7e")
+volume_db = -15.0
+bus = &"SFX"
