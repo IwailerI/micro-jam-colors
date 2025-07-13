@@ -95,6 +95,11 @@ yellow = true
 
 [node name="Hazards" type="Node2D" parent="."]
 
+[node name="Cannon3" parent="Hazards" instance=ExtResource("7_w5s1c")]
+position = Vector2(781, 162)
+rotation = 1.58822
+scale = Vector2(1, 1)
+
 [node name="Cannon" parent="Hazards" instance=ExtResource("7_w5s1c")]
 position = Vector2(912, 165)
 rotation = 3.80838

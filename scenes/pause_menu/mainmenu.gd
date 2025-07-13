@@ -1,6 +1,6 @@
 extends Button
 
-const MAINMENU_SCENE: PackedScene = null
+const MAINMENU_SCENE: PackedScene = preload("res://scenes/mainmenu/mainmenu.tscn")
 
 
 func _pressed() -> void:

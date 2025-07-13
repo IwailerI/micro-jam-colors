@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4cdiiuvogpet"]
+
+[ext_resource type="PackedScene" uid="uid://7u7dmuh7u7ca" path="res://scenes/mainmenu/level_selection.tscn" id="1_1css7"]
+[ext_resource type="Script" uid="uid://x2o52u6q7kyo" path="res://scenes/mainmenu/continue.gd" id="1_oktx4"]
+[ext_resource type="Script" uid="uid://cq5uc04um7k80" path="res://scenes/mainmenu/reset.gd" id="2_ckupo"]
+[ext_resource type="Script" uid="uid://uj4jd65vcgdo" path="res://scenes/mainmenu/window.gd" id="3_fi8nj"]
+[ext_resource type="PackedScene" uid="uid://bco8edvycsrid" path="res://scenes/sounds_settings/sounds_settings.tscn" id="4_xyqql"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_so3ay"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_xyqql"]
+font_size = 24
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 80.0
+offset_right = 972.0
+offset_bottom = 163.0
+text = "BAK - Biker Alchemy Knight"
+label_settings = SubResource("LabelSettings_so3ay")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 896.0
+offset_bottom = 576.0
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Continue
+"
+script = ExtResource("1_oktx4")
+
+[node name="Reset" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reset progress
+"
+script = ExtResource("2_ckupo")
+
+[node name="Window" type="ConfirmationDialog" parent="VBoxContainer/Reset"]
+initial_position = 2
+size = Vector2i(318, 100)
+unresizable = true
+borderless = true
+always_on_top = true
+dialog_text = "Do you want to reset all your progress?"
+script = ExtResource("3_fi8nj")
+
+[node name="SoundsSettings" parent="VBoxContainer" instance=ExtResource("4_xyqql")]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Level selection:"
+label_settings = SubResource("LabelSettings_xyqql")
+horizontal_alignment = 1
+
+[node name="LevelSelection" parent="VBoxContainer" instance=ExtResource("1_1css7")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="canceled" from="VBoxContainer/Reset/Window" to="VBoxContainer/Reset/Window" method="_on_canceled"]
+[connection signal="confirmed" from="VBoxContainer/Reset/Window" to="VBoxContainer/Reset/Window" method="_on_confirmed"]

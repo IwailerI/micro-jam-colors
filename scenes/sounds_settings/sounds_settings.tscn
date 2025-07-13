@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bco8edvycsrid"]
+[gd_scene load_steps=2 format=3 uid="uid://bco8edvycsrid"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d5f1f"]
+font_size = 24
 
 [node name="SoundsSettings" type="VBoxContainer"]
 anchors_preset = 15
@@ -10,6 +13,7 @@ grow_vertical = 2
 [node name="Label4" type="Label" parent="."]
 layout_mode = 2
 text = "Sounds settings:"
+label_settings = SubResource("LabelSettings_d5f1f")
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="."]

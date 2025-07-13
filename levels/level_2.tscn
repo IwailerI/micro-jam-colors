@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdar474e52e6k"]
+
+[ext_resource type="PackedScene" uid="uid://cohl7dnn2062i" path="res://scenes/level/level_empty.tscn" id="1_mi4ay"]
+[ext_resource type="PackedScene" uid="uid://dx1mapm4bc8ne" path="res://objects/shooting_towers/crossbow/crossbow.tscn" id="2_v5uil"]
+[ext_resource type="PackedScene" uid="uid://hww67fbeqy5u" path="res://objects/flamethrower/flamethrower.tscn" id="3_5722l"]
+[ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="4_ilhis"]
+
+[node name="Level" instance=ExtResource("1_mi4ay")]
+
+[node name="GameManager" parent="." index="0"]
+need_cyan = 3
+need_magenta = 3
+
+[node name="BrewingStand" parent="Pickups" index="0" instance=ExtResource("4_ilhis")]
+position = Vector2(261, 328)
+cyan = true
+brewing_time = 5
+
+[node name="BrewingStand2" parent="Pickups" index="1" instance=ExtResource("4_ilhis")]
+position = Vector2(916, 320)
+magenta = true
+brewing_time = 5
+
+[node name="Crossbow" parent="Hazards" index="0" instance=ExtResource("2_v5uil")]
+position = Vector2(260, 122)
+rotation = -1.87515
+
+[node name="Crossbow2" parent="Hazards" index="1" instance=ExtResource("2_v5uil")]
+position = Vector2(906, 113)
+
+[node name="Flamethrower" parent="Hazards" index="2" instance=ExtResource("3_5722l")]
+position = Vector2(200, 326)
+
+[node name="Flamethrower2" parent="Hazards" index="3" instance=ExtResource("3_5722l")]
+position = Vector2(971, 319)
+rotation = 3.14141
+
+[node name="Crossbow3" parent="Hazards" index="4" instance=ExtResource("2_v5uil")]
+position = Vector2(918, 512)
+
+[node name="Crossbow4" parent="Hazards" index="5" instance=ExtResource("2_v5uil")]
+position = Vector2(268, 483)
+rotation = -1.87515

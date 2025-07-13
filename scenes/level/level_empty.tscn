@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://cohl7dnn2062i"]
+
+[ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="1_ivku7"]
+[ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="2_ss4b2"]
+[ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="3_qjqsm"]
+[ext_resource type="PackedScene" uid="uid://d1tm5mhwegffe" path="res://objects/potion_color_display/potion_color_display.tscn" id="4_0fkkc"]
+[ext_resource type="PackedScene" uid="uid://qra28xh6dyh1" path="res://scenes/pause_menu/pause_menu.tscn" id="5_wyi7n"]
+[ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="6_3rml5"]
+[ext_resource type="PackedScene" uid="uid://jw5kpdab0etq" path="res://objects/delivery_point/delivery_point.tscn" id="17_mf35j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_asqhp"]
+distance = -649.0
+
+[node name="Level" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_ivku7")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Speedometer" parent="CanvasLayer" instance=ExtResource("2_ss4b2")]
+modulate = Color(1, 1, 1, 0.733333)
+position = Vector2(145, 572)
+
+[node name="InputDirection" parent="CanvasLayer" instance=ExtResource("3_qjqsm")]
+position = Vector2(1066, 612)
+
+[node name="PotionColorDisplay" parent="CanvasLayer" instance=ExtResource("4_0fkkc")]
+offset_left = 1077.0
+offset_top = 15.0
+offset_right = 1141.36
+offset_bottom = 159.0
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_wyi7n")]
+visible = false
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+position = Vector2(-1, 0)
+collision_layer = 10
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 0.51)
+shape = SubResource("WorldBoundaryShape2D_asqhp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(647.64, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_asqhp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 647.61)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_asqhp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(504.605, 0)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_asqhp")
+
+[node name="Player" parent="." instance=ExtResource("6_3rml5")]
+position = Vector2(564, 327)
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Tileset(TODO)" type="Node2D" parent="."]
+
+[node name="DeliveryPoint" parent="." instance=ExtResource("17_mf35j")]
+position = Vector2(572, 593)

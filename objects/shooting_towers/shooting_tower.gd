@@ -11,6 +11,7 @@ extends StaticBody2D
 
 @onready var cooldown_timer: Timer = $Cooldown
 @onready var player: Player = GameManager.get_instance().player()
+@onready var marker: Marker2D = $Marker2D
 
 
 func _ready() -> void:
@@ -34,5 +35,5 @@ func _on_shoot_cooldown_timeout() -> void:
 	inst.speed = projectile_speed
 	get_parent().add_child(inst)
 	inst.global_rotation = global_rotation
-	inst.global_position = global_position
+	inst.global_position = marker.global_position
 	inst.creator = self

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://7u7dmuh7u7ca"]
+
+[ext_resource type="Script" uid="uid://l1its02f54kk" path="res://scenes/mainmenu/level_selection.gd" id="1_b2pa5"]
+
+[node name="LevelSelection" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_b2pa5")
