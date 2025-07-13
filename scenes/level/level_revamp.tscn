@@ -556,7 +556,6 @@ sources/0 = SubResource("TileSetAtlasSource_3dtxm")
 [node name="Level" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("3_4qo56")]
-need_cyan = 1
 need_magenta = 1
 need_yellow = 1
 

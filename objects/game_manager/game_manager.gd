@@ -30,6 +30,10 @@ func player() -> Player:
 	return p
 
 
+func requirement_check() -> bool:
+	return cyan == need_cyan && magenta == need_magenta && yellow == need_yellow
+
+
 func add_colors(c: int, m: int, y: int) -> void:
 	cyan = min(cyan + c, MAX_COLOR_VALUE)
 	magenta = min(magenta + m, MAX_COLOR_VALUE)
