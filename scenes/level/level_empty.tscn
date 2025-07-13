@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cohl7dnn2062i"]
+[gd_scene load_steps=10 format=3 uid="uid://5l0qm63sb5at"]
 
 [ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="1_ivku7"]
 [ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="2_ss4b2"]
@@ -70,4 +70,5 @@ position = Vector2(564, 327)
 [node name="Tileset(TODO)" type="Node2D" parent="."]
 
 [node name="DeliveryPoint" parent="." instance=ExtResource("17_mf35j")]
+z_index = 0
 position = Vector2(572, 593)

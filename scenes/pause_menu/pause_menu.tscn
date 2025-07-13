@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://qra28xh6dyh1"]
+[gd_scene load_steps=6 format=3 uid="uid://qra28xh6dyh1"]
 
 [ext_resource type="PackedScene" uid="uid://bco8edvycsrid" path="res://scenes/sounds_settings/sounds_settings.tscn" id="1_5bgjm"]
 [ext_resource type="Script" uid="uid://dmwfeg3i2s0ti" path="res://scenes/pause_menu/pause_menu.gd" id="1_qcmsd"]
-[ext_resource type="Script" uid="uid://b8ehsq3f1y2ap" path="res://scenes/pause_menu/continue.gd" id="2_10tpt"]
 [ext_resource type="Script" uid="uid://tb6ma7edntli" path="res://scenes/pause_menu/restart.gd" id="3_0a7io"]
 [ext_resource type="Script" uid="uid://d1ogx7wlps41o" path="res://scenes/pause_menu/mainmenu.gd" id="4_8squr"]
 
@@ -46,7 +45,6 @@ size_flags_horizontal = 3
 [node name="Continue" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Continue"
-script = ExtResource("2_10tpt")
 
 [node name="Restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
