@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnf2yd4wjbhmj"]
+
+[ext_resource type="AudioStream" uid="uid://k1tuog8qk82u" path="res://sounds/ost/ost_no_begin_pause.wav" id="1_xkybd"]
+
+[sub_resource type="GDScript" id="GDScript_0gvbg"]
+script/source = "class_name Music
+extends AudioStreamPlayer
+
+
+## Do not use global magic strings.
+## Prefer this method over %GameManger.
+static func get_instance() -> Music:
+	var tree := Engine.get_main_loop() as SceneTree
+	var mms := tree.get_nodes_in_group(\"Music\")
+	#assert(len(mms) == 1, \"invalid amount of music manager: %d\" % len(mms))
+	if len(mms) != 1: return null
+	return mms[0]
+"
+
+[node name="Music" type="AudioStreamPlayer" groups=["Music"]]
+stream = ExtResource("1_xkybd")
+volume_db = -6.0
+bus = &"Music"
+script = SubResource("GDScript_0gvbg")
