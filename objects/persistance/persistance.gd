@@ -28,7 +28,7 @@ const LEVEL_NAME: Dictionary = {
 
 ## How many levels does the game has.
 ## Starts with 0 till the amount-1
-const LEVEL_AMOUNT: int = 16
+const LEVEL_AMOUNT: int = 15
 
 var completed_amount: int = 0
 var last_loaded_id: int = 0
@@ -60,7 +60,7 @@ func _deserialize() -> void:
 
 ## Returns the furthest available level id.
 func get_furthest_id() -> int:
-	return clamp(completed_amount, 0, LEVEL_AMOUNT - 1)
+	return clamp(completed_amount + 1, 1, LEVEL_AMOUNT)
 
 
 func load_level(id: int) -> void:
