@@ -25,9 +25,9 @@ signal died()
 
 var direction: float = -PI * 0.5
 var alive := true
-var death_time := 0 # Millisecond ticks
 var ramping := false
 var ramping_done := false # set after ramping interval passes
+var dead_rotation: float = 0.0
 
 
 func _ready() -> void:
@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _alive_movement(delta: float) -> void:
-
 	# handling throttle
 	var throttle_pressed := Input.is_action_pressed("throttle")
 	var acceleration: float = throttle_acceleration if throttle_pressed else passive_acceleration
@@ -122,17 +121,21 @@ func _ramping_movement(delta: float) -> void:
 
 
 func _dead_movement(delta: float) -> void:
+	dead_rotation += delta * PI
+
 	velocity = velocity.move_toward(Vector2.ZERO, death_accel * delta)
+	var rem := velocity * delta
 	for i: int in 32:
-		var col := move_and_collide(velocity * delta)
+		var col := move_and_collide(rem)
 		if col == null:
 			break
 
 		var normal := col.get_normal()
 		global_position = col.get_position() + radius * normal
-		velocity = col.get_remainder().bounce(normal)
+		rem = col.get_remainder().bounce(normal)
+		velocity = velocity.bounce(normal)
 
-	sprite.rotation = velocity.angle() + PI * 0.5 + float(Time.get_ticks_msec() - death_time) * 0.001 * PI
+	sprite.rotation = dead_rotation
 
 
 func die(vel := Vector2.ZERO) -> void:
@@ -147,9 +150,9 @@ func die(vel := Vector2.ZERO) -> void:
 		velocity = Vector2.from_angle(direction) * speed
 	else:
 		velocity = vel
-	death_time = Time.get_ticks_msec()
 	death_animation_timer.timeout.connect(_finish_dying)
 	death_animation_timer.start()
+	dead_rotation = rotation
 	died.emit()
 
 

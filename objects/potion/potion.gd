@@ -5,17 +5,17 @@ extends Area2D
 const PALETTE := preload("res://objects/palette/default.tres")
 
 @export_group("Color values")
-@export var cyan: bool = false:
+@export var red: bool = false:
 	set(v):
-		cyan = v
+		red = v
 		_update_colors()
-@export var magenta: bool = false:
+@export var green: bool = false:
 	set(v):
-		magenta = v
+		green = v
 		_update_colors()
-@export var yellow: bool = false:
+@export var blue: bool = false:
 	set(v):
-		yellow = v
+		blue = v
 		_update_colors()
 
 @onready var gm: GameManager = GameManager.get_instance()
@@ -25,7 +25,7 @@ const PALETTE := preload("res://objects/palette/default.tres")
 func _ready() -> void:
 	_update_colors()
 	if not Engine.is_editor_hint():
-		assert(cyan or magenta or yellow, "colorless potion")
+		assert(red or green or blue, "colorless potion")
 		gm.player().died.connect(
 			func() -> void:
 				monitoring = false
@@ -37,10 +37,10 @@ func _on_body_entered(_body: Node2D) -> void:
 		return
 	$CollisionShape2D.set_deferred("disabled", true)
 	queue_free()
-	gm.add_colors(int(cyan), int(magenta), int(yellow))
+	gm.add_colors(int(red), int(green), int(blue))
 
 
 func _update_colors() -> void:
-	var color := PALETTE.lookup(cyan, magenta, yellow)
+	var color := PALETTE.lookup(red, green, blue)
 	$Polygon.color = color
 	$Glow.modulate = color
