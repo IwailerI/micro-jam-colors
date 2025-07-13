@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://hww67fbeqy5u"]
+[gd_scene load_steps=8 format=3 uid="uid://hww67fbeqy5u"]
 
 [ext_resource type="Script" uid="uid://wsxb5yuhwxns" path="res://objects/flamethrower/flamethrower.gd" id="1_rq011"]
+[ext_resource type="Script" uid="uid://0cl1e1gnuupd" path="res://objects/flamethrower/cpu_particles_2d.gd" id="2_reqsw"]
 [ext_resource type="Script" uid="uid://q7w0gxkt2dwi" path="res://objects/flamethrower/damage_area.gd" id="2_vmihf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gg7v"]
@@ -15,8 +16,8 @@ offsets = PackedFloat32Array(0.993333)
 colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rq011"]
-radius = 2.0
-height = 38.0
+radius = 8.0
+height = 68.0
 
 [node name="Flamethrower" type="StaticBody2D"]
 collision_layer = 2
@@ -37,7 +38,8 @@ polygon = PackedVector2Array(-11, 4, -10, -5, 7, -12, -3, -3, 15, -3, 14, 4, -3,
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(16, 0)
-amount = 500
+amount = 1000
+lifetime = 1.5
 lifetime_randomness = 0.25
 emission_shape = 1
 emission_sphere_radius = 3.0
@@ -46,13 +48,14 @@ radial_accel_min = 10.0
 radial_accel_max = 20.0
 color_ramp = SubResource("Gradient_rq011")
 color_initial_ramp = SubResource("Gradient_vmihf")
+script = ExtResource("2_reqsw")
 
 [node name="DamageArea" type="Area2D" parent="."]
 collision_layer = 0
 script = ExtResource("2_vmihf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-position = Vector2(30, 0)
+position = Vector2(47, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rq011")
 
