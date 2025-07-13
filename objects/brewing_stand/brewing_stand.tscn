@@ -23,6 +23,7 @@ texture_progress = ExtResource("3_16s6d")
 tint_under = Color(0, 0, 0, 1)
 
 [node name="RespawnTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Base" type="Sprite2D" parent="."]
 position = Vector2(0, -15)

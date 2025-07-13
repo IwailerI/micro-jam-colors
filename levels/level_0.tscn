@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpchhjcbwmrr1"]
+
+[ext_resource type="PackedScene" uid="uid://cohl7dnn2062i" path="res://scenes/level/level_empty.tscn" id="1_eus5j"]
+[ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="2_823pn"]
+
+[node name="Level" instance=ExtResource("1_eus5j")]
+
+[node name="GameManager" parent="." index="0"]
+need_cyan = 1
+need_magenta = 1
+need_yellow = 1
+
+[node name="Potion" parent="Pickups" index="0" instance=ExtResource("2_823pn")]
+position = Vector2(228, 326)
+cyan = true
+
+[node name="Potion2" parent="Pickups" index="1" instance=ExtResource("2_823pn")]
+position = Vector2(564, 107)
+magenta = true
+
+[node name="Potion3" parent="Pickups" index="2" instance=ExtResource("2_823pn")]
+position = Vector2(920, 338)
+yellow = true

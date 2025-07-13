@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bco8edvycsrid"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d5f1f"]
+font_size = 24
+
+[node name="SoundsSettings" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 2
+text = "Sounds settings:"
+label_settings = SubResource("LabelSettings_d5f1f")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "GENERAL"
+
+[node name="Global" type="HSlider" parent="."]
+layout_mode = 2
+value = 50.0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "MUSIC"
+
+[node name="Music" type="HSlider" parent="."]
+layout_mode = 2
+value = 50.0
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+text = "SFX"
+
+[node name="Sfx" type="HSlider" parent="."]
+layout_mode = 2
+value = 50.0

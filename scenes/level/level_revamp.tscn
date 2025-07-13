@@ -1,10 +1,12 @@
-[gd_scene load_steps=20 format=4 uid="uid://c5nfk6ysqdde6"]
+[gd_scene load_steps=21 format=3 uid="uid://c5nfk6ysqdde6"]
 
 [ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="3_4qo56"]
 [ext_resource type="PackedScene" uid="uid://d1tm5mhwegffe" path="res://objects/potion_color_display/potion_color_display.tscn" id="3_8vb6f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="4_ac3ax"]
+[ext_resource type="PackedScene" uid="uid://qra28xh6dyh1" path="res://scenes/pause_menu/pause_menu.tscn" id="5_3dtxm"]
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="5_d6bxs"]
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="6_8vb6f"]
+[ext_resource type="PackedScene" uid="uid://6ecclfxooqe2" path="res://scenes/gameover_menu/gameover_menu.tscn" id="6_j44qt"]
 [ext_resource type="PackedScene" uid="uid://bman1c5f4u5us" path="res://objects/shooting_towers/canon/canon.tscn" id="7_w5s1c"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="8_3dtxm"]
 [ext_resource type="PackedScene" uid="uid://dx1mapm4bc8ne" path="res://objects/shooting_towers/crossbow/crossbow.tscn" id="9_j44qt"]
@@ -565,6 +567,12 @@ offset_top = 15.0
 offset_right = 1141.36
 offset_bottom = 159.0
 
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_3dtxm")]
+visible = false
+
+[node name="GameoverMenu" parent="CanvasLayer" instance=ExtResource("6_j44qt")]
+visible = false
+
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 position = Vector2(-1, 0)
 collision_layer = 10
@@ -629,6 +637,10 @@ position = Vector2(206, 249)
 yellow = true
 
 [node name="Hazards" type="Node2D" parent="."]
+
+[node name="Cannon3" parent="Hazards" instance=ExtResource("7_w5s1c")]
+position = Vector2(781, 162)
+rotation = 1.58822
 
 [node name="Cannon" parent="Hazards" instance=ExtResource("7_w5s1c")]
 position = Vector2(912, 165)
