@@ -10,6 +10,7 @@ const CATAPULT_EXPLOSION := preload("res://objects/catapult/explosion.tscn")
 
 @onready var cooldown_timer: Timer = $Cooldown
 @onready var gun: AnimatedSprite2D = $Gun
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var target := Vector2.ZERO
 var has_target := false
@@ -44,6 +45,9 @@ func _on_shoot_cooldown_timeout() -> void:
 
 	has_target = true
 	target = pos
+
+	audio.pitch_scale = randf_range(0.9, 1.1)
+	audio.play()
 
 	get_tree().create_timer(WARN_TIME - 0.2).timeout.connect(func() -> void:
 		gun.play("shoot")

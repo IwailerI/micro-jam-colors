@@ -24,6 +24,7 @@ const PALETTE := preload("res://objects/palette/default.tres")
 @export var spawn_limit: int = 0
 
 @onready var respawn_progressbar: TextureProgressBar = $RespawnProgressBar
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var respawn_timer: Timer
 var potions_spawned := 0
@@ -68,8 +69,8 @@ func _finish_brewing() -> void:
 	if spawn_limit <= 0 or potions_spawned < spawn_limit:
 		potion_node.tree_exited.connect(_start_brewing)
 
-	$BrewedSFX.pitch_scale = randf_range(0.93, 1.07)
-	$BrewedSFX.play()
+	audio.pitch_scale = randf_range(0.93, 1.07)
+	audio.play()
 
 	add_child(potion_node)
 
