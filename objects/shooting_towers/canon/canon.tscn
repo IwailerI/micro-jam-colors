@@ -1,10 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://bman1c5f4u5us"]
+[gd_scene load_steps=9 format=3 uid="uid://bman1c5f4u5us"]
 
 [ext_resource type="PackedScene" uid="uid://ce5ltmvfrc74j" path="res://objects/shooting_towers/shooting_tower.tscn" id="1_cfd51"]
 [ext_resource type="PackedScene" uid="uid://bceyb68o2p44r" path="res://objects/shooting_towers/canon/canonball.tscn" id="2_fn080"]
 [ext_resource type="Texture2D" uid="uid://cmpbktn2y5car" path="res://assets/canon.png" id="3_em26g"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_em26g"]
+atlas = ExtResource("3_em26g")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhxjg"]
+atlas = ExtResource("3_em26g")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwnsn"]
+atlas = ExtResource("3_em26g")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv5a6"]
+atlas = ExtResource("3_em26g")
+region = Rect2(0, 50, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fl14p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em26g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhxjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwnsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv5a6")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 15.0
+}]
+
 [node name="Canon" instance=ExtResource("1_cfd51")]
+rotation = -0.00172148
 projectile_prefab = ExtResource("2_fn080")
 projectile_speed = 300.0
 wakeup = 0.4
@@ -14,4 +56,5 @@ cooldown = 1.0
 visible = false
 
 [node name="Gun" parent="." index="2"]
-texture = ExtResource("3_em26g")
+sprite_frames = SubResource("SpriteFrames_fl14p")
+animation = &"shoot"

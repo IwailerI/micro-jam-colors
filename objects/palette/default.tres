@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Palette" load_steps=2 format=3 uid="uid://2orfjhlno2t0"]
+[gd_resource type="Resource" script_class="Palette" load_steps=2 format=3 uid="uid://b64rws3rux63t"]
 
 [ext_resource type="Script" uid="uid://cp04ky8p4hvl0" path="res://objects/palette/palette.gd" id="1_5pwqw"]
 
@@ -10,5 +10,5 @@ y = Color(1, 1, 0, 1)
 cm = Color(0, 0, 1, 1)
 cy = Color(0, 1, 0, 1)
 my = Color(1, 0, 0, 1)
-cmy = Color(1, 1, 1, 1)
+cmy = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://cp04ky8p4hvl0"

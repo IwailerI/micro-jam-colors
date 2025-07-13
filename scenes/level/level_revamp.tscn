@@ -1,12 +1,12 @@
 [gd_scene load_steps=22 format=4 uid="uid://c5nfk6ysqdde6"]
 
-[ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="1_asqhp"]
-[ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_b0o62"]
 [ext_resource type="PackedScene" uid="uid://ddb1rbjhwv3os" path="res://objects/game_manager/game_manager.tscn" id="3_4qo56"]
 [ext_resource type="PackedScene" uid="uid://d1tm5mhwegffe" path="res://objects/potion_color_display/potion_color_display.tscn" id="3_8vb6f"]
 [ext_resource type="PackedScene" uid="uid://cdj8wgxuxnkiv" path="res://objects/player/player.tscn" id="4_ac3ax"]
+[ext_resource type="PackedScene" uid="uid://qra28xh6dyh1" path="res://scenes/pause_menu/pause_menu.tscn" id="5_3dtxm"]
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="5_d6bxs"]
 [ext_resource type="PackedScene" uid="uid://bt0stmwrnku5k" path="res://objects/brewing_stand/brewing_stand.tscn" id="6_8vb6f"]
+[ext_resource type="PackedScene" uid="uid://6ecclfxooqe2" path="res://scenes/gameover_menu/gameover_menu.tscn" id="6_j44qt"]
 [ext_resource type="PackedScene" uid="uid://bman1c5f4u5us" path="res://objects/shooting_towers/canon/canon.tscn" id="7_w5s1c"]
 [ext_resource type="PackedScene" uid="uid://skitiu8xadwy" path="res://objects/catapult/catapult.tscn" id="8_3dtxm"]
 [ext_resource type="PackedScene" uid="uid://dx1mapm4bc8ne" path="res://objects/shooting_towers/crossbow/crossbow.tscn" id="9_j44qt"]
@@ -553,26 +553,25 @@ terrain_set_0/terrain_0/name = "Wall"
 terrain_set_0/terrain_0/color = Color(0.40358, 0.222397, 0.827043, 1)
 sources/0 = SubResource("TileSetAtlasSource_3dtxm")
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("3_4qo56")]
-need_magenta = 1
-need_yellow = 1
+need_red = 2
+need_green = 2
+need_blue = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Speedometer" parent="CanvasLayer" instance=ExtResource("1_asqhp")]
-modulate = Color(1, 1, 1, 0.733333)
-position = Vector2(145, 572)
-
-[node name="InputDirection" parent="CanvasLayer" instance=ExtResource("2_b0o62")]
-position = Vector2(1066, 612)
 
 [node name="PotionColorDisplay" parent="CanvasLayer" instance=ExtResource("3_8vb6f")]
 offset_left = 1077.0
 offset_top = 15.0
 offset_right = 1141.36
 offset_bottom = 159.0
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_3dtxm")]
+visible = false
+
+[node name="GameoverMenu" parent="CanvasLayer" instance=ExtResource("6_j44qt")]
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="."]
 position = Vector2(-1, 0)
@@ -623,21 +622,29 @@ rotation = 3.11704
 
 [node name="Potion" parent="Pickups" instance=ExtResource("5_d6bxs")]
 position = Vector2(291, 332)
-magenta = true
+red = true
+green = true
+blue = true
 
 [node name="Potion2" parent="Pickups" instance=ExtResource("5_d6bxs")]
 position = Vector2(290, 171)
-cyan = true
+green = true
 
 [node name="Potion3" parent="Pickups" instance=ExtResource("5_d6bxs")]
 position = Vector2(806, 74)
-cyan = true
+red = true
+blue = true
 
 [node name="BrewingStand" parent="Pickups" instance=ExtResource("6_8vb6f")]
-position = Vector2(206, 249)
-yellow = true
+position = Vector2(207, 249)
+blue = true
+spawn_limit = 2
 
 [node name="Hazards" type="Node2D" parent="."]
+
+[node name="Cannon3" parent="Hazards" instance=ExtResource("7_w5s1c")]
+position = Vector2(781, 162)
+rotation = 1.58822
 
 [node name="Cannon" parent="Hazards" instance=ExtResource("7_w5s1c")]
 position = Vector2(912, 165)
@@ -663,4 +670,5 @@ position = Vector2(995.241, 459.329)
 position = Vector2(262, 330)
 
 [node name="DeliveryPoint" parent="." instance=ExtResource("11_b0o62")]
+z_index = 0
 position = Vector2(572, 593)

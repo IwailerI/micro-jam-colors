@@ -1,8 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce5ltmvfrc74j"]
+[gd_scene load_steps=7 format=3 uid="uid://ce5ltmvfrc74j"]
 
 [ext_resource type="Script" uid="uid://dnhg151oe7mc0" path="res://objects/shooting_towers/shooting_tower.gd" id="1_ofe4b"]
 [ext_resource type="Texture2D" uid="uid://c2orxkl5uvlx5" path="res://assets/gun_base.png" id="2_caxoc"]
 [ext_resource type="Texture2D" uid="uid://dh0bow47tb1ma" path="res://assets/crossbow.png" id="3_b5b2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5b2c"]
+atlas = ExtResource("3_b5b2c")
+region = Rect2(0, 0, 18, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3y7wo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5b2c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5b2c")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihhhh"]
 radius = 9.0
@@ -17,8 +40,12 @@ script = ExtResource("1_ofe4b")
 [node name="Base" type="Sprite2D" parent="."]
 texture = ExtResource("2_caxoc")
 
-[node name="Gun" type="Sprite2D" parent="."]
-texture = ExtResource("3_b5b2c")
+[node name="Gun" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3y7wo")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ihhhh")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(13, 0.0223793)
