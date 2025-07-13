@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddb1rbjhwv3os"]
+[gd_scene load_steps=5 format=3 uid="uid://ddb1rbjhwv3os"]
 
 [ext_resource type="Script" uid="uid://dj8w8x8308ff7" path="res://objects/game_manager/game_manager.gd" id="1_fsdx1"]
+[ext_resource type="AudioStream" uid="uid://crwc5css2gc5n" path="res://sounds/sfx/new-notification-09-352705.mp3" id="2_oul7e"]
+[ext_resource type="AudioStream" uid="uid://bhaqrt4ugtcgw" path="res://sounds/sfx/pickupCoin.wav" id="3_nhjnp"]
+[ext_resource type="AudioStream" uid="uid://cqm2fhy34g8r0" path="res://sounds/sfx/wrong-47985.mp3" id="4_y4ao2"]
 
 [node name="GameManager" type="Node" groups=["GameManager"]]
 script = ExtResource("1_fsdx1")
+
+[node name="Completed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_oul7e")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nhjnp")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Bad" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_y4ao2")
+volume_db = -10.0
+bus = &"SFX"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp6usse28mhgw"]
+[gd_scene load_steps=7 format=3 uid="uid://dp6usse28mhgw"]
 
 [ext_resource type="Script" uid="uid://d2jiqgkwlgtab" path="res://objects/ramp/ramp.gd" id="1_u5fcm"]
 [ext_resource type="Texture2D" uid="uid://c3a1uc6mhaao2" path="res://assets/ramp.png" id="2_u5fcm"]
+[ext_resource type="AudioStream" uid="uid://xvdt7ee6ggnf" path="res://sounds/sfx/hitHurt.wav" id="3_xbh34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1r73"]
 size = Vector2(92, 5.5)
@@ -45,3 +46,7 @@ monitorable = false
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_xbh34")
 debug_color = Color(0, 0.951565, 0.678064, 0.42)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xbh34")
+bus = &"SFX"

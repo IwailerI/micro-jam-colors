@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdj8wgxuxnkiv"]
+[gd_scene load_steps=13 format=3 uid="uid://cdj8wgxuxnkiv"]
 
 [ext_resource type="Script" uid="uid://bpay4q0vfmdan" path="res://objects/player/player.gd" id="1_cqmt1"]
 [ext_resource type="Texture2D" uid="uid://bprne3m24u664" path="res://assets/player.png" id="2_g7ett"]
+[ext_resource type="AudioStream" uid="uid://cq70sk4spdn3g" path="res://sounds/sfx/powerUp.wav" id="3_ssrue"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g7ett"]
 atlas = ExtResource("2_g7ett")
@@ -84,3 +85,8 @@ shape = SubResource("CircleShape2D_jww0w")
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ssrue")
+volume_db = -15.0
+bus = &"SFX"

@@ -11,6 +11,10 @@ const MAX_COLOR_VALUE = 4
 @export_range(0, GameManager.MAX_COLOR_VALUE) var need_green: int
 @export_range(0, GameManager.MAX_COLOR_VALUE) var need_blue: int
 
+@onready var audio_completed: AudioStreamPlayer = $Completed
+@onready var audio_pickup: AudioStreamPlayer = $Pickup
+@onready var audio_bad: AudioStreamPlayer = $Bad
+
 ## Used by pause menu to check if game paused because of the menu or if game has ended
 var playing: bool = true
 
@@ -46,6 +50,13 @@ func add_colors(r: int, g: int, b: int) -> void:
 
 	if red > need_red or green > need_green or blue > need_blue:
 		gameover(false, "Too much color!")
+		audio_bad.play()
+		return
+	
+	if requirement_check():
+		audio_completed.play()
+	else:
+		audio_pickup.play()
 
 
 func gameover(has_won: bool, lost_message: String = "") -> void:

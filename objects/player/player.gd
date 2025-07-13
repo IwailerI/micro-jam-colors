@@ -25,6 +25,7 @@ const RAMPING_TIME: float = 0.6
 @onready var death_animation_timer: Timer = $DeathTimer
 @onready var normal_collision_mask: int
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 var direction: float = -PI * 0.5
 var alive := true
@@ -153,6 +154,7 @@ func die(vel := Vector2.ZERO) -> void:
 	if not alive:
 		return
 
+	audio.play()
 	alive = false
 	if vel == Vector2.ZERO:
 		velocity = Vector2.from_angle(direction) * speed

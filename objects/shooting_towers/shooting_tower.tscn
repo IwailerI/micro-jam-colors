@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce5ltmvfrc74j"]
+[gd_scene load_steps=8 format=3 uid="uid://ce5ltmvfrc74j"]
 
 [ext_resource type="Script" uid="uid://dnhg151oe7mc0" path="res://objects/shooting_towers/shooting_tower.gd" id="1_ofe4b"]
 [ext_resource type="Texture2D" uid="uid://c2orxkl5uvlx5" path="res://assets/gun_base.png" id="2_caxoc"]
 [ext_resource type="Texture2D" uid="uid://dh0bow47tb1ma" path="res://assets/crossbow.png" id="3_b5b2c"]
+[ext_resource type="AudioStream" uid="uid://xvdt7ee6ggnf" path="res://sounds/sfx/hitHurt.wav" id="4_3y7wo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b5b2c"]
 atlas = ExtResource("3_b5b2c")
@@ -49,3 +50,7 @@ shape = SubResource("CircleShape2D_ihhhh")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(13, 0.0223793)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3y7wo")
+bus = &"SFX"
