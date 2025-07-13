@@ -172,6 +172,7 @@ atlas = ExtResource("3_ybtl8")
 region = Rect2(100, 40, 40, 28)
 
 [node name="PotionColorDisplay" type="PanelContainer"]
+process_mode = 3
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(64.36, 133.42)
 script = ExtResource("1_685k8")
