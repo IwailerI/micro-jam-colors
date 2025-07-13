@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bceyb68o2p44r"]
+[gd_scene load_steps=4 format=3 uid="uid://bceyb68o2p44r"]
 
 [ext_resource type="PackedScene" uid="uid://xwkjdsly88n5" path="res://objects/shooting_towers/projectile.tscn" id="1_g3a5f"]
+[ext_resource type="Texture2D" uid="uid://hj2iq7jgjeku" path="res://assets/canonball.png" id="2_f5jv0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4yxav"]
+radius = 3.0
 
 [node name="Canonball" instance=ExtResource("1_g3a5f")]
 
@@ -9,3 +13,9 @@ scale = Vector2(0.3, 0.3)
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="1"]
 polygon = PackedVector2Array(-2, -1, -1, -2, 1, -2, 2, -1, 2, 1, 1, 2, -1, 2, -2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_f5jv0")
+
+[node name="CollisionShape2D" parent="." index="3"]
+shape = SubResource("CircleShape2D_4yxav")

@@ -21,7 +21,7 @@ Persistance="*res://objects/persistance/persistance.gd"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [file_customization]
@@ -113,3 +113,4 @@ throttle={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.388235, 0.388235, 0.388235, 1)

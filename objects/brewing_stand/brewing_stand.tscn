@@ -1,23 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt0stmwrnku5k"]
+[gd_scene load_steps=6 format=3 uid="uid://bt0stmwrnku5k"]
 
 [ext_resource type="Script" uid="uid://dmcwaqv3kf00t" path="res://objects/brewing_stand/brewing_stand.gd" id="1_ni832"]
 [ext_resource type="Texture2D" uid="uid://ba0hxch5inn54" path="res://assets/tmp/brewing_under.png" id="2_2qkfa"]
 [ext_resource type="Texture2D" uid="uid://bp7ett5k3noqp" path="res://assets/tmp/brewing_progress.png" id="3_16s6d"]
+[ext_resource type="Texture2D" uid="uid://cp6crorcl2ywb" path="res://assets/cooler_base.png" id="4_dcvpl"]
+[ext_resource type="Texture2D" uid="uid://ciua264jwumo0" path="res://assets/cooler_bottle.png" id="5_403qy"]
 
 [node name="BrewingStand" type="Node2D"]
 script = ExtResource("1_ni832")
 brewing_time = 10
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-scale = Vector2(5, 5)
-color = Color(0.0728426, 0.0728426, 0.0728426, 1)
-polygon = PackedVector2Array(-8, 0, 0, -8, 8, 0, 0, 8)
-
 [node name="RespawnProgressBar" type="TextureProgressBar" parent="."]
 offset_left = -10.0
-offset_top = -64.0
+offset_top = -4.0
 offset_right = 10.0
-offset_bottom = -44.0
+offset_bottom = 16.0
 max_value = 1.0
 step = 0.01
 fill_mode = 4
@@ -27,3 +24,15 @@ tint_under = Color(0, 0, 0, 1)
 
 [node name="RespawnTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("4_dcvpl")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.713726, 0.588235, 0.686275, 0.580392)
+polygon = PackedVector2Array(-6, -24, -5, -26, -4, -27, -2, -28, 2, -28, 4, -27, 5, -26, 6, -24, 6, -14, 5, -12, 4, -11, 2, -10, -2, -10, -4, -11, -5, -12, -6, -14)
+
+[node name="Bottle" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
+texture = ExtResource("5_403qy")

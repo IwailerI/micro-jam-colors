@@ -9,7 +9,7 @@ const CATAPULT_EXPLOSION := preload("res://objects/catapult/explosion.tscn")
 @export var preempt_player: bool = true
 
 @onready var cooldown_timer: Timer = $Cooldown
-
+@onready var gun: AnimatedSprite2D = $Gun
 
 func _ready() -> void:
 	_setup.call_deferred() # awaiting in read is bad
@@ -42,4 +42,4 @@ func _on_shoot_cooldown_timeout() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var p := GameManager.get_instance().player()
-	global_rotation = global_position.direction_to(p.global_position).angle()
+	gun.look_at(p.global_position)
