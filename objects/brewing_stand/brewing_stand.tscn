@@ -30,7 +30,7 @@ position = Vector2(0, -15)
 texture = ExtResource("4_dcvpl")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.713726, 0.588235, 0.686275, 0.580392)
+color = Color(1, 1, 1, 0.580392)
 polygon = PackedVector2Array(-6, -24, -5, -26, -4, -27, -2, -28, 2, -28, 4, -27, 5, -26, 6, -24, 6, -14, 5, -12, 4, -11, 2, -10, -2, -10, -4, -11, -5, -12, -6, -14)
 
 [node name="Bottle" type="Sprite2D" parent="."]
