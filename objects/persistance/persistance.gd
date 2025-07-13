@@ -8,22 +8,32 @@ const LEVEL_PATH: String = "res://levels/level_%d.tscn"
 
 ## id: name
 const LEVEL_NAME: Dictionary = {
-	0: "Tutorial",
-	1: "City center",
-	2: "Home invasion",
-	3: "Open crossroad",
-	4: "Double lanes",
-	5: "Chilly situation",
-	6: "Brewing disaster",
-	7: "Bashing stew",
-	8: "Hot day",
-	9: "Rock n Fire",
-	10: "Bashing stew - 2",
+	 0: "Tutorial",
+	 1: "City center",
+	 2: "Home invasion",
+	 3: "Open crossroad",
+	 4: " II double lanes",
+	 5: "Haunted disaster",
+	 6: "Overbrew",
+	 7: "Ghost Dash v2.1",
+	 8: "Hot day Mai-ai-mi",
+	 9: "Through the Fire and Flames",
+	10: "Ghost Dash v2.2",
+	11: "TOC-1 - theory of colors",
+	12: "Bad Pot Cream",
+	13: "Possible game",
+	14: "Big Mother Gun",
+	15: "Two Mother Gun",
+	16: "III triple lanes",
+	17: "TOC-2 - theory of colors",
+	18: "Attack on Ghosts",
+	19: "A-VV-ARIA",
+	20: "FINALE",
 }
 
 ## How many levels does the game has.
-## Starts with 0 till the amount-1
-const LEVEL_AMOUNT: int = 11
+## Starts with 1 till amount-1 (0 level is tutorial).
+var LEVEL_AMOUNT: int = LEVEL_NAME.size() - 1
 
 var completed_amount: int = 0
 var last_loaded_id: int = 0
@@ -55,7 +65,7 @@ func _deserialize() -> void:
 
 ## Returns the furthest available level id.
 func get_furthest_id() -> int:
-	return clamp(completed_amount, 0, LEVEL_AMOUNT - 1)
+	return clamp(completed_amount + 1, 1, LEVEL_AMOUNT)
 
 
 func load_level(id: int) -> void:
@@ -65,8 +75,8 @@ func load_level(id: int) -> void:
 
 ## Saves that last loaded level was completed.
 func complete_last_loaded() -> void:
-	if completed_amount <= last_loaded_id:
-		completed_amount = last_loaded_id + 1
+	if completed_amount < last_loaded_id:
+		completed_amount = last_loaded_id
 		_serialize()
 
 

@@ -11,7 +11,7 @@ extends StaticBody2D
 @onready var damaging_area: Area2D = $DamageArea
 @onready var sprite: AnimatedSprite2D = $Sprite
 
-var shooting: bool = true
+var shooting: bool = false
 
 
 func _ready() -> void:

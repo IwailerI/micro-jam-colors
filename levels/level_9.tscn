@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://hww67fbeqy5u" path="res://objects/flamethrower/flamethrower.tscn" id="2_rmft0"]
 [ext_resource type="PackedScene" uid="uid://0y47txpbjkcy" path="res://objects/potion/potion.tscn" id="3_4kux0"]
 
-[node name="Level" instance=ExtResource("1_y1kxu")]
+[node name="Level2" instance=ExtResource("1_y1kxu")]
 
 [node name="GameManager" parent="." index="0"]
 need_green = 1
