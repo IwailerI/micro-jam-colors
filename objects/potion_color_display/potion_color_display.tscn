@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1tm5mhwegffe"]
+[gd_scene load_steps=7 format=3 uid="uid://d1tm5mhwegffe"]
 
-[ext_resource type="Script" uid="uid://dcyd4hlx6y2uh" path="res://objects/potion_color_display/color_display.gd" id="1_685k8"]
+[ext_resource type="Script" uid="uid://dcyd4hlx6y2uh" path="res://objects/potion_color_display/potion_color_display.gd" id="1_685k8"]
+[ext_resource type="Texture2D" uid="uid://cjfr00pb2ursy" path="res://assets/color_indicator.png" id="2_bgnte"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_up8tn"]
 draw_center = false
@@ -13,14 +14,30 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyb5e"]
+atlas = ExtResource("2_bgnte")
+region = Rect2(0, 56, 54, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybtl8"]
+atlas = ExtResource("2_bgnte")
+region = Rect2(0, 0, 54, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_povnl"]
+atlas = ExtResource("2_bgnte")
+region = Rect2(0, 28, 54, 28)
+
 [node name="PotionColorDisplay" type="PanelContainer"]
-custom_minimum_size = Vector2(64.36, 94.695)
+custom_minimum_size = Vector2(64.36, 133.42)
 script = ExtResource("1_685k8")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ProgressR" type="ProgressBar" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ProgressR" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 self_modulate = Color(1, 0, 0, 1)
 layout_mode = 2
@@ -31,7 +48,7 @@ value = 1.0
 fill_mode = 3
 show_percentage = false
 
-[node name="TargetR" type="Panel" parent="HBoxContainer/ProgressR"]
+[node name="TargetR" type="Panel" parent="VBoxContainer/HBoxContainer/ProgressR"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 1
@@ -42,7 +59,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_up8tn")
 
-[node name="ProgressG" type="ProgressBar" parent="HBoxContainer"]
+[node name="ProgressG" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 self_modulate = Color(0, 1, 0, 1)
 layout_mode = 2
@@ -52,7 +69,7 @@ max_value = 1.0
 fill_mode = 3
 show_percentage = false
 
-[node name="TargetG" type="Panel" parent="HBoxContainer/ProgressG"]
+[node name="TargetG" type="Panel" parent="VBoxContainer/HBoxContainer/ProgressG"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 1
@@ -63,7 +80,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_up8tn")
 
-[node name="ProgressB" type="ProgressBar" parent="HBoxContainer"]
+[node name="ProgressB" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 self_modulate = Color(0, 0, 1, 1)
 layout_mode = 2
@@ -73,7 +90,7 @@ max_value = 1.0
 fill_mode = 3
 show_percentage = false
 
-[node name="TargetB" type="Panel" parent="HBoxContainer/ProgressB"]
+[node name="TargetB" type="Panel" parent="VBoxContainer/HBoxContainer/ProgressB"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 1
@@ -83,3 +100,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_up8tn")
+
+[node name="Preview" type="Control" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30.39)
+layout_mode = 2
+
+[node name="Potion" type="TextureRect" parent="VBoxContainer/Preview"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_vyb5e")
+stretch_mode = 3
+
+[node name="Art" type="TextureRect" parent="VBoxContainer/Preview"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ybtl8")
+stretch_mode = 3
+
+[node name="Paper" type="TextureRect" parent="VBoxContainer/Preview"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_povnl")
+stretch_mode = 3
