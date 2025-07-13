@@ -634,7 +634,7 @@ cyan = true
 magenta = true
 
 [node name="BrewingStand" parent="Pickups" instance=ExtResource("6_8vb6f")]
-position = Vector2(206, 249)
+position = Vector2(207, 249)
 yellow = true
 spawn_limit = 2
 
