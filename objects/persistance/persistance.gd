@@ -8,16 +8,16 @@ const LEVEL_PATH: String = "res://levels/level_%d.tscn"
 
 ## id: name
 const LEVEL_NAME: Dictionary = {
-	0: "Tutorial",
-	1: "City center",
-	2: "Home invasion",
-	3: "Open crossroad",
-	4: " II double lanes",
-	5: "Haunted disaster",
-	6: "Overbrew",
-	7: "Ghost Dash v2.1",
-	8: "Hot day Mai-ai-mi",
-	9: "Rock n Fire",
+	 0: "Tutorial",
+	 1: "City center",
+	 2: "Home invasion",
+	 3: "Open crossroad",
+	 4: " II double lanes",
+	 5: "Haunted disaster",
+	 6: "Overbrew",
+	 7: "Ghost Dash v2.1",
+	 8: "Hot day Mai-ai-mi",
+	 9: "Through the Fire and Flames",
 	10: "Ghost Dash v2.2",
 	11: "TOC-1 - theory of colors",
 	12: "Bad Pot Cream",
@@ -27,6 +27,7 @@ const LEVEL_NAME: Dictionary = {
 	16: "III triple lanes",
 	17: "TOC-2 - theory of colors",
 	18: "Attack on Ghosts",
+	19: "A-VV-ARIA",
 }
 
 ## How many levels does the game has.
