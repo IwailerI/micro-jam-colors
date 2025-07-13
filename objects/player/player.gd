@@ -140,6 +140,7 @@ func _dead_movement(delta: float) -> void:
 
 
 func die(vel := Vector2.ZERO) -> void:
+	return
 	if ramping:
 		return # do not care ¯\_(ツ)_/¯
 
