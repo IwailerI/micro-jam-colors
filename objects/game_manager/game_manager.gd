@@ -10,6 +10,9 @@ const MAX_COLOR_VALUE = 4
 @export_range(0, GameManager.MAX_COLOR_VALUE) var need_magenta: int
 @export_range(0, GameManager.MAX_COLOR_VALUE) var need_yellow: int
 
+## Used by pause menu to check if game paused because of the menu or if game has ended
+var playing: bool = true
+
 var cyan: int = 0
 var magenta: int = 0
 var yellow: int = 0
@@ -45,6 +48,7 @@ func add_colors(c: int, m: int, y: int) -> void:
 
 
 func gameover(_has_won: bool, _lost_message: String = "") -> void:
+	playing = false
 	print("Gameover", " win=", _has_won, " msg=", _lost_message)
 	get_tree().paused = true 
 	# TODO: remove OS.alert (and code below), and add gameover menu
