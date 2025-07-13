@@ -48,15 +48,20 @@ func add_colors(r: int, g: int, b: int) -> void:
 	blue += b
 	added_colors.emit(red, green, blue)
 
-	if red > need_red or green > need_green or blue > need_blue:
-		gameover(false, "Too much color!")
-		audio_bad.play()
-		return
-	
 	if requirement_check():
 		audio_completed.play()
 	else:
 		audio_pickup.play()
+		
+	if red > need_red:
+		gameover(false, "Too much RED color!")
+		audio_bad.play()
+	elif green > need_green:
+		gameover(false, "Too much GREEN color!")
+		audio_bad.play()
+	elif blue > need_blue:
+		gameover(false, "Too much BLUE color!")
+		audio_bad.play()
 
 
 func gameover(has_won: bool, lost_message: String = "") -> void:
