@@ -18,7 +18,7 @@ var respawn_timer: Timer
 
 func _ready() -> void:
 	assert(cyan or magenta or yellow, "colorless potion spawner")
-	
+
 	respawn_timer = $RespawnTimer
 	respawn_timer.timeout.connect(_finish_brewing)
 
@@ -31,6 +31,8 @@ func _ready() -> void:
 
 
 func _start_brewing() -> void:
+	if not respawn_timer.is_inside_tree():
+		await respawn_timer.tree_entered
 	respawn_timer.start(brewing_time)
 	respawn_progressbar.visible = true
 
