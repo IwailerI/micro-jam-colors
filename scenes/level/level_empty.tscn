@@ -606,5 +606,4 @@ metadata/_edit_lock_ = true
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="DeliveryPoint" parent="." instance=ExtResource("17_mf35j")]
-z_index = 0
 position = Vector2(572, 593)
