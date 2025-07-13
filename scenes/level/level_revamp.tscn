@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5nfk6ysqdde6"]
+[gd_scene load_steps=19 format=3 uid="uid://c5nfk6ysqdde6"]
 
 [ext_resource type="PackedScene" uid="uid://tjya1g7djfw1" path="res://objects/ui/speedometer.tscn" id="1_asqhp"]
 [ext_resource type="PackedScene" uid="uid://byhqyeheckqeq" path="res://objects/player/input_direction.tscn" id="2_b0o62"]
@@ -26,7 +26,6 @@ size = Vector2(352, 117)
 [node name="Level" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("3_4qo56")]
-need_cyan = 1
 need_magenta = 1
 need_yellow = 1
 
