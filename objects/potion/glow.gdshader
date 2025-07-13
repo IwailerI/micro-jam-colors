@@ -17,7 +17,7 @@ void fragment() {
 	if (dist2(uv - vec2(0.5)) > R*R) {
 		discard;
 	}
-	
+
 	vec2 centered = uv - vec2(0.5);
 	float angle = (atan(centered.y, centered.x) + PI) / (2.0 * PI); // [0; 1]
 	angle += mod(TIME * rot_per_second, 2.0 * PI);
@@ -26,7 +26,6 @@ void fragment() {
 	if (! should_draw) discard;
 
 	COLOR.a = 1.0-distance(uv * 2.0, vec2(1.0));
-	
+
 	COLOR *= col;
 }
-
