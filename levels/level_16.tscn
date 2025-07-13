@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyp7kxiddowdl"]
+
+[ext_resource type="PackedScene" uid="uid://5l0qm63sb5at" path="res://scenes/level/level_empty.tscn" id="1_41ixw"]
+[ext_resource type="PackedScene" uid="uid://dx1mapm4bc8ne" path="res://objects/shooting_towers/crossbow/crossbow.tscn" id="2_urbw4"]
+
+[node name="Level" instance=ExtResource("1_41ixw")]
+
+[node name="Player" parent="." index="3"]
+position = Vector2(552, 583)
+
+[node name="DeliveryPoint" parent="." index="7"]
+position = Vector2(544, 35)
+
+[node name="Crossbow" parent="." index="8" instance=ExtResource("2_urbw4")]
+position = Vector2(69, 468)

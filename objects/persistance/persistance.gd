@@ -27,8 +27,8 @@ const LEVEL_NAME: Dictionary = {
 }
 
 ## How many levels does the game has.
-## Starts with 0 till the amount-1
-const LEVEL_AMOUNT: int = 15
+## Starts with 1 till amount-1 (0 level is tutorial).
+var LEVEL_AMOUNT: int = LEVEL_NAME.size()-1
 
 var completed_amount: int = 0
 var last_loaded_id: int = 0
@@ -70,8 +70,8 @@ func load_level(id: int) -> void:
 
 ## Saves that last loaded level was completed.
 func complete_last_loaded() -> void:
-	if completed_amount <= last_loaded_id:
-		completed_amount = last_loaded_id + 1
+	if completed_amount < last_loaded_id:
+		completed_amount = last_loaded_id
 		_serialize()
 
 

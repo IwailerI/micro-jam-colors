@@ -50,6 +50,6 @@ func add_colors(r: int, g: int, b: int) -> void:
 
 func gameover(has_won: bool, lost_message: String = "") -> void:
 	playing = false
-	print("Gameover", " win=", has_won, " msg=", lost_message)
 	get_tree().paused = true
+	if has_won: Persistance.complete_last_loaded()
 	game_was_over.emit(has_won, lost_message)
