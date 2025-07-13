@@ -1,6 +1,7 @@
 extends Node2D
 
 const POTION := preload("res://objects/potion/potion.tscn")
+const PALETTE := preload("res://objects/palette/default.tres")
 
 @export_group("Color values")
 @export var cyan: bool
@@ -17,8 +18,15 @@ var respawn_timer: Timer
 
 func _ready() -> void:
 	assert(cyan or magenta or yellow, "colorless potion spawner")
+	
 	respawn_timer = $RespawnTimer
 	respawn_timer.timeout.connect(_finish_brewing)
+
+	var c := PALETTE.lookup(cyan, magenta, yellow)
+	var poly := ($Polygon2D as Polygon2D)
+	c.a = poly.color.a
+	poly.color = c
+
 	_start_brewing()
 
 

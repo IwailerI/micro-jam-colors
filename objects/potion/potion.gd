@@ -14,7 +14,7 @@ const PALETTE := preload("res://objects/palette/default.tres")
 func _ready() -> void:
 	assert(cyan or magenta or yellow, "colorless potion")
 	var color := PALETTE.lookup(cyan, magenta, yellow)
-	$Polygon2D.color = color # TODO: change to sprite
+	$Polygon.color = color
 	gm.player().died.connect(
 		func() -> void:
 			monitoring = false

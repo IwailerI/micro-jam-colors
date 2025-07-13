@@ -17,7 +17,7 @@ signal died()
 @export_flags_2d_physics var ramping_collision: int = 1
 
 @onready var radius := ($CollisionShape2D.shape as CircleShape2D).radius
-@onready var sprite: Node2D = $Polygon2D
+@onready var sprite: Node2D = $Sprite2D
 @onready var speed: float = base_speed
 @onready var death_animation_timer: Timer = $DeathTimer
 @onready var normal_collision_mask: int
@@ -42,8 +42,8 @@ func _physics_process(delta: float) -> void:
 			_alive_movement(delta)
 	else:
 		_dead_movement(delta)
-	
-	
+
+
 func _alive_movement(delta: float) -> void:
 
 	# handling throttle
@@ -75,10 +75,10 @@ func _alive_movement(delta: float) -> void:
 		var col := move_and_collide(Vector2.from_angle(direction) * left)
 		if col == null:
 			break
-		
+
 		if (col.get_collider() as Node).is_in_group(&"Hazard"):
 			was_leathal = true
-		
+
 		var normal := col.get_normal()
 		global_position = col.get_position() + radius * normal
 
@@ -98,13 +98,13 @@ func _ramping_movement(delta: float) -> void:
 		var col := move_and_collide(Vector2.from_angle(direction) * left)
 		if col == null:
 			break
-		
+
 		var normal := col.get_normal()
 		global_position = col.get_position() + radius * normal
 
 		direction = col.get_remainder().bounce(normal).angle()
 		left = col.get_remainder().length()
-	
+
 	if ramping_done: # try landing
 		var params := PhysicsShapeQueryParameters2D.new()
 		params.collide_with_areas = false
@@ -116,7 +116,7 @@ func _ramping_movement(delta: float) -> void:
 		if not get_world_2d().direct_space_state.intersect_shape(params).is_empty():
 			# well, let's just hope the next frame this will get better
 			return
-		
+
 		ramping = false
 		set_deferred("collision_mask", normal_collision_mask)
 
@@ -127,7 +127,7 @@ func _dead_movement(delta: float) -> void:
 		var col := move_and_collide(velocity * delta)
 		if col == null:
 			break
-		
+
 		var normal := col.get_normal()
 		global_position = col.get_position() + radius * normal
 		velocity = col.get_remainder().bounce(normal)
