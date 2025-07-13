@@ -12,13 +12,15 @@ extends StaticBody2D
 @onready var player: Player = GameManager.get_instance().player()
 @onready var marker: Marker2D = $Marker2D
 @onready var base: Sprite2D = $Base
-@onready var gun: Sprite2D = $Gun
+@onready var gun: AnimatedSprite2D = $Gun
 
 func _ready() -> void:
 	base.visible = rotating_to_player
 
 	_setup.call_deferred() # awaiting in ready is bad
 	cooldown_timer.timeout.connect(_on_shoot_cooldown_timeout)
+	gun.animation_finished.connect(func() -> void:
+		gun.play("default"))
 
 
 func _setup() -> void:
@@ -37,6 +39,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_shoot_cooldown_timeout() -> void:
+	gun.frame = 0
+	gun.play("shoot")
 	var inst := projectile_prefab.instantiate() as Projectile
 	inst.speed = projectile_speed
 	get_parent().add_child(inst)

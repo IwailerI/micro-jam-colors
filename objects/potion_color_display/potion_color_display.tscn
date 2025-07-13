@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1tm5mhwegffe"]
 
-[ext_resource type="Script" uid="uid://dcyd4hlx6y2uh" path="res://objects/potion_color_display/potion_color_display.gd" id="1_685k8"]
+[ext_resource type="Script" path="res://objects/potion_color_display/potion_color_display.gd" id="1_685k8"]
 [ext_resource type="Texture2D" uid="uid://cjfr00pb2ursy" path="res://assets/color_indicator.png" id="2_bgnte"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_up8tn"]

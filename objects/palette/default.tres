@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource("1_5pwqw")
-c = Color(0, 1, 1, 1)
-m = Color(1, 0, 1, 1)
-y = Color(1, 1, 0, 1)
-cm = Color(0, 0, 1, 1)
-cy = Color(0, 1, 0, 1)
-my = Color(1, 0, 0, 1)
-cmy = Color(0, 0, 0, 1)
+r = Color(1, 0, 0, 1)
+g = Color(0, 1, 0, 1)
+b = Color(0, 0, 1, 1)
+rg = Color(1, 1, 0, 1)
+gb = Color(0, 1, 1, 1)
+rb = Color(1, 0, 1, 1)
+rgb = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://cp04ky8p4hvl0"
